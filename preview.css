@@ -1,0 +1,119 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(logo.jpg);
+    background-size: cover; 
+    color: white;
+}
+
+header img{
+    height: 100px;
+}
+
+hr{
+    position: relative;
+    margin-top: -10px;
+    color: white;
+    width: 90%;
+    border-bottom: 2px solid white;
+    margin-left: 10vh;
+}
+
+.navbar{
+    float: right;
+    
+    font-size: 20px;
+    color: white;
+    z-index: 999;
+    margin-top: 15px;
+    justify-content: space-around;
+}
+.navbar-nav a:hover{
+    color: black;
+    border-bottom: 2px solid white;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: white !important;
+}
+.navbar-light .navbar-toggler-icon {
+    background-color: white; 
+    border-color: white; 
+}
+
+.product-container {
+    display: flex;
+    
+}
+
+.image {
+    flex: 1;
+}
+
+.product-info {
+   flex: 3;
+}
+
+.smaller-input {
+    width: 30px; 
+    height: 30px; 
+    font-size: 14px; 
+    padding: 5px;
+}
+
+.number-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; 
+}
+
+.arrow-button {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.review {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.user-info i {
+    margin-right: 5px;
+}
+
+.review-text {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.review-text p {
+    margin: 0;
+}
+
+#review {
+    width: 100%;
+    min-height: 50px;
+    resize: vertical;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Adjust font size as needed */
+    line-height: 1.5; /* Adjust line height as needed */
+}

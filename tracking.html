@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=+, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <h1>Admin page</h1>
+        <a href="adminusers.html">Users</a>
+        <a href="adminproductadd.html">Add</a>
+        <a href="affiliate.html">Affiliate</a>
+        <a href="tracking.html">Track</a>
+    </nav>
+    
+    <table>
+        <thead>
+        <h1>Pending Products</h1>
+        <th>Product Number</th>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Product Amount</th>
+        </thead>
+
+        <tbody id="pendingPoductList">
+
+        </tbody>
+    </table>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+        import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyCKFLDnY6nvXO9YHXZ56k6jE4q4esbyKNw",
+            authDomain: "goldtags-afbf1.firebaseapp.com",
+            databaseURL: "https://goldtags-afbf1-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "goldtags-afbf1",
+            storageBucket: "goldtags-afbf1.appspot.com",
+            messagingSenderId: "476543580017",
+            appId: "1:476543580017:web:b7a8c4afe121d3155b28d0"
+            };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        
+        const productsRef = ref(db, 'Pending Products');
+        onValue(productsRef, (snapshot) => {
+            const pendingPoductList = document.getElementById('pendingPoductList');
+
+            if (snapshot.exists()) {
+                pendingPoductList.innerHTML = ''; 
+
+                snapshot.forEach((childSnapshot) => {
+                    const pendingProduct = childSnapshot.val();
+                    const productNumber = childSnapshot.key;
+                    const productName = childSnapshot.key;
+                    const productPrice = childSnapshot.key;
+                    const productAmount = childSnapshot.key;
+
+                    const newRow = pendingPoductList.insertRow();
+                    const cell1 = newRow.insertCell(0);
+                    const cell2 = newRow.insertCell(1);
+                    const cell3 = newRow.insertCell(2);
+                    const cell4 = newRow.insertCell(3);
+                    
+                    cell1.textContent = productNumber; 
+                    cell2.textContent = pendingProduct.productName;
+                    cell3.textContent = pendingProduct.productPrice;
+                    cell4.textContent = pendingProduct.productAmount;
+                });
+            }else {
+                pendingPoductList.innerHTML = '<tr><td colspan="5">No products available</td></tr>';
+                }
+        });
+
+       
+
+    </script>
+</body>
+</html>

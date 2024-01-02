@@ -1,0 +1,90 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(logo.jpg);
+    background-size: cover; 
+    color: white;
+}
+
+header img{
+    height: 100px;
+}
+
+hr{
+    position: relative;
+    margin-top: -10px;
+    color: white;
+    width: 90%;
+    border-bottom: 2px solid white;
+    margin-left: 10vh;
+}
+
+.navbar{
+    float: right;
+    
+    font-size: 20px;
+    color: white;
+    z-index: 999;
+    margin-top: 15px;
+    justify-content: space-around;
+}
+.navbar-nav a:hover{
+    color: black;
+    border-bottom: 2px solid white;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: white !important;
+}
+.navbar-light .navbar-toggler-icon {
+    background-color: white; 
+    border-color: white; 
+}
+
+.user_profile {
+    display: flex;
+    justify-content: center; 
+    border: 2px solid white;
+    border-radius: 12px;
+}
+
+.credentials {
+    flex: 1;
+    text-align: center;
+    border: 2px solid yellow;
+    border-radius: 12px;
+    padding: 30px; 
+    line-height: 1.5;
+    height: 250px;
+}
+
+.credentials .email{
+    font-size: 12px;
+}
+
+.address {
+    flex: 3;
+    padding: 10px;
+    height: 200px;
+    width: 400px;
+    line-height: 1.5;
+}
+
+.address h3 {
+    display: inline;
+    margin: 0;
+    font-weight: bold;
+    margin-left: 25px;
+}
+
+.address p,
+.address i {
+    display: inline;
+    margin: 0;
+    margin-left: 20px; 
+}
+
+
+

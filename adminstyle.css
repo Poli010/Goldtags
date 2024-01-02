@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(blurlogo.jpg);
+    background-size: cover;
+    backdrop-filter: blur(200px); 
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+}
+
+.table-container {
+    position: absolute;
+    margin-top: 110px;
+    margin-left: 190px;
+    height: 450px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.table {
+    border-collapse: collapse;
+    margin-right: 70px;
+    border: 2px solid gold;
+    margin-top: 0%;
+    text-align: center;
+    width: 100%;
+}
+
+.table th,
+.table td {
+    border: 2px solid gold;
+    padding: 10px; /* Adjust padding as needed */
+    color: white;
+}
+
+.table thead {
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 2; /* Ensure the header stays above the scrollable content */
+}
+
+.table tbody {
+    overflow-y: auto; /* Enable vertical scrolling for the tbody */
+    max-height: 400px; /* Set a maximum height for the tbody to enable scrolling */
+}
+
+h1 {
+    color: gold;
+    border: 2px solid rgba(255, 255, 255, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    padding: 2px;
+    position: absolute;
+    top: 150%;
+    left: 44%;
+    text-align: center;
+    z-index: 1;
+}
+
+.navbar {
+    font-size: 25px;
+    left: 73%;
+    top: 20px;
+    right: 0;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar a:hover {
+    text-decoration: underline gold;
+}
+
+.container-fluid {
+    position: relative;
+}
