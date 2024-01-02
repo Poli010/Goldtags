@@ -1,3 +1,10 @@
+<?php
+    require_once("connection.php");
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM tb_upload WHERE id = $id";
+    $result = mysqli_query($conn,$sql);
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -5,79 +12,70 @@
     <title>Overview</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="preview.css"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+    <link rel="stylesheet" href="jquery.rateyo.css"/>
 </head>
 <body>
 <div class="container-fluid">
     <header>
         <img src="logo1.png" alt="">
-        <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                    <a class="nav-link"><i class="fas fa-bell"></i></a>
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        <a class="nav-link" href="#">Pricing</a>
-                        <a class="nav-link" href="#">About</a>
-                        <a class="nav-link" href="profile.php">Profile</a>
-                    </div>
-                </div>
-            </div>
+        <nav class="navbar">
+            <a href="goldtags_apparel.php">Back</a>
         </nav>
         <hr>
     </header>
-
-    <div class="product-container">
-        <div class="image">
-            <img src="img\preview sample.jpg" height="200" width="200">
+    <?php
+        while($row = mysqli_fetch_assoc($result))
+        {
+    ?>
+    
+    <div class="product">
+        <div class="product-image">
+            <img src="img/<?php echo $row["image"]; ?>" width = 400 height = 300 title="<?php echo $row['image']; ?>">
         </div>
+            <div class="product-info">
+                <form action="add_to_cart.php" method="post">
+                    <label for="name">Product Name: <span name="name"><?php echo $row['name'] ?></span></label><br>
+                    <input type="hidden" name="image" value="img/<?php echo $row["image"]; ?>">
+                    <input type="hidden" name="name" value="<?php echo $row['name'] ?>">
+                    
+                    <label for="product_price">Product Price: $<span name="product_price"><?php echo $row['product_price'] ?></span></label><br>
+                    <input type="hidden" name="product_price" value="<?php echo $row['product_price'] ?>">
 
-        <div class="product-info">
-            <p>Sample Product Name</p>
-            <p>Sample Product Description</p>
-            <p>Amount Available</p>
-            <p>Choose Amount: </p>
-            <div class="number-input">
-            <button type="button" class="arrow-button">+</button>
-            <input type="text" id="productNumber" class="smaller-input" placeholder="0">
-            <button type="button" class="arrow-button">-</button>
-            </div>
-            <p>Total Amount: </p>           
-            <button type="button" id="purchase">Purchase</button>
+                    <label for="product_description">Product Description: <span name="product_description"><?php echo $row['product_description'] ?></span></label><br>
+                    <input type="hidden" name="product_description" value="<?php echo $row['product_description'] ?>">
 
-            <div class="write_review">
-            <textarea id="review" placeholder="Write your Review"></textarea>
-            <button type="button" id="submit_review">Submit</button>
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" name="quantity" class="quantity" min="0" oninput="validateQuantity(this)"><br>
+                    <a class="buy_now"href="payment.php?id=<?php echo $row['id']; ?>">Buy Now</a>
+                    <input type="submit" name="submit" value="Add to Cart" class="add_to_cart">
+                </form>
             </div>
-            <div class="review">
-                <div class="user-info">
-                    <i class="fas fa-user"></i>
-                    <p>User126389233</p>
-                </div>
-                <div class="review-text">
-                    <p>The product received was in good quality and matches the description.</p>
-                </div>
-            </div>
-            </div>
-
-          
+            <?php
+                }
+            ?>
     </div>
 
-    <script>
-    const purchaseButton = document.getElementById('purchase');
+    <div class="review">
+        <form action="review.php" method="post">
+            <h1>Review</h1>
+            <div class="rate">
+                <p>Rate:</p>
+                <div id="rateYo"></div>
+                <input type="hidden" name="rating" id="rating">
+            </div>  
+            <label for="comments">Comments:</label><br>
+            <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" value="">
+            <textarea name="comments" class="comments" id="" cols="30" rows="10"></textarea><br>
+            <input type="submit" name="submit" value="comment">
+        </form>
+    </div>
+</div>
 
-    purchaseButton.addEventListener('click', () => {
-        window.location.href = "payment.php";
-    });
 
-    const textarea = document.getElementById('review');
-
-textarea.addEventListener('input', function() {
-    this.style.height = 'auto';
-    this.style.height = (this.scrollHeight) + 'px';
-});
-</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+<script src="product_preview.js"></script>
 </body>
 </html>
