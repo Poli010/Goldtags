@@ -3,6 +3,7 @@ require 'connection.php';
 if(isset($_POST["submit"])){
   $name = $_POST["name"];
   $price = $_POST["product_price"];
+  $product_type = $_POST["product_type"];
   $description = $_POST["product_description"];
   $amount = $_POST["product_amount"];
   if($_FILES["image"]["error"] == 4){
@@ -39,7 +40,7 @@ if(isset($_POST["submit"])){
       $newImageName .= '.' . $imageExtension;
 
       move_uploaded_file($tmpName, 'img/' . $newImageName);
-      $query = "INSERT INTO tb_upload VALUES('', '$name', ' $price', '  $description','  $amount', '$newImageName')";
+      $query = "INSERT INTO tb_upload VALUES('', '$name', ' $price', '  $product_type',' $description', ' $amount', '$newImageName')";
       mysqli_query($conn, $query);
       echo
       "

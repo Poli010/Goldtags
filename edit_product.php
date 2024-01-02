@@ -21,11 +21,17 @@ $row = mysqli_fetch_assoc($result);
         <label for="product_name">Product Name:</label>
         <input type="text" name="product_name" id="product_name"> <br>
 
+        <label for="product_name">Product Type:</label>
+        <input type="text" name="product_type" id="product_type"> <br>
+
         <label for="product_price">Product Price:</label>
         <input type="text" name="product_price" id="product_price"> <br>
 
         <label for="product_quantity">Product Quantity:</label>
         <input type="text" name="product_quantity" id="product_quantity"><br>
+
+        <label for="product_description">Product Description:</label>
+        <input type="text" name="product_description" id="product_description"><br>
         <input type="submit" name="submit" value="Update">
     </form>           
 </div>

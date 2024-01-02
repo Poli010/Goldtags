@@ -9,7 +9,7 @@ require 'connection.php';
     <title>Admin Page</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="adminstyle.css">
+    <link rel="stylesheet" href="adminpage.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
@@ -17,15 +17,14 @@ require 'connection.php';
 <body>
   
         <header>
-            <h1>ADMIN</h1>
+            <h1>PRODUCT LIST</h1>
         </header>
- 
-        <nav class="navbar">
-            <ul>
-                <li><a href="usersAccount.php">Users</a></li>
-                <li><a href="adminproductadd.php">Add</a></li>
-            </ul>
-        </nav>
+              <nav> 
+                <li><a href="adminpage.php">Product list </a></li>
+                <li><a href="usersAccount.php">Account list</a></li>
+                <li><a href="adminproductadd.php">Add Product</a></li>
+              </nav>
+
         <div class="table-container">
              <table class="table" border="2">
             <tr>
@@ -33,6 +32,7 @@ require 'connection.php';
                 <th>Product Name</th>
                 <th>Product Price</th>
                 <th>Product Description</th>
+                <th>Product Type</th>
                 <th>Product Quantity</th>
                 <th>Product Image</th>
                 <th>Delete</th>
@@ -46,6 +46,7 @@ require 'connection.php';
                     <td><?php echo $row["name"]; ?></td>
                     <td><?php echo $row["product_price"]; ?></td>
                     <td><?php echo $row["product_description"]; ?></td>
+                    <td><?php echo $row["product_type"]; ?></td>
                     <td><?php echo $row["product_amount"]; ?></td>
                     <td> <img src="img/<?php echo $row["image"]; ?>" width = 100 height = 100 title="<?php echo $row['image']; ?>"> </td>
                     <td>
