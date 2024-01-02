@@ -27,10 +27,6 @@ $result = mysqli_query($conn, $sql);
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="nav-link" id="searchIcon"><i class="fas fa-search"></i></a>
-                <div class="search-container" id="searchContainer" style="display: none;">
-                 <input type="text" id="searchInput" placeholder="Search...">
-                </div>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                     <a class="nav-link" id="bellIcon"><i class="fas fa-bell"></i></a>
@@ -38,7 +34,9 @@ $result = mysqli_query($conn, $sql);
                                 <p>You have new notifications!</p>
                             </div>
                         <a class="nav-link active" aria-current="page" href="#">Home</a> 
-                        <a class="nav-link" href="profile.php">Profile</a>
+                        <a class="nav-link" href="#">About</a>
+                        <!-- added user info -->
+                        <a class="nav-link" href="profile.php"><p id="userEmail"></p></a>
                     </div>
                 </div>
             </div>
@@ -76,17 +74,15 @@ $result = mysqli_query($conn, $sql);
 
     <div class="container" id="container">
     <div class="row">
-            <?php mysqli_data_seek($result, 0); ?>
+            <?php mysqli_data_seek($result, 0); // Reset the pointer to the beginning of the result set ?>
             <?php while ($row = mysqli_fetch_assoc($result)) : ?>
                 <div class="col-md-3" id="product">
                     <div class="card" style="width: 15rem;">
                         <img src="img/<?php echo $row['image']; ?>" class="card-img-top" alt="Product Image">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $row['name']; ?></h5>
-                            <p class="card-text" id="product_type"><?php echo $row['product_type']; ?></p>
-                            <p class="card-text" id="product_description"><?php echo $row['product_description']; ?></p>
+                            <p class="card-text"><?php echo $row['product_description']; ?></p>
                             <p class="card-text">Price: $<?php echo $row['product_price']; ?></p>
-                            
                             <p>Product Amount</p>
                             <a href="product_preview.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">View More</a>
                         </div>
@@ -130,57 +126,7 @@ $result = mysqli_query($conn, $sql);
 
                 
             </footer>
-            <script>
-    const bellIcon = document.getElementById('bellIcon');
-    const searchIcon = document.getElementById('searchIcon');
-    const notificationPopup = document.getElementById('notificationPopup');
-    const searchContainer = document.getElementById('searchContainer');
-    const searchInput = document.getElementById('searchInput');
 
-    // Toggle display for bell and search icons
-    bellIcon.addEventListener('click', function() {
-        toggleDisplay(notificationPopup);
-        hideElement(searchContainer);
-    });
-
-    searchIcon.addEventListener('click', function() {
-        toggleDisplay(searchContainer);
-        hideElement(notificationPopup);
-        // Focus on the search input when clicked
-        searchInput.focus();
-    });
-
-    // Function to toggle the display of an element
-    function toggleDisplay(element) {
-        if (element.style.display === 'none' || element.style.display === '') {
-            element.style.display = 'block';
-        } else {
-            element.style.display = 'none';
-        }
-    }
-
-    // Function to hide an element
-    function hideElement(element) {
-        element.style.display = 'none';
-    }
-
-    // Existing script to filter products based on search input
-    searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        const products = document.querySelectorAll('#product');
-        
-        products.forEach(product => {
-            const productName = product.querySelector('.card-title').textContent.toLowerCase();
-            const productDescription = product.querySelector('.card-text').textContent.toLowerCase();
-            
-            if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
-                product.style.display = 'block';
-            } else {
-                product.style.display = 'none'; 
-            }
-        });
-    });
-</script>
             <script> 
                     const bellIcon = document.getElementById('bellIcon');
                 const notificationPopup = document.getElementById('notificationPopup');
@@ -197,5 +143,39 @@ $result = mysqli_query($conn, $sql);
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+        import { getDatabase, ref, set, get, child, update, remove } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+        import  {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyCKFLDnY6nvXO9YHXZ56k6jE4q4esbyKNw",
+            authDomain: "goldtags-afbf1.firebaseapp.com",
+            databaseURL: "https://goldtags-afbf1-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "goldtags-afbf1",
+            storageBucket: "goldtags-afbf1.appspot.com",
+            messagingSenderId: "476543580017",
+            appId: "1:476543580017:web:b7a8c4afe121d3155b28d0"
+            };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const auth = getAuth(app);
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const userEmail = document.getElementById('userEmail');
+            const storedEmail = localStorage.getItem('email');
+
+            if (storedEmail) {
+                userEmail.textContent = storedEmail;
+            } else {
+                
+                userEmail.textContent = 'User Email Not Found';
+            }
+        });
+        
+</script>
 </body>
 </html>

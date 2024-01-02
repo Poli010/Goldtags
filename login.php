@@ -52,13 +52,28 @@
                 const password = document.getElementById('password').value;
 
                 signInWithEmailAndPassword(auth, email, password)
-                    .then(() => {
-                        alert('Login successful!');
-                        window.location.href = 'goldtags_apparel.php';
+                    .then((userCredential) => {
+                        const user = userCredential.user;
+                        if (user && user.emailVerified) {
+                            // Retrieve user ID and email
+                            const userId = user.uid;
+                            const userEmail = user.email;
+                            console.log("User ID:", userId);
+                            console.log("User Email:", userEmail);
+
+                            localStorage.setItem('userId', userId);
+                            localStorage.setItem('email', email);
+                            console.log("user and email stored to database");
+                            alert('Login successful!');
+                            window.location.href = 'goldtags_apparel.php';
+                        } else if (user) {
+                            alert('Email is not verified. Please verify your email.');
+                        } else {
+                            alert('User not found. Please check your email and password.');
+                        }
                     })
                     .catch((error) => {
                         console.error(error.message);
-                        
                         alert('Login failed. Please check your email and password.');
                     });
             });

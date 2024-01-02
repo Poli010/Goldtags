@@ -11,14 +11,26 @@
     <section>
         <div class="bar">
             <h1>Sign Up</h1>
-            <form id="signupForm">
+            <form id="signupForm" style="display: block;">
                 <input type="text" id="firstName" placeholder="First Name">
                 <input type="text" id="lastName" placeholder="Last Name">
-                <input type="text" id="userName" placeholder="Username">
                 <input type="email" id="email" placeholder="Email">
                 <input type="password" id="password" placeholder="Password" required minlength="8">
                 <p1>Already have an account? <a href="Login.html">Login</a></p1>
-                <button type="submit" id="signup">Sign Up</button>
+                <button type="submit" id="check">Check</button>
+                <button type="submit" id="signup" style="display: none;">Next</button>
+            </form>
+
+        <!-- Added the address form after signing in the user -->
+            <form id="addressForm"  style="display: none;">
+                <input type="text" id="phoneNumber" placeholder="Phone Number">
+                <input type="text" id="streetName" placeholder="Street Name">
+                <input type="text" id="streetNum" placeholder="Street Number">
+                <input type="text" id="block" placeholder="Block">
+                <input type="text" id="lot" placeholder="Lot">
+                <input type="text" id="baranggay" placeholder="Baranggay">
+                <input type="text" id="city" placeholder="City">
+                <button type="submit" id="complete">Finish</button>
             </form>
         </div>
         <p></p>
@@ -26,7 +38,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
        
-        import { getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+        import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js"
         import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
         
         const firebaseConfig = {
@@ -47,75 +59,92 @@
 
             document.addEventListener('DOMContentLoaded', function() {
             const signupForm = document.getElementById('signupForm');
+            const addressForm = document.getElementById('addressForm');
 
-            signupForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+            document.getElementById('check').addEventListener('click', (e) => {
+                e.preventDefault();
 
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const userName = document.getElementById('userName').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+                const email = document.getElementById('email').value;
+                const firstName = document.getElementById('firstName').value;
+                const lastName = document.getElementById('lastName').value;
+                const password = document.getElementById('password').value;
 
-            
-            createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                        // Get the newly created user
-                        const user = userCredential.user;
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
 
-                        const userData = {
-                            userID: user,
-                            firstName: firstName,
-                            lastName: lastName,
-                            userName: userName,
-                            email: email,
-                            password: password,
-
-                        }
-
-                        // Store user details in the Realtime Database
-                        set(ref(db, 'Users/' + user.uid), {
-                            firstName: firstName,
-                            lastName: lastName,
-                            userName: userName,
-                            email: email,
-                            password: password,
-                        }).then(() => {
-                            // Display success message via alert
-                            alert('Account created successfully!');
-                            // Redirect to login page
-                            window.location.href = 'Login.html';
-                        }).catch(error => {
-                            alert("Error storing user details: " + error.message);
-                        });
+                createUserWithEmailAndPassword(auth, email, password) 
+                    .then((userCredential) => {
+                        sendEmailVerification(auth.currentUser)
+                            .then(() => {
+                                alert('Verification email sent! Please verify your email to proceed.');
+                                const user = userCredential.user;
+                                        document.getElementById('check').style.display = 'none'; // Hide 'Check' button
+                                        document.getElementById('signup').style.display = 'block'; // Show 'Next' button
+                            })
+                            .catch((error) => {
+                                console.error("Firebase Auth Error: " + error.message);
+                            });
                     })
                     .catch((error) => {
-                        console.error(error.message);
-                      
-                        alert('Account creation failed. Please try again.');
+                        alert('Error creating account: ' + error.message);
                     });
             });
-        });
-      </script>
-     <script>
-                        //Sentence Case Js//
-             document.addEventListener('DOMContentLoaded', function() {
-            const firstNameInput = document.getElementById('firstName');
-            const lastNameInput = document.getElementById('lastName');
-            const capitalize = (str) => {
-                return str.replace(/\b\w/g, (match) => match.toUpperCase());
-            };
-          
-            firstNameInput.addEventListener('input', function() {
-                this.value = capitalize(this.value);
-            });
-       
-            lastNameInput.addEventListener('input', function() {
-                this.value = capitalize(this.value);
+  
+            signupForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+               
+                signupForm.style.display = 'none';
+                addressForm.style.display = 'block';
             });
 
-          
-        });
+    addressForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const password = document.getElementById('password').value;
+        const phoneNumber = document.getElementById('phoneNumber').value;
+        const streetName = document.getElementById('streetName').value;
+        const streetNum = document.getElementById('streetNum').value;
+        const block = document.getElementById('block').value;
+        const lot = document.getElementById('lot').value;
+        const baranggay = document.getElementById('baranggay').value;
+        const city = document.getElementById('city').value;
+
+        const user = auth.currentUser;
+
+
+        const userData =
+            {
+                userID: user.uid,
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phoneNumber: phoneNumber,
+                streetName: streetName,
+                streetNum: streetNum,
+                block: block,
+                lot: lot,
+                baranggay: baranggay,
+                city: city,
+        };
+
+       
+        set(ref(db, 'Users/' + user.uid), userData)
+            .then(() => {         
+                alert('Account Creation Complete');
+                window.location.href = 'login.php';
+            })
+            .catch((error) => {
+            
+                alert("Error storing user address: " + error.message);
+            });
+    });
+});
      </script>
 </body>
 </html>
