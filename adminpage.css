@@ -77,9 +77,18 @@ nav {
     z-index: 1000;
 }
 
+nav ul {
+    list-style: none; /* Remove bullets from the list */
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline;
+}
+
 nav a {
     font-size: 30px;
-    text-decoration: none;
     color: white; 
     margin-left: 15px;
     padding: 5px 10px; 
@@ -88,24 +97,9 @@ nav a {
 }
 
 nav a:hover {
-    text-decoration: underline gold;
-    color: white;
-}
-.navbar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    color: gold;
 }
 
-.navbar li {
-    display: inline;
-}
-
-.navbar a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: white;
-}
 .container-fluid {
     position: relative;
 }
