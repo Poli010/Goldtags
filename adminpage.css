@@ -11,7 +11,6 @@ body {
     background-position: center;
     overflow-x: hidden;
 }
-
 .table-container {
     position: absolute;
     margin-top: 25%; 
@@ -35,7 +34,7 @@ body {
 .table th,
 .table td {
     border: 2px solid gold;
-    padding: 10px; /* Adjust padding as needed */
+    padding: 10px;
     color: white;
 }
 
@@ -43,12 +42,12 @@ body {
     position: sticky;
     top: 0;
     background-color: rgba(0, 0, 0, 0.75);
-    z-index: 2; /* Ensure the header stays above the scrollable content */
+    z-index: 2;
 }
 
 .table tbody {
-    overflow-y: auto; /* Enable vertical scrolling for the tbody */
-    max-height: 400px; /* Set a maximum height for the tbody to enable scrolling */
+    overflow-y: auto; 
+    max-height: 400px;
 }
 
 h1 {
@@ -62,6 +61,7 @@ h1 {
     text-align: center;
     z-index: 1;
 }
+
 nav {
     height: 60px;
     display: flex;
