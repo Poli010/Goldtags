@@ -47,7 +47,7 @@
                     <input type="hidden" name="product_description" value="<?php echo $row['product_description'] ?>">
 
                     <label for="quantity">Quantity:</label>
-                    <input type="number" name="quantity" class="quantity" min="0" oninput="validateQuantity(this)"><br>
+                    <input type="number" name="quantity" class="quantity" min="0" oninput="validateQuantity(this)" required><br>
                     <a class="buy_now"href="payment.php?id=<?php echo $row['id']; ?>">Buy Now</a>
                     <input type="submit" name="submit" value="Add to Cart" class="add_to_cart">
                 </form>
@@ -58,18 +58,39 @@
     </div>
 
     <div class="review">
-        <form action="review.php" method="post">
+        <form action="review.php" method="post" enctype="multipart/form-data">
             <h1>Review</h1>
             <div class="rate">
                 <p>Rate:</p>
                 <div id="rateYo"></div>
                 <input type="hidden" name="rating" id="rating">
             </div>  
+            <label for="image">Upload Image:</label><br>
+            <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" value=""><br>
             <label for="comments">Comments:</label><br>
-            <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" value="">
             <textarea name="comments" class="comments" id="" cols="30" rows="10"></textarea><br>
             <input type="submit" name="submit" value="comment">
         </form>
+    </div>
+
+    <div class="feedback">
+        <?php
+            $sql = "SELECT * FROM review";
+            $result = mysqli_query($conn, $sql);
+            while($row = mysqli_fetch_assoc($result)){
+        ?>
+        <div class="accounts">
+            <label for="star">User Accounts</label>
+            <div class="rateYo" data-rating="<?php echo $row['rating'] ?>" name="star"></div>
+        </div>
+        <div class="comments-images">
+            <input type="hidden" id="stars" value="<?php echo $row['rating'] ?>">
+            <img src="review_image/<?php echo $row['image'] ?>" title="<?php echo $row['image'] ?>" width="100" height="100"><br>
+            <textarea name="" id="" cols="30" rows="10" readonly><?php echo $row['comments'] ?></textarea>
+        </div>
+        <?php
+            }
+        ?>
     </div>
 </div>
 

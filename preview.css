@@ -103,3 +103,24 @@ header hr{
     margin-bottom: 5px;
 }
 
+.feedback{
+    display: grid;
+}
+
+.feedback label{
+    color: white;
+}
+
+.accounts{
+    display: flex;
+    margin-left: 40vh;
+    margin-top: 50px;
+}
+.comments-images{
+    margin-left: 40vh;
+}
+
+.comments-images textarea{
+    width: 90%;
+    height: 70px;
+}

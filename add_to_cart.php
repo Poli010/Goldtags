@@ -14,7 +14,7 @@ if(isset($_POST['submit'])){
       "
       <script>
         alert('Successfully Added');
-        document.location.href = 'goldtags_apparel.php';
+        history.back();
       </script>
       ";
 }
