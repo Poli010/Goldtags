@@ -86,7 +86,7 @@ $result = mysqli_query($conn, $sql);
                             <p class="card-text"><?php echo $row['product_description']; ?></p>
                             <p class="card-text">Price: $<?php echo $row['product_price']; ?></p>
                             <p>Product Amount</p>
-                            <a href="product_preview.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">View More</a>
+                            <a href="product_preview.php?product_id=<?php echo $row['product_id']; ?>" class="btn btn-primary">View More</a>
                         </div>
                     </div>
                 </div>
