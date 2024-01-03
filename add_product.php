@@ -6,6 +6,7 @@ if(isset($_POST["submit"])){
   $product_type = $_POST["product_type"];
   $description = $_POST["product_description"];
   $amount = $_POST["product_amount"];
+  $product_id = uniqid('product_id-');
   if($_FILES["image"]["error"] == 4){
     echo
     "<script> alert('Image Does Not Exist'); </script>"
@@ -40,7 +41,7 @@ if(isset($_POST["submit"])){
       $newImageName .= '.' . $imageExtension;
 
       move_uploaded_file($tmpName, 'img/' . $newImageName);
-      $query = "INSERT INTO tb_upload VALUES('', '$name', ' $price', '  $product_type',' $description', ' $amount', '$newImageName')";
+      $query = "INSERT INTO tb_upload VALUES('','$product_id', '$name', ' $price', '  $product_type',' $description', ' $amount', '$newImageName')";
       mysqli_query($conn, $query);
       echo
       "

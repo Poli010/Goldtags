@@ -1,7 +1,7 @@
 <?php
     require_once("connection.php");
-    $id = $_GET['id'];
-    $sql = "SELECT * FROM tb_upload WHERE id = $id";
+    $product_id = $_GET['product_id'];
+    $sql = "SELECT * FROM tb_upload WHERE product_id = '$product_id'";
     $result = mysqli_query($conn,$sql);
 ?>
 
@@ -48,6 +48,25 @@
 
                     <label for="quantity">Quantity:</label>
                     <input type="number" name="quantity" class="quantity" min="0" oninput="validateQuantity(this)" required><br>
+                    
+                    <div class="product_size">
+                        <label for="xsmall" class="size-btn">XS</label>
+                        <input type="radio" id="xsmall" class="radio" name="size" value="XS">
+
+                        <label for="small" class="size-btn">S</label>
+                        <input type="radio" id="small" class="radio" name="size" value="S">
+                        
+                        <label for="medium" class="size-btn">M</label>
+                        <input type="radio" id="medium" class="radio" name="size" value="M">
+
+                        <label for="large" class="size-btn">L</label>
+                        <input type="radio" id="large" class="radio" name="size" value="L">
+                        
+                        <label for="xlarge" class="size-btn">XL</label>
+                        <input type="radio" id="xlarge" class="radio" name="size" value="XL">
+                    </div>
+
+                    
                     <a class="buy_now"href="payment.php?id=<?php echo $row['id']; ?>">Buy Now</a>
                     <input type="submit" name="submit" value="Add to Cart" class="add_to_cart">
                 </form>
@@ -67,9 +86,10 @@
             </div>  
             <label for="image">Upload Image:</label><br>
             <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" value=""><br>
+            <input type="hidden" name="product_id" value="<?php echo $product_id ?>">
             <label for="comments">Comments:</label><br>
-            <textarea name="comments" class="comments" id="" cols="30" rows="10"></textarea><br>
-            <input type="submit" name="submit" value="comment">
+            <textarea name="comments" class="comments" id="" cols="30" rows="10" placeholder="Enter your comment here."></textarea><br>
+            <input type="submit" name="submit" value="Comment" class="btn-comment">
         </form>
     </div>
 

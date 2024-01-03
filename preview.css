@@ -86,6 +86,38 @@ header hr{
     font-weight: bold;
     margin-bottom: 10px;
 }
+
+.product_size{
+    display: flex;
+    justify-content: space-between;
+}
+
+.size-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1px 15px 1px 15px;
+    border: 1px solid white;
+    border-radius: 5%;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.size-btn:hover{
+    background: green;
+}
+
+.radio {
+    display: none;
+  }
+
+.size-btn.selected {
+    background-color: green; 
+    color: white;
+    border: 1px solid green;
+}
+
 .product-info label span{
     font-weight: bold;
 }
@@ -103,6 +135,15 @@ header hr{
     margin-bottom: 5px;
 }
 
+.btn-comment{
+    color: white;
+    background: blue;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+}
+.btn-comment:hover{
+    background: darkblue;
+}
 .feedback{
     display: grid;
 }
