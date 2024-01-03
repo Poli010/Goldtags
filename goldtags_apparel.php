@@ -27,14 +27,16 @@ $result = mysqli_query($conn, $sql);
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <a class="nav-link" id="searchIcon"><i class="fas fa-search"></i></a>
+                <div class="search-container" id="searchContainer" style="display: none;">
+                 <input type="text" id="searchInput" placeholder="Search...">
+                </div>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                     <a class="nav-link" id="bellIcon"><i class="fas fa-bell"></i></a>
                             <div class="notification-popup" id="notificationPopup">
                                 <p>You have new notifications!</p>
                             </div>
-                        <a class="nav-link active" aria-current="page" href="#">Home</a> 
-                        <a class="nav-link" href="#">About</a>
                         <!-- added user info -->
                         <a class="nav-link" href="profile.php"><p id="userEmail"></p></a>
                     </div>
@@ -126,6 +128,57 @@ $result = mysqli_query($conn, $sql);
 
                 
             </footer>
+
+            <script> 
+                   const bellIcon = document.getElementById('bellIcon');
+    const searchIcon = document.getElementById('searchIcon');
+    const notificationPopup = document.getElementById('notificationPopup');
+    const searchContainer = document.getElementById('searchContainer');
+    const searchInput = document.getElementById('searchInput');
+
+                bellIcon.addEventListener('click', function() {
+        toggleDisplay(notificationPopup);
+        hideElement(searchContainer);
+    });
+
+    searchIcon.addEventListener('click', function() {
+        toggleDisplay(searchContainer);
+        hideElement(notificationPopup);
+        // Focus on the search input when clicked
+        searchInput.focus();
+    });
+
+    // Function to toggle the display of an element
+    function toggleDisplay(element) {
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+
+    // Function to hide an element
+    function hideElement(element) {
+        element.style.display = 'none';
+    }
+
+    // Existing script to filter products based on search input
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const products = document.querySelectorAll('#product');
+        
+        products.forEach(product => {
+            const productName = product.querySelector('.card-title').textContent.toLowerCase();
+            const productDescription = product.querySelector('.card-text').textContent.toLowerCase();
+            
+            if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none'; 
+            }
+        });
+    });
+            </script>
 
             <script> 
                     const bellIcon = document.getElementById('bellIcon');
