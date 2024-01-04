@@ -1,0 +1,180 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url("image.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+#logo {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 20px 10px 20px;
+    border: 2px solid #333;
+    border-radius: 5px; 
+}
+
+header hr {
+    border: 1px solid #333;
+    margin: 10px 0;
+}
+
+#container {
+    margin-top: 10%;
+    height: 70%;
+    background: transparent;
+   
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.card {
+    background: transparent;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.orders-link,
+.refunds-link,
+.success-link,
+.account-link {
+    margin: 10px 10px 30px 10px;
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.orders-link {
+    background-color: green;
+    color: #fff;
+}
+
+.orders-link:hover {
+    color: gold;
+}
+
+.refunds-link {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.refunds-link:hover {
+    color: gold;
+}
+
+.success-link {
+    padding: 5px;
+    color: #fff;
+    background-color: blue;
+    border-radius: 5px;
+}
+
+.success-link:hover {
+   color: gold;
+}
+
+.account-link {
+    padding: 5px;
+    color: #fff;
+    background-color: darkgray; 
+    border-radius: 5px;
+}
+
+.account-link:hover {
+    color: gold; 
+}
+
+i {
+    margin-right: 5px;
+}
+
+#pic{
+    width: 8rem;
+    margin-top: 2px;
+    height:100px;
+    background: transparent; 
+    border: 2px solid white;
+}
+
+#data{
+    width: 20rem; 
+    margin-top: -80%; 
+    left: 10px; 
+    height: 260px; 
+    background:transparent;  
+    border: 2px solid white;
+}
+p{
+    color: white;
+    position: absolute;
+    font-size: 20px;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+p1{
+    margin-left: 100px;
+    margin-top: 30px;
+    position: absolute;
+    color: white;
+    font-size: 15px;
+}
+p2{
+    
+    margin-left: 100px;
+    margin-top: 50px;
+    position: absolute;
+    color: white;
+    font-size: 15px;
+}
+p3{
+    margin-left: 130px;
+    margin-top: 70px;
+    position: absolute;
+    color: white;
+    font-size: 15px;
+}
+@media only screen and (max-width:320px){
+    #data {
+        width: 17rem;
+    }
+    #pic{
+        width: 6rem;
+    }
+}
+
+@media only screen and (min-width:425px){
+    #data{
+        margin-top: -65%;
+        left: 9%;
+    }
+    #pic{
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+}
+
+@media only screen and (min-width:1366px){
+    #data {
+       width: 30rem;
+       height: 18rem;
+       bottom: 20vh;
+       left: 68vh;
+    }
+}
