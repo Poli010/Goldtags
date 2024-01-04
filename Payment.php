@@ -1,7 +1,7 @@
 <?php
 $conn = mysqli_connect('localhost', 'root', '', 'upload');
 $id = $_GET['id'];
-$result = mysqli_query($conn, "SELECT * FROM tb_upload WHERE id = $id");
+$result = mysqli_query($conn, "SELECT * FROM add_to_cart WHERE id = $id");
 $row = mysqli_fetch_assoc($result);
 ?>
 
