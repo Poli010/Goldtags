@@ -48,18 +48,18 @@ $result = mysqli_query($conn, $sql);
 </div>
 
 <div class="container">
-    <div id="carouselExampleFade" class="carousel slide carousel-fade">
+    <div id="carouselExampleFade" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="item1.jpg" class="d-block w-100" alt="Image">
             </div>
-            <div class="carousel-item active">
+            <div class="carousel-item">
                 <img src="item2.jpg" class="d-block w-100" alt="Image">
             </div>
-            <div class="carousel-item active">
+            <div class="carousel-item">
                 <img src="item3.jpg" class="d-block w-100" alt="Image">
             </div>
-            <div class="carousel-item active">
+            <div class="carousel-item">
                 <img src="item4.jpg" class="d-block w-100" alt="Image">
             </div>
         </div>
@@ -117,86 +117,14 @@ $result = mysqli_query($conn, $sql);
        
         <div class="contact">
             <a href="https://www.facebook.com/GoldTagsApparelStaMaria?mibextid=LQQJ4d"><i class="fa-brands fa-facebook"></i></a>
-            <a href=""><i class="fa-brands fa-discord"></i></a>
-            <a href=""><i class="fa-brands fa-instagram"></i></a>
-            <a href=""><i class="fa-brands fa-twitter"></i></a><br>
+            <a href="https://l.facebook.com/l.php?u=http%3A%2F%2Fshopee.ph%2Fgoldtagsapparel%3Ffbclid%3DIwAR0jHSJV0rFHH3O79_JdOFwtKzzFCviMz0BJdnrRSbD_akz0aTWZADOHEBI&h=AT2WXVIfbVjnqEqrQRlSBK-dtP809CHdoZ2yHSUAM1hmbzHqWjKg5m0gwQk10BaTy6WvTi3nVtIM2D362Mwkr47PhwW_oi6-WhziifDWFhzlczfSLgiYahcQIDunuqANCrT0Iw"><i class="fa-brands fa-shopify"></i></a>
+            <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.tiktok.com%2F%40goldtags_apparel%3F_t%3D8ikCpaWwZnd%26_r%3D1%26fbclid%3DIwAR1Qinp8mb3-g_aLhp9vGvGFsYlBgBdQ9l63pi1C3MayBmUnwRhfTwkSSqs&h=AT2WXVIfbVjnqEqrQRlSBK-dtP809CHdoZ2yHSUAM1hmbzHqWjKg5m0gwQk10BaTy6WvTi3nVtIM2D362Mwkr47PhwW_oi6-WhziifDWFhzlczfSLgiYahcQIDunuqANCrT0Iw"><i class="fa-brands fa-tiktok"></i></a><br>
             <p><i class="fa-regular fa-copyright"></i>Copyright. All rights reserved.</p>
         </div>
        
     </footer>
 </div>
-
-
-
-            <script> 
-                   const bellIcon = document.getElementById('bellIcon');
-    const searchIcon = document.getElementById('searchIcon');
-    const notificationPopup = document.getElementById('notificationPopup');
-    const searchContainer = document.getElementById('searchContainer');
-    const searchInput = document.getElementById('searchInput');
-
-                bellIcon.addEventListener('click', function() {
-        toggleDisplay(notificationPopup);
-        hideElement(searchContainer);
-    });
-
-    searchIcon.addEventListener('click', function() {
-        toggleDisplay(searchContainer);
-        hideElement(notificationPopup);
-        // Focus on the search input when clicked
-        searchInput.focus();
-    });
-
-    // Function to toggle the display of an element
-    function toggleDisplay(element) {
-        if (element.style.display === 'none' || element.style.display === '') {
-            element.style.display = 'block';
-        } else {
-            element.style.display = 'none';
-        }
-    }
-
-    // Function to hide an element
-    function hideElement(element) {
-        element.style.display = 'none';
-    }
-
-    // Existing script to filter products based on search input
-    searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        const products = document.querySelectorAll('#product');
-        
-        products.forEach(product => {
-            const productName = product.querySelector('.card-title').textContent.toLowerCase();
-            const productDescription = product.querySelector('.card-text').textContent.toLowerCase();
-            
-            if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
-                product.style.display = 'block';
-            } else {
-                product.style.display = 'none'; 
-            }
-        });
-    });
-            </script>
-
-            <script> 
-                    const bellIcon = document.getElementById('bellIcon');
-                const notificationPopup = document.getElementById('notificationPopup');
-                bellIcon.addEventListener('click', function() {                  
-                    if (notificationPopup.style.display === 'none' || notificationPopup.style.display === '') {
-                        notificationPopup.style.display = 'block';
-                    } else {
-                        notificationPopup.style.display = 'none';
-                    }
-                });
-            </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-
-    <script type="module">
+<script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
         import { getDatabase, ref, set, get, child, update, remove } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
@@ -227,7 +155,14 @@ $result = mysqli_query($conn, $sql);
                 userEmail.textContent = 'User Email Not Found';
             }
         });
-        
 </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="goldtags_apparel.js"></script>
 </body>
 </html>

@@ -83,16 +83,17 @@ hr{
     display: none;
 }
 #searchIcon i {
-    transition: transform 0.3s ease;
+    margin-bottom: 20px;
 }
 #searchIcon:hover i {
     color: gold;
-    transform: scale(1.2); /* Increases the size slightly on hover */
+    cursor: pointer;
 }
 
 #searchInput{
     font-size: 15px;
     color: gold;
+    margin-bottom: 20px;
 }
 
 .end{
