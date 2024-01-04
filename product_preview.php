@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
     <link rel="stylesheet" href="jquery.rateyo.css"/>
+    <script src="https://kit.fontawesome.com/355342439a.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -40,7 +41,7 @@
                     <input type="hidden" name="image" value="img/<?php echo $row["image"]; ?>">
                     <input type="hidden" name="name" value="<?php echo $row['name'] ?>">
                     
-                    <label for="product_price">Product Price: $<span name="product_price"><?php echo $row['product_price'] ?></span></label><br>
+                    <label for="product_price">Product Price: <i class="fa-solid fa-peso-sign"></i><span name="product_price"><?php echo $row['product_price'] ?></span></label><br>
                     <input type="hidden" name="product_price" value="<?php echo $row['product_price'] ?>">
 
                     <label for="product_description">Product Description: <span name="product_description"><?php echo $row['product_description'] ?></span></label><br>
