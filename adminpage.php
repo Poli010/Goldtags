@@ -45,8 +45,8 @@ require 'connection.php';
                 <tr>
                     <td><?php echo $row["name"]; ?></td>
                     <td><?php echo $row["product_price"]; ?></td>
-                    <td><?php echo $row["product_type"]; ?></td>
                     <td><?php echo $row["product_description"]; ?></td>
+                    <td><?php echo $row["product_type"]; ?></td>
                     <td><?php echo $row["product_amount"]; ?></td>
                     <td> <img src="img/<?php echo $row["image"]; ?>" width = 100 height = 100 title="<?php echo $row['image']; ?>"> </td>
                     <td>
