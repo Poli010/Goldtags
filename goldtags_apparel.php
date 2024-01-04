@@ -47,87 +47,86 @@ $result = mysqli_query($conn, $sql);
     </header>
 </div>
 
-    <div class="container">
-        <div id="carouselExampleFade" class="carousel slide carousel-fade">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="item1.jpg" class="d-block w-100" alt="Image">
-                </div>
-                <div class="carousel-item active">
-                    <img src="item2.jpg" class="d-block w-100" alt="Image">
-                </div>
-                <div class="carousel-item active">
-                    <img src="item3.jpg" class="d-block w-100" alt="Image">
-                </div>
-                <div class="carousel-item active">
-                    <img src="item4.jpg" class="d-block w-100" alt="Image">
-                </div>
+<div class="container">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="item1.jpg" class="d-block w-100" alt="Image">
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <div class="carousel-item active">
+                <img src="item2.jpg" class="d-block w-100" alt="Image">
+            </div>
+            <div class="carousel-item active">
+                <img src="item3.jpg" class="d-block w-100" alt="Image">
+            </div>
+            <div class="carousel-item active">
+                <img src="item4.jpg" class="d-block w-100" alt="Image">
+            </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
+</div>
 
-    <div class="container" id="container">
-    <div class="row">
-            <?php mysqli_data_seek($result, 0); // Reset the pointer to the beginning of the result set ?>
-            <?php while ($row = mysqli_fetch_assoc($result)) : ?>
-                <div class="col-md-3" id="product">
-                    <div class="card" style="width: 15rem;">
-                        <img src="img/<?php echo $row['image']; ?>" class="card-img-top" alt="Product Image">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $row['name']; ?></h5>
-                            <p class="card-text"><?php echo $row['product_description']; ?></p>
-                            <p class="card-text">Price: $<?php echo $row['product_price']; ?></p>
-                            <p>Product Amount</p>
-                            <a href="product_preview.php?product_id=<?php echo $row['product_id']; ?>" class="btn btn-primary">View More</a>
-                        </div>
+<div class="container" id="container">
+<div class="row">
+        <?php mysqli_data_seek($result, 0); // Reset the pointer to the beginning of the result set ?>
+        <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+            <div class="col-md-3" id="product">
+                <div class="card" style="width: 15rem;">
+                    <img src="img/<?php echo $row['image']; ?>" class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $row['name']; ?></h5>
+                        <p class="card-text"><?php echo $row['product_description']; ?></p>
+                        <p class="card-text">Price: $<?php echo $row['product_price']; ?></p>
+                        <p>Product Amount</p>
+                        <a href="product_preview.php?product_id=<?php echo $row['product_id']; ?>" class="btn btn-primary">View More</a>
                     </div>
                 </div>
-            <?php endwhile; ?>
-        </div>
-    </div>
-
-            <footer>
-        <div class="description">
-            <img src="logo1.png" width="150" height="100">
-            <p>Pwedeng Company Description</p>
             </div>
-                <div class="support">
-                <p>Support Us!</p>
-                <a href="https://ko-fi.com">
-                    <iconify-icon icon="simple-icons:kofi"></iconify-icon>
-                </a>
-                    <p>Ko-Fi</p>
-                </div>
+        <?php endwhile; ?>
+    </div>
+</div>
 
-                <div class="contact">
-                    <p>Contact Us!</p>
-                    <a href="https://facebook.com">
-                    <i class="fa-brands fa-facebook"></i>
-                    </a>
-                    
-                    <a href="https://www.twitter.com/">
-                    <i class="fa-brands fa-x-twitter"></i>
-                    </a>
+<div class="end">
+    <span><hr></span>
+    <footer>
+    <h3><span>Gold</span>Tags.</h3>
+    <p class="members">Members:</p>
+        <div class="groups">
+            <div class="row1">
+                <a href="https://www.facebook.com/jexterjohn.balmaceda.9?mibextid=2JQ9oc">Balmaceda, Jexter John U.</a><br>
+                <a href="https://www.facebook.com/harverex.patilano.3?mibextid=2JQ9oc">Patilano, Harverex B.</a><br>
+            </div>
+            <div class="row2">
+                <a href="https://www.facebook.com/killuastrassi?mibextid=LQQJ4d">Quintana, John Rhaven C.</a><br>
+                <a href="https://www.facebook.com/JamieMarieCainoy26?mibextid=hIlR13">Cainoy, Jaime Marie</a>
+            </div>
+            <div class="row3">
+                <a href="https://www.facebook.com/profile.php?id=100084792254134&mibextid=ZbWKwL">Quiape, John Vincent C.</a><br>
+                <a href="https://www.facebook.com/francis.palmes18?mibextid=2JQ9oc">Palmes, Rey Francis Vic L.</a>
+            </div>
+        </div>
+  
+       
+        <div class="contact">
+            <a href="https://www.facebook.com/GoldTagsApparelStaMaria?mibextid=LQQJ4d"><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-discord"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-twitter"></i></a><br>
+            <p><i class="fa-regular fa-copyright"></i>Copyright. All rights reserved.</p>
+        </div>
+       
+    </footer>
+</div>
 
-                    <a href="https://www.discord.gg/">
-                    <i class="fa-brands fa-discord"></i>
-                    </a>
 
-                    <a href="https://www.instagram.com/">
-                    <i class="fa-brands fa-instagram"></i>
-                    </a>
-                </div>
-
-                
-            </footer>
 
             <script> 
                    const bellIcon = document.getElementById('bellIcon');

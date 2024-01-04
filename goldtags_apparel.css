@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,300;1,400&family=Rubik+Glitch&display=swap');
+
 *{
     padding: 0;
     margin: 0;
@@ -91,4 +93,57 @@ hr{
 #searchInput{
     font-size: 15px;
     color: gold;
+}
+
+.end{
+    margin-top: 50px;
+}
+.end span hr{
+    width: 100%;
+    margin-left: 0px;
+}
+
+.groups{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-left: 35vh;
+
+}
+.groups a{
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.groups a:hover{
+    color: darkblue;
+}
+h3{
+    font-family: 'Rubik Glitch', system-ui;
+    color: white;
+}
+h3 span{
+    color: gold;
+}
+.members{
+    margin-left: 25vh;
+}
+.end p{
+    color: white;
+}
+.contact{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+}
+.contact a i{
+    color: white;
+    transition: 0.3s;
+}
+.contact a i:hover{
+    color: darkblue;
+}
+.contact p{
+    color: white;
+    font-size: 12px;
 }
