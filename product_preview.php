@@ -84,10 +84,10 @@
                 <input type="hidden" name="rating" id="rating">
             </div>  
             <label for="image">Upload Image:</label><br>
-            <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" value=""><br>
+            <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" value="" required><br>
             <input type="hidden" name="product_id" value="<?php echo $product_id ?>">
             <label for="comments">Comments:</label><br>
-            <textarea name="comments" class="comments" id="" cols="30" rows="10" placeholder="Enter your comment here."></textarea><br>
+            <textarea name="comments" class="comments" id="" cols="30" rows="10" placeholder="Enter your comment here." required></textarea><br>
             <input type="submit" name="submit" value="Comment" class="btn-comment">
         </form>
     </div>

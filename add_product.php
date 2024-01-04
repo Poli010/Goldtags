@@ -41,7 +41,7 @@ if(isset($_POST["submit"])){
       $newImageName .= '.' . $imageExtension;
 
       move_uploaded_file($tmpName, 'img/' . $newImageName);
-      $query = "INSERT INTO tb_upload VALUES('','$product_id', '$name', ' $price', '  $product_type',' $description', ' $amount', '$newImageName')";
+      $query = "INSERT INTO tb_upload VALUES('','$product_id', '$name', ' $price', '  $description',' $product_type', ' $amount', '$newImageName')";
       mysqli_query($conn, $query);
       echo
       "
