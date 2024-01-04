@@ -1,21 +1,3 @@
-
-// Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function () {
-    // Initialize the carousel
-    var myCarousel = new bootstrap.Carousel(document.getElementById('carouselExampleFade'), {
-        interval: 5000, // Set the interval to 5000 milliseconds (5 seconds)
-        pause: 'hover' // Pause on hover, you can change this option as needed
-    });
-
-    // Optional: If you want to stop the auto-sliding when interacting with the carousel manually
-    document.getElementById('carouselExampleFade').addEventListener('click', function () {
-        myCarousel.pause();
-    });
-});
-
-
-
-
 const bellIcon = document.getElementById('bellIcon');
 const searchIcon = document.getElementById('searchIcon');
 const notificationPopup = document.getElementById('notificationPopup');
