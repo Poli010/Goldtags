@@ -32,7 +32,7 @@ if(isset($_POST["submit"])){
       echo
       "<script>
         alert('Comment Successfully Add');
-        document.location.href = 'goldtags_apparel.php';
+        window.location.replace(document.referrer);
       </script>";
     }
   }

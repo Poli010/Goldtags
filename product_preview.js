@@ -7,12 +7,20 @@ function validateQuantity(input) {
 
 //FUNCTION FOR PRODUCT SIZE SELECTED
 const sizeButtons = document.querySelectorAll('.size-btn');
+const submitButton = document.getElementById('submit');
 sizeButtons.forEach(button => {
     button.addEventListener('click', () => {
-    sizeButtons.forEach(btn => btn.classList.remove('selected'));
-    button.classList.add('selected');
+        sizeButtons.forEach(btn => btn.classList.remove('selected'));
+        button.classList.add('selected');
     });
 });
+submitButton.addEventListener('click', () => {
+    const selectedRadioButton = document.querySelector('.size-btn.selected');
+    if (!selectedRadioButton) {
+        alert('Please select a size');
+    }
+});
+
 
 
 //FUNCTION FOR STAR RATING
@@ -44,5 +52,4 @@ $(document).ready(function () {
         });
     });
 });
-
 

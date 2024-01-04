@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overview</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="preview.css"> 
+    <link rel="stylesheet" href="product_preview.css"> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
     <link rel="stylesheet" href="jquery.rateyo.css"/>
@@ -51,7 +51,7 @@
                     
                     <div class="product_size">
                         <label for="xsmall" class="size-btn">XS</label>
-                        <input type="radio" id="xsmall" class="radio" name="size" value="XS">
+                        <input type="radio" id="xsmall" class="radio" name="size" value="XS" required>
 
                         <label for="small" class="size-btn">S</label>
                         <input type="radio" id="small" class="radio" name="size" value="S">
@@ -65,10 +65,9 @@
                         <label for="xlarge" class="size-btn">XL</label>
                         <input type="radio" id="xlarge" class="radio" name="size" value="XL">
                     </div>
-
                     
                     <a class="buy_now"href="payment.php?id=<?php echo $row['id']; ?>">Buy Now</a>
-                    <input type="submit" name="submit" value="Add to Cart" class="add_to_cart">
+                    <input type="submit" name="submit" id="submit" value="Add to Cart" class="add_to_cart">
                 </form>
             </div>
             <?php
@@ -95,9 +94,9 @@
 
     <div class="feedback">
         <?php
-            $sql = "SELECT * FROM review";
+            $sql = "SELECT * FROM review WHERE product_id ='$product_id'";
             $result = mysqli_query($conn, $sql);
-            while($row = mysqli_fetch_assoc($result)){
+            foreach($result as $row){
         ?>
         <div class="accounts">
             <label for="star">User Accounts</label>
