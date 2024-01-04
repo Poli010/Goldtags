@@ -83,7 +83,6 @@ $result = mysqli_query($conn, $sql);
                     <img src="img/<?php echo $row['image']; ?>" class="card-img-top" alt="Product Image">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['name']; ?></h5>
-                        <p class="card-text"><?php echo $row['product_description']; ?></p>
                         <p class="card-text">Price: <i class="fa-solid fa-peso-sign"></i><?php echo $row['product_price']; ?></p>
                         <a href="product_preview.php?product_id=<?php echo $row['product_id']; ?>" class="btn btn-primary">View More</a>
                     </div>
