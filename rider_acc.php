@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courier Account</title>
+    <title>Rider Account</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="rider_acc.css">
     <script src="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/dist/boxicons.js"></script>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                 </div>
-                 <p> Angelo Capa</p>
+                 <p4> Angelo Capa</p4>
                  <p1>rurilhayne@gmail.com</p1>
                  <p2>09672938293</p2>
                  <p3>San jose Del Monte Bulacan</p3>
