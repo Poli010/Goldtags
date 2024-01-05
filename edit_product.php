@@ -13,8 +13,10 @@ $row = mysqli_fetch_assoc($result);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
 </head>
 <body>
+<a href="adminpage.php" class="backbtn">Back</a>
 <div class="container-fluid">
     <div class="data">
+    <h1>Edit Product</h1>
     <form action="update_product.php" method="post">
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
 
