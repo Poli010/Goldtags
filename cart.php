@@ -27,7 +27,7 @@ $result = mysqli_query($conn,$sql);
         {
     ?>
     <div class="cart">
-            <img src="<?php echo $row['image'] ?>" alt="" width="400" height = "300" title="">
+            <img src="img/<?php echo $row['image'] ?>" alt="" width="400" height = "300" title="">
             <div class="cart_info">
                 <input type="hidden" name="product_id" id="product_id" value="<?php echo $row['product_id'] ?>">
                 <p>Product Name: <?php echo $row['name'] ?></p>
@@ -35,7 +35,7 @@ $result = mysqli_query($conn,$sql);
                 <p>Product Description: <?php echo $row['product_description'] ?></p>
                 <p>Quantity: <?php echo $row['quantity'] ?></p>
                 <p>Size: <?php echo $row['product_size'] ?></p>
-                <a class="buy_now"href="payment.php?name=<?php echo $row['name'] ?>&product_price=<?php echo $row['product_price'] ?>">Buy Now</a>
+                <a class="buy_now"href="payment.php?name=<?php echo $row['name'] ?>&product_price=<?php echo $row['product_price'] ?>&image=<?php echo $row['image'] ?>&quantity=<?php echo $row['quantity'] ?> &size=<?php echo $row['product_size'] ?>">Buy Now</a>
                 <button class="remove" onclick="remove()">Remove</button>
             </div>
     </div>

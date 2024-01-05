@@ -53,3 +53,20 @@ $(document).ready(function () {
     });
 });
 
+//FUNCTION FOR BUY NOW
+function buynow(product_id, name, product_price, image) {
+    var form = document.getElementById("form");
+
+    if (form.checkValidity()) {
+        window.location.href = "payment.php" +
+            "?product_id=" + product_id +
+            "&name=" + name +
+            "&product_price=" + product_price +
+            
+            "&quantity=1&size=XS" + 
+            "&image=" + image;
+    } else {
+        alert("Please fill up the form");
+    }
+    event.preventDefault();
+}

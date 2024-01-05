@@ -36,9 +36,9 @@
             <img src="img/<?php echo $row["image"]; ?>" width = 400 height = 300 title="<?php echo $row['image']; ?>">
         </div>
             <div class="product-info">
-                <form action="add_to_cart.php" method="post">
+                <form id="form" action="add_to_cart.php" method="post">
                     <label for="name">Product Name: <span name="name"><?php echo $row['name'] ?></span></label><br>
-                    <input type="hidden" name="image" value="img/<?php echo $row["image"]; ?>">
+                    <input type="hidden" name="image" value="<?php echo $row["image"]; ?>">
                     <input type="hidden" name="name" value="<?php echo $row['name'] ?>">
                     <input type="hidden" name="product_id" value="<?php echo $row['product_id'] ?>">   
                     
@@ -67,8 +67,9 @@
                         <label for="xlarge" class="size-btn">XL</label>
                         <input type="radio" id="xlarge" class="radio" name="size" value="XL">
                     </div>
+
                     
-                    <a class="buy_now" href="payment.php?product_id=<?php echo $row['product_id']; ?>&name=<?php echo urlencode($row['name']); ?>&product_price=<?php echo $row['product_price']; ?>&product_description=<?php echo urlencode($row['product_description']); ?>&quantity=1&size=XS">Buy Now</a>
+                    <button class="buy_now" onclick="buynow('<?php echo $row['product_id']; ?>','<?php echo urlencode($row['name']); ?>','<?php echo $row['product_price']; ?>','<?php echo urlencode($row['image']) ?>')">Buy Now</button>
 
                     <input type="submit" name="submit" id="submit" value="Add to Cart" class="add_to_cart">
                 </form>

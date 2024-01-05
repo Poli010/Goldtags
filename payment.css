@@ -1,18 +1,25 @@
-body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(logo.jpg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+*{
     margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("image.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
 }
 
 .container {
-    height: 80%;
-    width: 400px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 600px;
+    width: 600px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
@@ -21,7 +28,6 @@ body {
     border-radius: 10px;
     padding: 30px 40px;
     position: fixed;
-    cursor: pointer;
 }
 
 #productDetails {
@@ -39,55 +45,66 @@ body {
 
 input {
     color: gold;
-    border: 2px solid rgba(255, 255, 255, .2);
+    border: 2px solid rgba(248, 246, 246, 0.386);
     background: transparent;
     width: 100%; 
     padding: 3px; 
     box-sizing: border-box; 
+    margin-top: 5px;
 }
     
-p1{
-    margin-top: 20px;
-    position: absolute;
-    font-size: 10x;
-}
-    #productDetails {
-        border: 2px solid #ccc;
-        padding: 20px;
-        border-radius: 10px;
-    }
-
-    #paymentMethod p {
-        margin-top: 45px;
-        width: 20px;
-        display: flex;
-        align-items: center;
-    }
-
-    #paymentMethod label {
-        margin-right: 1px;
-        margin-top: 2px;
-    }
-
 h4{
-    margin-top: 100px;
+    margin-top: 50px;
     text-align: center;
     font-size: 20px;
 }
 #purchase {
+    margin-left: 200px;
+    margin-top: 20px;
     color: white;
-    position: absolute;
-    left: 190px;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
-    border: 1px solid white; /* Combine border properties */
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    border: 1px solid white; 
     background: transparent;
+    transition: 0.3s;
 }
 
 #purchase:hover {
-    border-color: gold; /* Apply hover style to border color */
+    border-color: gold;
+    color: gold; 
 }
 
+
+.item{
+    margin-left: -10px;
+    margin-top: 20px;
+}
 h1{
-    margin-top: -1px;
+    font-size: 25px;
+    text-align: center;
+}
+
+p span{
+    font-weight: bold;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.image_item{
+    display: flex;
+    margin-left: 30px;
+}
+
+.image{
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+#note{
+    position: absolute;
+    margin-top: 10px;
+    font-size: 15px;
 }
