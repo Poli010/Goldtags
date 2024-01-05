@@ -1,90 +1,100 @@
-html, body {
-    height: 100%;
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("image.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+h1{
+    margin-top: 50px;
+    color: white;
+    text-align: center;
+}
+
+.pic{
+    height: 100px; 
+
+}
+.userprofile{
+    margin-top: 50px;
+    margin-left: 45vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(logo.jpg);
-    background-size: cover; 
-    color: white;
-}
-
-header img{
-    height: 100px;
-}
-
-hr{
-    position: relative;
-    margin-top: -10px;
-    color: white;
-    width: 90%;
-    border-bottom: 2px solid white;
-    margin-left: 10vh;
-}
-
-.navbar{
-    float: right;
-    
-    font-size: 20px;
-    color: white;
-    z-index: 999;
-    margin-top: 15px;
-    justify-content: space-around;
-}
-.navbar-nav a:hover{
-    color: black;
-    border-bottom: 2px solid white;
-}
-.navbar-light .navbar-nav .nav-link {
-    color: white !important;
-}
-.navbar-light .navbar-toggler-icon {
-    background-color: white; 
-    border-color: white; 
-}
-
-.user_profile {
-    display: flex;
-    justify-content: center; 
+    width:  120vh;
     border: 2px solid white;
-    border-radius: 12px;
+    height: 50vh;
+    
 }
-
+#profilePicture{
+    margin-top: 9vh;
+    margin-left: -2vh;
+     width: 100px;
+     height: 100px;
+     border-radius: 50%; 
+     cursor: pointer;
+}
 .credentials {
-    flex: 1;
+    margin-right: 40px;
+    margin-left: -24vh;
+    width: 30vh;
     text-align: center;
-    border: 2px solid yellow;
-    border-radius: 12px;
+    border: 2px solid gold;
+    border-radius: 10px;
     padding: 30px; 
     line-height: 1.5;
-    height: 250px;
+    height: 335px;
 }
-
+#profilePictureInput{
+    position: absolute;
+    margin-top: 30vh;
+    margin-left: -20vh;
+}
 .credentials .email{
     font-size: 12px;
 }
 
 .address {
-    flex: 3;
+    margin-top: 20px;
+    color: white;
+}
+
+#change{
+    width: 80px;
+    padding: 2px;
+    margin-left: -185px;
+    margin-top: -25px;
+}
+
+.cart{
+    margin-right: 120px;
+    color: white;
+    text-decoration: none;
+    border: 2px solid black;
+    font-size: 15px;
     padding: 10px;
-    height: 200px;
-    width: 400px;
-    line-height: 1.5;
 }
 
-.address h3 {
-    display: inline;
-    margin: 0;
-    font-weight: bold;
-    margin-left: 25px;
+.purchase{
+    color: white;
+    text-decoration: none;
+    border: 2px solid black;
+    font-size: 15px;
+    margin-left: -100px;
+    padding: 10px;
 }
 
-.address p,
-.address i {
-    display: inline;
-    margin: 0;
-    margin-left: 20px; 
+.button{
+    
+    display: flex;
+    margin-left: 200px;
 }
-
-
-
