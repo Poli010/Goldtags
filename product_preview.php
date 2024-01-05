@@ -40,7 +40,7 @@
                     <label for="name">Product Name: <span name="name"><?php echo $row['name'] ?></span></label><br>
                     <input type="hidden" name="image" value="img/<?php echo $row["image"]; ?>">
                     <input type="hidden" name="name" value="<?php echo $row['name'] ?>">
-                    <input type="hidden" name="product_id" value="<?php echo $row['product_id'] ?>">
+                    <input type="hidden" name="product_id" value="<?php echo $row['product_id'] ?>">   
                     
                     <label for="product_price">Product Price: <i class="fa-solid fa-peso-sign"></i><span name="product_price"><?php echo $row['product_price'] ?></span></label><br>
                     <input type="hidden" name="product_price" value="<?php echo $row['product_price'] ?>">
@@ -68,7 +68,8 @@
                         <input type="radio" id="xlarge" class="radio" name="size" value="XL">
                     </div>
                     
-                    <a class="buy_now"href="payment.php?id=<?php echo $row['id']; ?>">Buy Now</a>
+                    <a class="buy_now" href="payment.php?product_id=<?php echo $row['product_id']; ?>&name=<?php echo urlencode($row['name']); ?>&product_price=<?php echo $row['product_price']; ?>&product_description=<?php echo urlencode($row['product_description']); ?>&quantity=1&size=XS">Buy Now</a>
+
                     <input type="submit" name="submit" id="submit" value="Add to Cart" class="add_to_cart">
                 </form>
             </div>
