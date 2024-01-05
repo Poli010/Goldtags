@@ -10,6 +10,8 @@ $result = mysqli_query($conn,$sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Cart</title>
     <link rel="stylesheet" href="cart.css">
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
@@ -25,16 +27,17 @@ $result = mysqli_query($conn,$sql);
         {
     ?>
     <div class="cart">
-        <img src="<?php echo $row['image'] ?>" alt="" width="400" height = "300" title="">
-        <div class="cart_info">
-            <p>Product Name: <?php echo $row['name'] ?></p>
-            <p>Product Price: <i class="fa-solid fa-peso-sign"></i><?php echo $row['product_price'] ?></p>
-            <p>Product Description: <?php echo $row['product_description'] ?></p>
-            <p>Quantity: <?php echo $row['quantity'] ?></p>
-            <p>Size: <?php echo $row['product_size'] ?></p>
-            <a class="buy_now"href="payment.php?id=<?php echo $row['id'] ?>">Buy Now</a>
-            <input type="submit" name="submit" id="submit" value="Remove" class="remove">
-        </div>
+            <img src="<?php echo $row['image'] ?>" alt="" width="400" height = "300" title="">
+            <div class="cart_info">
+                <input type="hidden" name="product_id" id="product_id" value="<?php echo $row['product_id'] ?>">
+                <p>Product Name: <?php echo $row['name'] ?></p>
+                <p>Product Price: <i class="fa-solid fa-peso-sign"></i><?php echo $row['product_price'] ?></p>
+                <p>Product Description: <?php echo $row['product_description'] ?></p>
+                <p>Quantity: <?php echo $row['quantity'] ?></p>
+                <p>Size: <?php echo $row['product_size'] ?></p>
+                <a class="buy_now"href="payment.php?id=<?php echo $row['id'] ?>">Buy Now</a>
+                <button class="remove" onclick="remove()">Remove</button>
+            </div>
     </div>
     <?php
         }
@@ -50,8 +53,9 @@ $result = mysqli_query($conn,$sql);
 
 
 
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://kit.fontawesome.com/355342439a.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="cart.js"></script>
 </body>
 </html>
