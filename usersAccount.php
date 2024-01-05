@@ -7,12 +7,14 @@
 </head>
 <body>
     
-            <nav> 
+             <nav> 
                 <li><a href="adminpage.php">Product list </a></li>
                 <li><a href="usersAccount.php">Account list</a></li>
                 <li><a href="adminproductadd.php">Add Product</a></li>
+                <li><a href="#">Orders</a></li>
+                <li><a href="#">Refunds</a></li>
+              
             </nav>
-        </nav>
     <table class="adminTable"> <!-- Add the adminTable class here -->
         <thead>
             <th>User ID</th>

@@ -12,6 +12,9 @@
                 <li><a href="adminpage.php">Product list </a></li>
                 <li><a href="usersAccount.php">Account list</a></li>
                 <li><a href="adminproductadd.php">Add Product</a></li>
+                <li><a href="#">Orders</a></li>
+                <li><a href="#">Refunds</a></li>
+              
             </nav>
     <div class="center-container">
         <div class="form-container">
