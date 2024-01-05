@@ -13,8 +13,8 @@ $row = mysqli_fetch_assoc($result);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container">
-    <h1>Edit Product</h1>
+<div class="container-fluid">
+    <div class="data">
     <form action="update_product.php" method="post">
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
 
@@ -31,9 +31,10 @@ $row = mysqli_fetch_assoc($result);
         <input type="text" name="product_quantity" id="product_quantity"><br>
 
         <label for="product_description">Product Description:</label>
-        <input type="text" name="product_description" id="product_description"><br>
-        <input type="submit" name="submit" value="Update">
-    </form>           
+        <input type="text" name="product_description" id="product_description"><br> <br>
+        <input type="submit" name="submit" class="btnupdate" value="Update">
+    </form>   
+</div>        
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
