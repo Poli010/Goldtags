@@ -1,6 +1,6 @@
 body {
     display: flex;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(logo.jpg);
+    background-image: url("image.jpg");
     justify-content: center;
     align-items: center;
     height: 100vh;
