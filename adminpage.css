@@ -5,13 +5,14 @@
 }
 
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(logo.jpg);
-    background-size: cover;
-    backdrop-filter: blur(200px);
+    background-image: url("image.jpg");
     background-attachment: fixed;
+    background-size: cover;
     background-position: center;
     font-family: Arial, sans-serif;
-    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
 }
 
 .table-container {
