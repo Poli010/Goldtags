@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 03, 2024 at 09:27 AM
+-- Generation Time: Jan 05, 2024 at 10:04 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -28,8 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `add_to_cart` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
+  `product_id` varchar(255) NOT NULL,
   `product_price` int(255) NOT NULL,
   `product_description` text NOT NULL,
   `product_size` varchar(255) NOT NULL,
@@ -40,12 +42,28 @@ CREATE TABLE `add_to_cart` (
 -- Dumping data for table `add_to_cart`
 --
 
-INSERT INTO `add_to_cart` (`name`, `image`, `product_price`, `product_description`, `product_size`, `quantity`) VALUES
-('img/6595053e58208.jpg', 'Bench', 650, '    Shorts', 'L', 1),
-('img/6595053e58208.jpg', 'Bench', 650, '    Shorts', 'M', 4),
-('img/6595053e58208.jpg', 'Bench', 650, '    Shorts', 'L', 2),
-('img/6595053e58208.jpg', 'Bench', 650, '    Shorts', 'S', 30),
-('img/6595053e58208.jpg', 'Bench', 650, '    Shorts', 'S', 5);
+INSERT INTO `add_to_cart` (`id`, `name`, `image`, `product_id`, `product_price`, `product_description`, `product_size`, `quantity`) VALUES
+(34, 'JAJAJ', '65976feaa352b.jpg', 'product_id-65976feaa3520', 112, '    asjd', 'XL', 2),
+(35, 'asd', '65976ffde0f34.png', 'product_id-65976ffde0f1f', 12, '    asd', 'M', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pending`
+--
+
+CREATE TABLE `pending` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `product_price` int(255) NOT NULL,
+  `quantity` int(255) NOT NULL,
+  `product_size` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `baranggay` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `province` varchar(255) NOT NULL,
+  `zip_code` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -60,15 +78,6 @@ CREATE TABLE `review` (
   `image` varchar(255) NOT NULL,
   `rating` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `review`
---
-
-INSERT INTO `review` (`id`, `comments`, `product_id`, `image`, `rating`) VALUES
-(1, 'Ganda ng short magugustuhan to ng asawa ko', 'product_id-6595053e58200', '6595080685e1c.jpg', 5),
-(2, 'ANG PANGET NG SHORT DI SUKAT YUNG SIZE MAG SARA NA KAYO', 'product_id-6595053e58200', '6595088888b5d.jpg', 1),
-(3, 'hehe', 'product_id-6595053e58200', '659508ea4b739.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -92,11 +101,26 @@ CREATE TABLE `tb_upload` (
 --
 
 INSERT INTO `tb_upload` (`id`, `product_id`, `name`, `product_price`, `product_description`, `product_type`, `product_amount`, `image`) VALUES
-(3, 'product_id-6595053e58200', 'Bench', ' 650', '  Shorts', ' Short pang malakasan', ' 25', '6595053e58208.jpg');
+(16, 'product_id-65976feaa3520', 'JAJAJ', ' 112', '  asjd', ' 9129031', ' 12', '65976feaa352b.jpg'),
+(17, 'product_id-65976ff3f3588', 'asd', ' 12', '  asd', ' asd', ' 121', '65976ff3f3590.jpg'),
+(18, 'product_id-65976ffde0f1f', 'asd', ' 12', '  asd', ' 123', ' 12', '65976ffde0f34.png'),
+(19, 'product_id-6597a2744087e', 'Gold Tags Short', '500', 'quality SHort for your boy friend girlfirend wife husband or kabit kahit kanino quality itong damit', 'Short', '7', '6597a27440891.jpg');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `add_to_cart`
+--
+ALTER TABLE `add_to_cart`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pending`
+--
+ALTER TABLE `pending`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `review`
@@ -115,16 +139,28 @@ ALTER TABLE `tb_upload`
 --
 
 --
+-- AUTO_INCREMENT for table `add_to_cart`
+--
+ALTER TABLE `add_to_cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT for table `pending`
+--
+ALTER TABLE `pending`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_upload`
 --
 ALTER TABLE `tb_upload`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

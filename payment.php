@@ -24,6 +24,11 @@ $image = $_GET['image'];
         <h1>Your Order <i class="fa-solid fa-bag-shopping"></i></h1>
         <div class="image_item">
             <div class="item">
+                <input type="hidden" id="name" value="<?php echo $name ?>">
+                <input type="hidden" id="product_price" value="<?php echo $product_price ?>">
+                <input type="hidden" id="quantity" value="<?php echo $quantity ?>">
+                <input type="hidden" id="size" value="<?php echo $size ?>">
+
                 <p>Product Name: <span><?php echo $name ?></span></p><br>
                 <p>Product Price: <span><i class="fa-solid fa-peso-sign"></i><?php echo $product_price ?></span></p><br>
                 <p>Quantity: <span><?php echo $quantity ?></span></p><br>
@@ -36,19 +41,20 @@ $image = $_GET['image'];
         
         <div class="info">
             <h4>Input your Address</h4>
-            <input type="text" placeholder="Address" autocomplete="off" required>
-            <input type="text" placeholder="Baranggay" autocomplete="off" required>
-            <input type="text" placeholder="City" autocomplete="off" required>
-            <input type="text" placeholder="Province" autocomplete="off" required>
-            <input type="text" placeholder="Zip Code" autocomplete="off" required>
+            <input type="text" id= "address" placeholder="Address" autocomplete="off" required>
+            <input type="text" id="baranggay" placeholder="Baranggay" autocomplete="off" required>
+            <input type="text" id="city" placeholder="City" autocomplete="off" required>
+            <input type="text" id="province" placeholder="Province" autocomplete="off" required>
+            <input type="text" id="zip_code" placeholder="Zip Code" autocomplete="off" required>
 
             <br>
-            <button type="button" id="purchase">Purchase</button>
+            <button type="button" id="purchase" onclick="purchase()">Purchase</button>
         </div>
         <p id="note">Note! We Only Receive Cash On Delivery And Also Please Check Your Order And Address Carefully Before Purchasing.</p>
             
     </div>
     
-   
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
+<script src="payment.js"></script>
 </body>
 </html>
