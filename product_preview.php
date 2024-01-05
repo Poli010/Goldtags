@@ -38,7 +38,7 @@
             <div class="product-info">
                 <form id="form" action="add_to_cart.php" method="post">
                     <label for="name">Product Name: <span name="name"><?php echo $row['name'] ?></span></label><br>
-                    <input type="hidden" name="image" value="<?php echo $row["image"]; ?>">
+                    <input type="hidden" name="image" value=" <?php echo $row["image"]; ?>">
                     <input type="hidden" name="name" value="<?php echo $row['name'] ?>">
                     <input type="hidden" name="product_id" value="<?php echo $row['product_id'] ?>">   
                     

@@ -36,12 +36,11 @@ $image = $_GET['image'];
         
         <div class="info">
             <h4>Input your Address</h4>
-            <input type="text" placeholder="Street No." id="streetNum" required>
-            <input type="text" placeholder="Block" id="block" required>
-            <input type="text" placeholder="Lot" id="lot" required>
-            <input type="text" placeholder="Baranggay" id="baranggay" required>
-            <input type="text" placeholder="City" id="city" required>
-            <input type="text" placeholder="Zip Code" id="zip" required>
+            <input type="text" placeholder="Address" autocomplete="off" required>
+            <input type="text" placeholder="Baranggay" autocomplete="off" required>
+            <input type="text" placeholder="City" autocomplete="off" required>
+            <input type="text" placeholder="Province" autocomplete="off" required>
+            <input type="text" placeholder="Zip Code" autocomplete="off" required>
 
             <br>
             <button type="button" id="purchase">Purchase</button>
