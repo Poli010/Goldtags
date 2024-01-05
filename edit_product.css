@@ -18,8 +18,8 @@ form{
     position: absolute;
     width: 30%;
     backdrop-filter: blur(20px);
-    margin-top: 75px;
-    margin-left: 460px;
+    top: 10vh;
+    left: 75vh;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
