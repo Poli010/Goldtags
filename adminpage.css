@@ -23,7 +23,6 @@ body {
     overflow-x: hidden; 
     height: 520px;
     width: 80%;
-    border: 2px solid gold;
     background-color: rgba(0, 0, 0, 0.75);
 }
 
@@ -31,10 +30,9 @@ body {
     height: auto;
     border-collapse: collapse;
     margin-right: 70px;
-    border: 2px solid gold;
     text-align: center;
     width: 100%;
-    overflow-y: scroll; /* Enable vertical scrolling */
+    overflow-y: scroll; /
 }
 
 .table th,
