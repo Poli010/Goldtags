@@ -21,7 +21,6 @@
                 <div id="pass_error" class="error"></div> 
             </div>
             <button type="submit">Login</button>
-            <p1><a href="admin.php">Login as Administrator</a></p1>
             <p2>No account? <a href="signup.php">Signup</a></p2>
     </form>
     </section>
