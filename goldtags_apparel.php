@@ -46,7 +46,6 @@ $result = mysqli_query($conn, $sql);
         <hr>
     </header>
 </div>
-
 <div class="container">
     <div id="carouselExampleFade" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -154,6 +153,30 @@ $result = mysqli_query($conn, $sql);
             }
         });
 </script>
+
+<script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCKFLDnY6nvXO9YHXZ56k6jE4q4esbyKNw",
+            authDomain: "goldtags-afbf1.firebaseapp.com",
+            // Add other Firebase config properties here
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Listen for changes in user authentication state
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                // User is signed in, retrieve user information
+                const usernameInput = document.getElementById('usernameInput');
+                usernameInput.value = user.displayName || 'Username Not Available';
+            } else {
+                // User is signed out or not authenticated
+                console.log('User not signed in');
+            }
+        });
+    </script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 06, 2024 at 04:51 AM
+-- Host: localhost:3306
+-- Generation Time: Jan 05, 2024 at 10:04 AM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.1.17
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,30 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `upload`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `accounts`
---
-
-CREATE TABLE `accounts` (
-  `firstName` varchar(150) NOT NULL,
-  `lastName` varchar(150) NOT NULL,
-  `userName` varchar(150) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `accountPass` varchar(150) NOT NULL,
-  `account_type` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `accounts`
---
-
-INSERT INTO `accounts` (`firstName`, `lastName`, `userName`, `email`, `accountPass`, `account_type`) VALUES
-('Angelo ', 'Capa', 'Clips', 'Clips@gmail.com', '123', ''),
-('Angelo ', 'Capa', 'Clips', 'Clips@gmail.com', '123', ''),
-('123', '123', 'cute', 'cute@gmail.com', '123', '');
 
 -- --------------------------------------------------------
 
@@ -119,6 +95,16 @@ CREATE TABLE `tb_upload` (
   `product_amount` varchar(255) NOT NULL,
   `image` varchar(75) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tb_upload`
+--
+
+INSERT INTO `tb_upload` (`id`, `product_id`, `name`, `product_price`, `product_description`, `product_type`, `product_amount`, `image`) VALUES
+(16, 'product_id-65976feaa3520', 'JAJAJ', ' 112', '  asjd', ' 9129031', ' 12', '65976feaa352b.jpg'),
+(17, 'product_id-65976ff3f3588', 'asd', ' 12', '  asd', ' asd', ' 121', '65976ff3f3590.jpg'),
+(18, 'product_id-65976ffde0f1f', 'asd', ' 12', '  asd', ' 123', ' 12', '65976ffde0f34.png'),
+(19, 'product_id-6597a2744087e', 'Gold Tags Short', '500', 'quality SHort for your boy friend girlfirend wife husband or kabit kahit kanino quality itong damit', 'Short', '7', '6597a27440891.jpg');
 
 --
 -- Indexes for dumped tables
