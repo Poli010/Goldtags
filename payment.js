@@ -10,6 +10,7 @@ function purchase() {
     var zip_code = document.getElementById("zip_code").value;
     var image = document.getElementById("image").value;
     var product_id = document.getElementById("product_id").value;
+    var contact_number = document.getElementById("contact_number").value;
 
     // Check if any required field is empty
     if (
@@ -22,7 +23,8 @@ function purchase() {
         city.trim() === '' ||
         province.trim() === '' ||
         zip_code.trim() === '' ||
-        image.trim() === ''
+        image.trim() === '' ||
+        contact_number.trim() === ''
     ) {
         alert("Please fill in all required fields.");
         return; // Stop function execution if any field is empty
@@ -45,10 +47,20 @@ function purchase() {
             zip_code: zip_code,
             image: image,
             product_id: product_id,
+            contact_number: contact_number,
         },
         success: function () {
             alert("THANK YOU FOR PURCHASING OUR PRODUCT!")
             window.location.href='goldtags_apparel.php'
         },
     });
+}
+
+//FUNCTION FOR CONTACT NUMBER INPUT ONLY NUMBER
+function isNumberKey(evt) {
+    var charCode = (evt.which) ? evt.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
 }

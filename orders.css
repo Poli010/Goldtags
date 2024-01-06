@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
@@ -13,44 +12,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-}
-
-.table-container {
-    position: fixed;
-    margin-top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow-y: scroll;
-    overflow-x: hidden; 
-    height: 520px;
-    width: 80%;
-    background-color: rgba(0, 0, 0, 0.75);
-}
-
-.table {
-    height: auto;
-    border-collapse: collapse;
-    margin-right: 70px;
-    text-align: center;
-    width: 100%;
-    overflow-y: scroll; /
-}
-
-.table th,
-.table td {
-    border: 2px solid gold;
-    padding: 10px;
-    color: white;
-}
-
-.table thead {
-    position: sticky;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.75);
-    z-index: 2;
-}
-
-.table tbody {
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
@@ -61,7 +23,7 @@ h1 {
     border: 2px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 2px;
-    margin-top: 6%;
+    margin-top: -100px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -69,7 +31,7 @@ h1 {
 }
 
 nav {
-    height: 60px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -81,7 +43,6 @@ nav {
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     width: 100%;
     z-index: 1000;
-    
 }
 
 nav ul {
@@ -95,20 +56,63 @@ nav li {
 }
 
 nav a {
-    text-decoration: none;
     font-size: 15px;
     color: white;
     margin-left: 15px;
     padding: 5px 10px;
     border-radius: 5px;
+    text-decoration: none;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
 nav a:hover {
     color: gold;
-    
 }
 
-.container-fluid {
-    position: relative;
+table{
+    width: 86.2%;
+    height: 50%;
+    color: white;
+    border: 1px solid white;
+    border-collapse: collapse;
+    margin-left: 27.3vh;
+    background: rgba(0, 0, 0, 0.75);
 }
+
+table tr th{
+    height: 50px;
+    background: black;
+    border: 1px solid gold;
+    position: sticky;
+    top: 0;
+}
+table tr td{
+    text-align: center;
+    border: 1px solid white;
+    width: 40%;
+    height: 50px;
+    font-size: 15px;
+}
+.link{
+    width: 20%;
+}
+
+.link a{
+    text-decoration: none;
+    color: white;
+    background: blue;
+    padding: 10px 15px 10px 15px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.link a:hover{
+    background: darkblue;
+}
+.scroll{
+    overflow-y: scroll;
+    margin-right: 150px;
+    height: 300px;
+    margin-top: 200px;
+}
+

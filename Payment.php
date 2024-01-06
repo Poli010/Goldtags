@@ -35,7 +35,10 @@ $product_id = $_GET['product_id'];
                 <p>Product Name: <span><?php echo $name ?></span></p><br>
                 <p>Product Price: <span><i class="fa-solid fa-peso-sign"></i><?php echo $product_price ?></span></p><br>
                 <p>Quantity: <span><?php echo $quantity ?></span></p><br>
-                <p>Size: <span><?php echo $size ?></span></p>
+                <p>Size: <span><?php echo $size ?></span></p><br>
+                <label for="contact_number">Contact Number:</label>
+                <input type="text" id="contact_number" onkeypress="return isNumberKey(event)" maxlength="11" required>
+
             </div>
             <div class="image">
                 <img src="img/<?php echo $image ?>" height="200" width="200" alt="">

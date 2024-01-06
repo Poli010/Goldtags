@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("image.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.container {
+    height: 500px;
+    width: 600px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+    position: fixed;
+}
+
+h1{
+    text-align: center;
+}
+.image{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.item{
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+.item p{
+    font-size: 15px;
+}
+
+.buttons{
+    margin-top: 10px;
+    margin-left: 200px;
+}

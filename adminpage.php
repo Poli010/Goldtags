@@ -15,22 +15,21 @@ require 'connection.php';
 
 </head>
 <body>
-  
-        <header>
-            <h1>PRODUCT LIST</h1>
-        </header>
-              <nav> 
+    <header>
+        <h1>PRODUCT LIST</h1>
+            <nav> 
                 <li><a href="adminpage.php">Product list </a></li>
                 <li><a href="usersAccount.php">Account list</a></li>
                 <li><a href="adminproductadd.php">Add Product</a></li>
-                <li><a href="#">Orders</a></li>
+                <li><a href="orders.php">Orders</a></li>
                 <li><a href="#">Refunds</a></li>
               </nav>
+    </header>
 
-        <div class="table-container">
-             <table class="table" border="2">
+
+    <div class="table-container">
+        <table class="table" border="2">
             <tr>
-                
                 <th>Product Name</th>
                 <th>Product Price</th>
                 <th>Product Description</th>
