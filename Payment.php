@@ -5,6 +5,7 @@ $product_price = $_GET['product_price'];
 $quantity = $_GET['quantity'];
 $size = $_GET['size'];
 $image = $_GET['image'];
+$product_id = $_GET['product_id'];
 ?>
 
 
@@ -24,10 +25,12 @@ $image = $_GET['image'];
         <h1>Your Order <i class="fa-solid fa-bag-shopping"></i></h1>
         <div class="image_item">
             <div class="item">
-                <input type="hidden" id="name" value="<?php echo $name ?>">
+                <input type="hidden" id="name" name="name"value="<?php echo $name ?>">
                 <input type="hidden" id="product_price" value="<?php echo $product_price ?>">
                 <input type="hidden" id="quantity" value="<?php echo $quantity ?>">
                 <input type="hidden" id="size" value="<?php echo $size ?>">
+                <input type="hidden" id="image" value="<?php echo $image ?>">
+                <input type="hidden" id="product_id" value="<?php echo $product_id ?>">
 
                 <p>Product Name: <span><?php echo $name ?></span></p><br>
                 <p>Product Price: <span><i class="fa-solid fa-peso-sign"></i><?php echo $product_price ?></span></p><br>

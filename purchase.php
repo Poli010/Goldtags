@@ -1,7 +1,7 @@
 <?php
 require_once("connection.php");
 if($_SERVER['REQUEST_METHOD']==="POST"){
-    $product_name =$_POST['name'];
+    $name =$_POST['name'];
     $product_price =$_POST['product_price'];
     $quantity =$_POST['quantity'];
     $size =$_POST['size'];
@@ -10,13 +10,22 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     $city =$_POST['city'];
     $province =$_POST['province'];
     $zip_code =$_POST['zip_code'];
+    $image =$_POST['image'];
+    $product_id =$_POST['product_id'];
 
-    $sql = "INSERT INTO `order` (`product_name`, `product_price`, `quantity`, `size`, `address`, `baranggay`, `city`, `province`, `zip_code`) 
-    VALUES ('$product_name', '$product_price', '$quantity', '$size', '$address', '$baranggay', '$city', '$province', '$zip_code')";
-
+    $sql = "INSERT INTO pending VALUES ('','$name', '$product_price', '$quantity', '$size', '$address', '$baranggay', '$city', '$province', '$zip_code','$image')";
     $result = mysqli_query($conn,$sql);
+
+    if($result){
+        $cart = "DELETE FROM add_to_cart WHERE product_id = '$product_id'";
+        $delete = mysqli_query($conn,$cart);
+        
+        if($delete){
+            echo json_encode(['success' => true]);
+        }
+    }
+
+
 }
-
-
 
 ?>
