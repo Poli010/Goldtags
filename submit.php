@@ -8,7 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = ""; 
     $dbname = "upload";
 
-   
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     if ($conn->connect_error) {
@@ -19,18 +18,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $lastName = $_POST['lastName'];
     $userName = $_POST['userName'];
     $email = $_POST['email'];
-    $contact_no = $_POST['contact_no'];
+    $contact_no = $_POST['contact_number'];
     $accountPass = $_POST['accountPass']; 
 
-   
-    $stmt = $conn->prepare("INSERT INTO accounts (firstName, lastName, userName, email, contact_no, accountPass) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $firstName, $lastName, $userName, $email, $contact_no, $accountPass); 
+    $stmt = $conn->prepare("INSERT INTO accounts (firstName, lastName, userName, email, contact_number, accountPass) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $firstName, $lastName, $userName, $email, $contact_no, $accountPass); 
 
-   
     if ($stmt->execute()) {
         echo "New record created successfully";
         
         $_SESSION['signup_completed'] = true;
+        header("Location: login.php");
+        exit();
     } else {
         echo "Error: " . $stmt->error;
     }
@@ -38,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->close();
     $conn->close();
 }
-
 
 if(isset($_SESSION['signup_completed']) && $_SESSION['signup_completed'] === true){
     header("Location: login.php");
