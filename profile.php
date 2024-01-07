@@ -1,3 +1,43 @@
+<?php
+session_start();
+
+// Ensure the user is logged in, redirect to login page if not
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "upload";
+
+$connection = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$connection) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$loggedInEmail = $_SESSION['email'];
+
+$query = "SELECT * FROM accounts WHERE email = '$loggedInEmail'";
+$result = mysqli_query($connection, $query);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+
+    $firstName = $row['firstName'];
+    $lastName = $row['lastName'];
+    $userName = $row['userName'];
+    $email = $row['email'];
+    $contactNumber = $row['contact_number'];
+
+} else {
+    echo "User data not found.";
+}
+
+mysqli_close($connection);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,16 +54,14 @@
                 <img id="profilePicture" src="none.png" alt="Profile Picture">
                 <input type="file" id="profilePictureInput">
                 <label for="profilePictureInput" id="uploadLabel"></label>
-                <button type="submit" id=change>⚙️Edit</button>
+                <a href="profile_edit.php" id="change"><button type="button">⚙️Edit</button></a>
                 </div>
                 <div class="address">
-                    <h3>Phone Number:</h3><p id="phoneNumber"></p></br>
-                    <h3>Street Name: </h3><p id="streetName"></p></br>
-                    <h3>Street Number: </h3><p id="streetNum"></p><br>
-                    <h3>Block: </h3><p id="block"></p></br>
-                    <h3>Lot: </h3><p id="lot"></p></br>
-                    <h3>Baranggay: </h3><p id="baranggay"></p></br>
-                    <h3>City: </h3><p id="city"></p></br>
+                <h3>First Name:</h3><p id="firstName"><?php echo $firstName; ?></p></br>
+                <h3>Last Name: </h3><p id="lastName"><?php echo $lastName; ?></p></br>
+                <h3>User Name: </h3><p id="userName"><?php echo $userName; ?></p></br>
+                <h3>Email: </h3><p id="email"><?php echo $email; ?></p></br>
+                <h3>Phone Number: </h3><p id="contact_no"><?php echo $contactNumber; ?></p><br>
                     <i class="fa-light fa-cart-shopping"></i>
                 <div class="button">
                     <p><a href="cart.php" class="cart">🛒Cart </a></p><br>

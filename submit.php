@@ -19,11 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $lastName = $_POST['lastName'];
     $userName = $_POST['userName'];
     $email = $_POST['email'];
+    $contact_no = $_POST['contact_no'];
     $accountPass = $_POST['accountPass']; 
 
    
-    $stmt = $conn->prepare("INSERT INTO accounts (firstName, lastName, userName, email, accountPass) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $firstName, $lastName, $userName, $email, $accountPass); 
+    $stmt = $conn->prepare("INSERT INTO accounts (firstName, lastName, userName, email, contact_no, accountPass) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $firstName, $lastName, $userName, $email, $contact_no, $accountPass); 
 
    
     if ($stmt->execute()) {

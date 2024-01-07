@@ -30,21 +30,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($count == 1) {
                     $row = $result->fetch_assoc();
                     $_SESSION['email'] = $row['email'];
-                    $_SESSION['password'] = $row['accountPass'];
-
-                    // Retrieve account type from the database
-                    $accountType = $row['account_type'];
+                    $_SESSION['userName'] = $row['userName']; // Assuming 'userName' is the column name in your 'accounts' table
 
                     // Redirect based on account type
+                    $accountType = $row['account_type'];
                     if ($accountType === 'Admin') {
                         header("Location: adminpage.php");
                         exit();
                     } elseif ($accountType === '') {
                         header("Location: goldtags_apparel.php");
                         exit();
+                    } elseif ($accountType === 'rider') {
+                        header("Location: rider_acc.php");
+                        exit();
                     } else {
-                        // Handle other account types if needed
-                        // For example, redirect to a default page
                         header("Location: default_page.php");
                         exit();
                     }

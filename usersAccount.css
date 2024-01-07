@@ -15,9 +15,11 @@ body {
     backdrop-filter: blur(20px);
     width: 80%; 
 }
-
-.adminTable, .adminTable th, .adminTable td {
-    border: 2px solid gold;
+.adminTable th{
+    border: 3px solid gold;
+}
+.adminTable, .adminTable td {
+    border: 2px solid white;
     
 }
 

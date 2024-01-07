@@ -68,22 +68,11 @@ hr{
     height: 150px;
 }
 
-.notification-popup {
-    display: none;
-    position: absolute;
-    top: 40px; 
-    right: 10px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    z-index: 999; 
-}
 #product_type, #product_description{
     display: none;
 }
 #searchIcon i {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 #searchIcon:hover i {
     color: gold;
@@ -93,7 +82,7 @@ hr{
 #searchInput{
     font-size: 15px;
     color: black;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .end{
