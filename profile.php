@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Ensure the user is logged in, redirect to login page if not
 if (!isset($_SESSION['email'])) {
     header("Location: login.php");
     exit();
@@ -32,44 +31,55 @@ if ($result && mysqli_num_rows($result) > 0) {
     $email = $row['email'];
     $contactNumber = $row['contact_number'];
 
-} else {
-    echo "User data not found.";
+     
+    $profileImage = 'profile/' . $row['profile_img']; 
 }
 
 mysqli_close($connection);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>My Profile</title>
 </head>
 <body>
-        <div class="container">
-                <h1>My Profile</h1>
-                    <hr>
-                <div class="info">
-                <img id="profilePicture" src="none.png" alt="Profile Picture">
-                <input type="file" id="profilePictureInput">
-                <label for="profilePictureInput" id="uploadLabel"></label>
-                <a href="profile_edit.php" id="change"><button type="button">⚙️Edit</button></a>
-                </div>
-                <div class="address">
-                <h3>First Name:</h3><p id="firstName"><?php echo $firstName; ?></p></br>
-                <h3>Last Name: </h3><p id="lastName"><?php echo $lastName; ?></p></br>
-                <h3>User Name: </h3><p id="userName"><?php echo $userName; ?></p></br>
-                <h3>Email: </h3><p id="email"><?php echo $email; ?></p></br>
-                <h3>Phone Number: </h3><p id="contact_no"><?php echo $contactNumber; ?></p><br>
-                    <i class="fa-light fa-cart-shopping"></i>
-                <div class="button">
-                    <p><a href="cart.php" class="cart">🛒Cart </a></p><br>
-                    <i class="fa-solid fa-bag-shopping"></i>
-                    <p><a href="purchase_record.php" class="purchase">✓ Purchased</a></p><br>
-                 </div>
-        
-                </div>
+    <div class="container">
+        <h1>My Profile</h1>
+        <hr>
+    <div class="info">
+            <img id="profilePicture" src="<?php echo $profileImage; ?>" alt="Profile Picture">
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+          <div class="file-input-container">
+                <input type="file" name="profilePictureInput" id="profilePictureInput">
+          </div>    
+                <br>
+                <label for="profilePictureInput" id="uploadLabel">Choose a file</label>
+                <button type="submit">Upload</button>
+        </form>
+    
+          
+    </div>
+        <div class="address">
+            <h3>First Name:</h3><p id="firstName"><?php echo $firstName; ?></p></br>
+            <h3>Last Name: </h3><p id="lastName"><?php echo $lastName; ?></p></br>
+            <h3>User Name: </h3><p id="userName"><?php echo $userName; ?></p></br>
+            <h3>Email: </h3><p id="email"><?php echo $email; ?></p></br>
+            <h3>Phone Number: </h3><p id="contact_no"><?php echo $contactNumber; ?></p><br>
+            <i class="fa-light fa-cart-shopping"></i>
+            <div class="button">
+            <a href="profile_edit.php" id="change"><button type="button">⚙️Edit</button></a>
+                <p><a href="cart.php" class="cart">🛒Cart </a></p><br>
+                <p><a href="#" class="deliver"><i class="fas fa-motorcycle"></i> For Delivery </a></p><br>
+                <i class="fa-solid fa-bag-shopping"></i>
+                <p><a href="purchase_record.php" class="purchase">✓ Purchased</a></p><br>
+              
+            </div>
         </div>
+    </div>
 </body>
 </html>

@@ -68,8 +68,10 @@ hr{
 }
 
 .cart{
+    position: absolute;
     background-color: green;
-    margin-right: 30px;
+    margin-left: 90px;
+    margin-top: -8px;
     text-decoration: none;
     font-size: 20px;
     color: white;
@@ -83,7 +85,9 @@ hr{
 }
 
 .purchase{
-    
+    position: absolute;
+    margin-left: 200px;
+    margin-top: -8px;
     background-color: blue;
     text-decoration: none;
     font-size: 20px;
@@ -97,10 +101,47 @@ hr{
 }
 
 #change{
-    margin-top: 15px;
-    padding: 3px;
-    width: 100px;
-    margin-left: 48px;
-    border: 2px solid gold;
+    background-color: gray;
+    position: absolute;
+    padding: 5px 15px;
+    margin-top: -3px;
+    margin-left: -200px;
+    border: 2px solid black;
+    transition: border-bottom 0.3s ease;
+}
+#change:hover{
+    border-bottom: 2px solid gold ;
+}
 
+.file-input-container {
+     width: 200px;
+     overflow: hidden; 
+     text-overflow: ellipsis;
+     white-space: nowrap; 
+    }
+
+#uploadLabel, #profilePictureInput{
+    color: white;
+}
+
+#uploadLabel{
+    margin-left: 20px;
+    font-size: 15px;
+}
+
+.deliver{
+    position: absolute;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    background-color: red;
+    border: 2px solid black;
+    padding: 5px;
+    margin-left: -95px;
+    margin-top: -5px;
+    transition: border-bottom 0.3s ease;
+}
+
+.deliver:hover{
+    border-bottom: 2px solid gold ;
 }
