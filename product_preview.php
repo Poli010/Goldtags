@@ -49,7 +49,7 @@
                     <input type="hidden" name="product_description" value="<?php echo $row['product_description'] ?>">
 
                     <label for="quantity">Quantity:</label>
-                    <input type="number" name="quantity" class="quantity" min="0" oninput="validateQuantity(this)" required><br>
+                    <input type="number" name="quantity" id="quantity" class="quantity" min="0" oninput="validateQuantity(this)" required><br>
                     
                     <div class="product_size">
                         <label for="xsmall" class="size-btn">XS</label>

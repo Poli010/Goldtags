@@ -52,21 +52,25 @@ $(document).ready(function () {
         });
     });
 });
-
-//FUNCTION FOR BUY NOW
+// FUNCTION FOR BUY NOW
 function buynow(product_id, name, product_price, image) {
     var form = document.getElementById("form");
+    var quantity = document.getElementById("quantity").value;
 
-    if (form.checkValidity()) {
+    
+    var selectedSizeElement = document.querySelector(".size-btn.selected");
+    var size = selectedSizeElement ? selectedSizeElement.textContent : "";
+
+    if (form.checkValidity() && selectedSizeElement) {
         window.location.href = "payment.php" +
             "?product_id=" + product_id +
             "&name=" + name +
             "&product_price=" + product_price +
-            
-            "&quantity=1&size=XS" + 
+            "&quantity=" + quantity +
+            "&size=" + size +
             "&image=" + image;
     } else {
-        alert("Please fill up the form");
+        alert("Please select a size and fill up the form");
     }
     event.preventDefault();
 }
