@@ -73,7 +73,7 @@ mysqli_close($connection);
             <i class="fa-light fa-cart-shopping"></i>
             <div class="button">
             <a href="profile_edit.php" id="change"><button type="button">⚙️Edit</button></a>
-                <p><a href="cart.php" class="cart">🛒Cart </a></p><br>
+                <p><a href="cart.php?username=<?php echo $userName ?>" class="cart">🛒Cart </a></p><br>
                 <p><a href="#" class="deliver"><i class="fas fa-motorcycle"></i> For Delivery </a></p><br>
                 <i class="fa-solid fa-bag-shopping"></i>
                 <p><a href="purchase_record.php" class="purchase">✓ Purchased</a></p><br>
