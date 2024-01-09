@@ -9,8 +9,9 @@ if(isset($_POST['submit'])){
     $price = $_POST['product_price'];
     $description = $_POST['product_description'];
     $quantity = $_POST['quantity'];
+    $username = $_POST["username"];
 
-  $sql = "INSERT INTO add_to_cart VALUES('','$name','$image','$product_id', ' $price', '  $description', '$product_size', '$quantity')";
+  $sql = "INSERT INTO add_to_cart VALUES('','$username','$name','$image','$product_id', ' $price', '  $description', '$product_size', '$quantity')";
     mysqli_query($conn, $sql);
     echo
       "

@@ -41,6 +41,7 @@ function deliver(){
     var quantity = document.getElementById("quantity").value;
     var product_size = document.getElementById("product_size").value;
     var rider_name = document.getElementById("rider_name").value;
+    var image = document.getElementById("image").value;
     var button = document.getElementById("submit");
     
     if(confirm("Are you sure to deliver this item?")){
@@ -58,6 +59,7 @@ function deliver(){
                 quantity: quantity,
                 product_size: product_size,
                 rider_name: rider_name,
+                image: image,
             },
             success: function(){
                 button.click();

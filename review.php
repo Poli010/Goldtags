@@ -4,6 +4,7 @@ if(isset($_POST["submit"])){
   $rating = $_POST["rating"];
   $product_id = $_POST["product_id"];
   $comments = $_POST["comments"];
+  $username = $_POST["username"];
   if($_FILES["image"]["error"] == 4){
     echo
     "<script> alert('Image Does Not Exist'); </script>";
@@ -27,7 +28,7 @@ if(isset($_POST["submit"])){
       $newImageName .= '.' . $imageExtension;
 
       move_uploaded_file($tmpName, 'review_image/' . $newImageName);
-      $query = "INSERT INTO review VALUES('', '$comments','$product_id', '$newImageName', '$rating')";
+      $query = "INSERT INTO review VALUES('', '$username','$comments','$product_id', '$newImageName', '$rating')";
       mysqli_query($conn, $query);
       echo
       "<script>

@@ -25,12 +25,17 @@ searchInput.addEventListener('input', function() {
 
     products.forEach(product => {
         const productName = product.querySelector('.card-title').textContent.toLowerCase();
-        const productType = product.querySelector('.type').textContent.toLowerCase();
+        const productDescription = product.querySelector('.type').textContent.toLowerCase();
 
-        if (productName.includes(searchTerm) || productType.includes(searchTerm)) {
+        if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
             product.style.display = 'block';
         } else {
-            product.style.display = 'none';
+            product.style.display = 'none'; 
         }
     });
 });
+
+
+
+
+

@@ -1,6 +1,7 @@
 <?php
     require_once("connection.php");
     $product_id = $_GET['product_id'];
+    $username = $_GET['username'];
     $sql = "SELECT * FROM tb_upload WHERE product_id = '$product_id'";
     $result = mysqli_query($conn,$sql);
 ?>
@@ -41,6 +42,7 @@
                     <input type="hidden" name="image" value="<?php echo $row["image"]; ?>">
                     <input type="hidden" name="name" value="<?php echo $row['name'] ?>">
                     <input type="hidden" name="product_id" value="<?php echo $row['product_id'] ?>">   
+                    <input type="hidden" name="username" value="<?php echo $username ?>">
                     
                     <label for="product_price">Product Price: <i class="fa-solid fa-peso-sign"></i><span name="product_price"><?php echo $row['product_price'] ?></span></label><br>
                     <input type="hidden" name="product_price" value="<?php echo $row['product_price'] ?>">
@@ -88,6 +90,7 @@
                 <input type="hidden" name="rating" id="rating">
             </div>  
             <label for="image">Upload Image:</label><br>
+            <input type="hidden" name="username" value = "<?php echo $username ?>">
             <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" value="" required><br>
             <input type="hidden" name="product_id" value="<?php echo $product_id ?>">
             <label for="comments">Comments:</label><br>
@@ -103,7 +106,7 @@
             foreach($result as $row){
         ?>
         <div class="accounts">
-            <label for="star">User Accounts</label>
+            <label for="star"><?php echo $row['username'] ?></label>
             <div class="rateYo" data-rating="<?php echo $row['rating'] ?>" name="star"></div>
         </div>
         <div class="comments-images">

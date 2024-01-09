@@ -1,7 +1,8 @@
 <?php 
 require_once("connection.php");
-$sql = "SELECT * FROM add_to_cart";
-$result = mysqli_query($conn,$sql);
+$userName = $_GET['username'];
+$sql = "SELECT * FROM add_to_cart WHERE username = '$userName'";
+$result = mysqli_query($conn, $sql);
 ?>
 
 <html lang="en">
@@ -10,8 +11,6 @@ $result = mysqli_query($conn,$sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Cart</title>
     <link rel="stylesheet" href="cart.css">
-
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
@@ -23,8 +22,7 @@ $result = mysqli_query($conn,$sql);
     </header>
     <h1>Your Cart <i class="fa-solid fa-cart-shopping"></i></h1>
     <?php
-        while($row = mysqli_fetch_assoc($result))
-        {
+        foreach($result as $row){
     ?>
     <div class="cart">
             <img src="img/<?php echo $row['image'] ?>" alt="" width="400" height = "300" title="">

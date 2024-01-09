@@ -91,6 +91,7 @@ $contact_number = $_GET['contact_number'];
                 <input type="hidden" id="quantity" name="quantity" value="<?php echo $quantity ?>" readonly>
                 <input type="hidden" id="product_size" name="product_size" value="<?php echo $product_size ?>" readonly>
                 <input type="hidden" id="rider_name" name="rider" value="" readonly>
+                <input type="hidden" id="image" name="image" value = "<?php echo $image ?>">
 
             </div>
         </div>

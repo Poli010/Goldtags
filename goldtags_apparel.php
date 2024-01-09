@@ -76,7 +76,7 @@ $result = mysqli_query($conn, $sql);
 </div>
 
 <div class="container" id="container">
-<div class="row">
+    <div class="row">
         <?php mysqli_data_seek($result, 0); ?>
         <?php while ($row = mysqli_fetch_assoc($result)) : ?>
             <div class="col-md-3" id="product">
@@ -85,8 +85,12 @@ $result = mysqli_query($conn, $sql);
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['name']; ?></h5>
                         <p class="card-text">Price: <i class="fa-solid fa-peso-sign"></i><?php echo $row['product_price']; ?></p>
-                        <p class="type">Type: <?php echo $row['product_type']; ?></p>
-                        <a href="product_preview.php?product_id=<?php echo $row['product_id']; ?>&username=<?php echo urlencode($userName) ?>" class="btn btn-primary">View More</a>
+                        <p class="type">Type: <?php echo $row['product_type'] ?> </p>
+                        <?php if ($row['product_amount'] > 0) : ?>
+                            <a href="product_preview.php?product_id=<?php echo $row['product_id']; ?>&username=<?php echo urlencode($userName) ?>" class="btn btn-primary">View More</a>
+                        <?php else : ?>
+                            <button class="btn btn-danger" disabled>Sold Out</button>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
