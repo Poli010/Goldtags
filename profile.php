@@ -32,7 +32,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     $contactNumber = $row['contact_number'];
 
      
-    $profileImage = 'profile/' . $row['profile_img']; 
+    $profileImage = 'profile_image/' . $row['profile_image']; 
 }
 
 mysqli_close($connection);

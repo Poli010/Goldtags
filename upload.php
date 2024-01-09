@@ -25,11 +25,11 @@ if ($_FILES['profilePictureInput']['error'] === UPLOAD_ERR_OK) {
     $fileName = $_FILES['profilePictureInput']['name'];
     
     // To prevent SQL injection, use prepared statements
-    $stmt = $connection->prepare("UPDATE accounts SET profile_img = ? WHERE email = ?");
+    $stmt = $connection->prepare("UPDATE accounts SET profile_image = ? WHERE email = ?");
     $stmt->bind_param("ss", $fileName, $loggedInEmail);
     
     if ($stmt->execute()) {
-        $uploadDirectory = 'profile/';
+        $uploadDirectory = 'profile_image/';
         $destPath = $uploadDirectory . $fileName;
 
         if (move_uploaded_file($fileTmpPath, $destPath)) {
