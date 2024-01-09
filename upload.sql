@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 07, 2024 at 09:36 AM
+-- Host: localhost:3306
+-- Generation Time: Jan 09, 2024 at 08:42 AM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.1.17
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -59,6 +59,7 @@ INSERT INTO `accounts` (`firstName`, `lastName`, `userName`, `email`, `accountPa
 
 CREATE TABLE `add_to_cart` (
   `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `product_id` varchar(255) NOT NULL,
@@ -67,6 +68,13 @@ CREATE TABLE `add_to_cart` (
   `product_size` varchar(255) NOT NULL,
   `quantity` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `add_to_cart`
+--
+
+INSERT INTO `add_to_cart` (`id`, `username`, `name`, `image`, `product_id`, `product_price`, `product_description`, `product_size`, `quantity`) VALUES
+(5, 'cute', 'asdasdasd', '65991ffe8a934.png', 'product_id-65991ffe8a92c', 12, '    12', 'L', 6);
 
 -- --------------------------------------------------------
 
@@ -83,8 +91,17 @@ CREATE TABLE `for_delivery` (
   `product_price` int(255) NOT NULL,
   `quantity` int(255) NOT NULL,
   `size` varchar(255) NOT NULL,
-  `rider` varchar(255) NOT NULL
+  `rider` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `for_delivery`
+--
+
+INSERT INTO `for_delivery` (`id`, `buyer_name`, `contact_number`, `address`, `product_name`, `product_price`, `quantity`, `size`, `rider`, `image`) VALUES
+(5, 'asd', 9232182312, 'asd  asd asd asd 12093', 'Nike', 24, 5, 'M', 'Ivan Policarpio', ''),
+(6, 'asd', 12312312312, 'asd asd asd asd 3123', 'Austine', 300, 50, 'M', 'Ivan Policarpio', '659ce7125dc72.jpg');
 
 -- --------------------------------------------------------
 
@@ -107,6 +124,19 @@ CREATE TABLE `pending` (
   `contact_number` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `pending`
+--
+
+INSERT INTO `pending` (`id`, `name`, `product_price`, `quantity`, `product_size`, `address`, `baranggay`, `city`, `province`, `zip_code`, `image`, `contact_number`) VALUES
+(6, 'Nike', 5000, 2, 'M', 'asd', 'asd', 'asd', 'asd', 123, '659c9b68b2d78.jpg', 12312312312),
+(7, 'Nike', 5000, 2, 'M', 'asd', 'asd', 'asd', 'asd', 123, '659c9b68b2d78.jpg', 12312312312),
+(8, 'Nike', 5000, 2, 'M', 'asd', 'asd', 'asd', 'asd', 123, '659c9b68b2d78.jpg', 12312312312),
+(9, 'Nike', 5000, 2, 'M', 'asd', 'asd', 'asd', 'asd', 123, '659c9b68b2d78.jpg', 12312312312),
+(10, 'Nike', 5000, 2, 'M', 'asd', 'asd', 'asd', 'asd', 1234, '659c9b68b2d78.jpg', 11231231231),
+(11, 'Nike', 5000, 5, 'S', 'asdasd', 'asdasd', 'asdasd', 'asdasd', 11234, '659c9b68b2d78.jpg', 12312313123),
+(12, 'Nike', 5000, 5, 'M', 'asd', 'asd', 'asd', 'asd', 3023, '659c9b68b2d78.jpg', 9120390192);
+
 -- --------------------------------------------------------
 
 --
@@ -115,11 +145,21 @@ CREATE TABLE `pending` (
 
 CREATE TABLE `review` (
   `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `comments` varchar(255) NOT NULL,
   `product_id` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `rating` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`id`, `username`, `comments`, `product_id`, `image`, `rating`) VALUES
+(2, '', 'asd', 'product_id-65991ffe8a92c', '659c95ce97dfb.png', 4),
+(3, 'poli', 'asd', 'product_id-659c9b68b2d6e', '659ca397a6420.jpg', 4),
+(4, 'cute', 'asdasdasd', 'product_id-659c9b68b2d6e', '659ca3f28ae9e.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -143,8 +183,9 @@ CREATE TABLE `tb_upload` (
 --
 
 INSERT INTO `tb_upload` (`id`, `product_id`, `name`, `product_price`, `product_description`, `product_type`, `product_amount`, `image`) VALUES
-(23, 'product_id-65991ff0a0824', 'asd', ' 12', '  asd', ' asd', ' 12', '65991ff0a082b.jpg'),
-(24, 'product_id-65991ffe8a92c', 'asdasdasd', ' 12', '  12', ' asd', ' 12', '65991ffe8a934.png');
+(26, 'product_id-659c9b68b2d6e', 'Nike', ' 5000', '  akjhsd', ' Short', '0', '659c9b68b2d78.jpg'),
+(27, 'product_id-659ce7125dc68', 'Austine', '300', 'AJsd ajsdak jaksdjakjs kajdsha', 'Short', '100', '659ce7125dc72.jpg'),
+(28, 'product_id-659cf7de8938b', 'asd', ' 12', '  asduh akjdhsasjdh', ' Tshirt', ' 123', '659cf7de89396.jpg');
 
 --
 -- Indexes for dumped tables
@@ -188,31 +229,31 @@ ALTER TABLE `tb_upload`
 -- AUTO_INCREMENT for table `add_to_cart`
 --
 ALTER TABLE `add_to_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `for_delivery`
 --
 ALTER TABLE `for_delivery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pending`
 --
 ALTER TABLE `pending`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_upload`
 --
 ALTER TABLE `tb_upload`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
