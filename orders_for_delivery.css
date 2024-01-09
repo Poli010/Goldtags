@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("image.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.container {
+    height: 350px;
+    width: 600px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+    position: fixed;
+}
+
+h1{
+    text-align: center;
+    margin-top: -20px ;
+}
+.image{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.item{
+    margin-top: 10px;
+    margin-left: 50px;
+    font-size: 15px;
+}
+
+.item p{
+    font-size: 15px;
+}
+
+.buttons{
+    margin-left: 10px;
+    margin-top: 330px;
+    position: absolute;
+}
+
+.deliver{
+    padding: 5px 15px 5px 15px;
+    color: white;
+    background: blue;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.deliver:hover{
+    background: darkblue;
+}
+
+.cancel{
+    padding: 5px 15px 5px 15px;
+    color: white;
+    background: red;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cancel:hover{
+    background: darkred;
+}
+
+.rider{
+    width: 150px;
+    background: transparent;
+    cursor: pointer;
+    color: white;
+}
+
+.rider option{
+    color: black;
+}
+
+#submit{
+    display: none;
+}
