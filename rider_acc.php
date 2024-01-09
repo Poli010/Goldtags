@@ -71,7 +71,7 @@ mysqli_close($connection);
             <i class="fa-light fa-cart-shopping"></i>
             <div class="button">
             <a href="profile_edit.php" id="account">Account Settings</a>
-                <p><a href="orders_for_delivery.php" class="order">Orders</a></p><br>
+                <p><a href="for_delivery.php" class="order">Orders</a></p><br>
                 <p><a href="#" class="refund">Refunds</a></p><br>
                 <i class="fa-solid fa-bag-shopping"></i>
                 <p><a href="purchase_record.php" class="success">Successful Delivery</a></p><br>
