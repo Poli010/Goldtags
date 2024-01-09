@@ -18,6 +18,20 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     $result = mysqli_query($conn,$sql);
 
     if($result){
+        $remaining = "SELECT product_amount FROM tb_upload WHERE product_id = '$product_id'";
+        $theremaining = mysqli_query($conn, $remaining);
+    }
+
+    if($theremaining){
+        $row = mysqli_fetch_assoc($theremaining);
+        $current_quantity = $row['product_amount'];
+        $new_quantity = $current_quantity - $quantity;
+
+        $update_product_amount = "UPDATE tb_upload SET product_amount ='$new_quantity' WHERE product_id = '$product_id'";
+        $update = mysqli_query($conn, $update_product_amount);
+    }
+    
+    if($update){
         $cart = "DELETE FROM add_to_cart WHERE product_id = '$product_id'";
         $delete = mysqli_query($conn,$cart);
         
