@@ -137,3 +137,6 @@ h3 span{
     color: white;
     font-size: 12px;
 }
+.type{
+    display: none;
+}

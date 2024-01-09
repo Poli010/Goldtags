@@ -21,21 +21,16 @@ function hideElement(element) {
 
 searchInput.addEventListener('input', function() {
     const searchTerm = this.value.toLowerCase();
-    const products = document.querySelectorAll('#product');
+    const products = document.querySelectorAll('.col-md-3');
 
     products.forEach(product => {
         const productName = product.querySelector('.card-title').textContent.toLowerCase();
-        const productDescription = product.querySelector('.card-text').textContent.toLowerCase();
+        const productType = product.querySelector('.type').textContent.toLowerCase();
 
-        if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
+        if (productName.includes(searchTerm) || productType.includes(searchTerm)) {
             product.style.display = 'block';
         } else {
-            product.style.display = 'none'; 
+            product.style.display = 'none';
         }
     });
 });
-
-
-
-
-
