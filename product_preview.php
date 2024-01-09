@@ -28,6 +28,15 @@
         <hr>
     </header>
     <?php
+        $sql2 ="SELECT firstName, lastName FROM accounts WHERE username = '$username'";
+        $result2 = mysqli_query($conn,$sql2);
+        foreach($result2 as $row){
+        ?>
+        <input type="hidden" id="firstName" value="<?php echo $row['firstName'] ?> <?php echo $row['lastName'] ?>">
+        <?php
+            }
+        ?>
+    <?php
         while($row = mysqli_fetch_assoc($result))
         {
     ?>
@@ -70,15 +79,15 @@
                         <input type="radio" id="xlarge" class="radio" name="size" value="XL">
                     </div>
 
-                    
                     <button class="buy_now" onclick="buynow('<?php echo $row['product_id']; ?>','<?php echo urlencode($row['name']); ?>','<?php echo $row['product_price']; ?>','<?php echo urlencode($row['image']) ?>')">Buy Now</button>
-
                     <input type="submit" name="submit" id="submit" value="Add to Cart" class="add_to_cart">
                 </form>
             </div>
             <?php
                 }
             ?>
+            
+            
     </div>
 
     <div class="review">

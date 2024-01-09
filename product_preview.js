@@ -56,6 +56,7 @@ $(document).ready(function () {
 function buynow(product_id, name, product_price, image) {
     var form = document.getElementById("form");
     var quantity = document.getElementById("quantity").value;
+    var firstName = document.getElementById("firstName").value;
 
     
     var selectedSizeElement = document.querySelector(".size-btn.selected");
@@ -68,6 +69,7 @@ function buynow(product_id, name, product_price, image) {
             "&product_price=" + product_price +
             "&quantity=" + quantity +
             "&size=" + size +
+            "&firstName=" + firstName +
             "&image=" + image;
     } else {
         alert("Please select a size and fill up the form");
