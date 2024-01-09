@@ -74,7 +74,7 @@ mysqli_close($connection);
             <div class="button">
             <a href="profile_edit.php" id="change"><button type="button">⚙️Edit</button></a>
                 <p><a href="cart.php?username=<?php echo $userName ?>" class="cart">🛒Cart </a></p><br>
-                <p><a href="#" class="deliver"><i class="fas fa-motorcycle"></i> For Delivery </a></p><br>
+                <p><a href="pending_orders.php" class="deliver"><i class="fas fa-motorcycle"></i> For Delivery </a></p><br>
                 <i class="fa-solid fa-bag-shopping"></i>
                 <p><a href="purchase_record.php" class="purchase">✓ Purchased</a></p><br>
               

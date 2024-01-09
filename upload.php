@@ -33,7 +33,12 @@ if ($_FILES['profilePictureInput']['error'] === UPLOAD_ERR_OK) {
         $destPath = $uploadDirectory . $fileName;
 
         if (move_uploaded_file($fileTmpPath, $destPath)) {
-            echo "File uploaded and saved.";
+            echo "   
+            <script>
+              alert('Successfully Added');
+              window.location.replace(document.referrer);
+            </script>
+            ";;
         } else {
             echo "Error moving file.";
         }
