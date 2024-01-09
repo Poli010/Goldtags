@@ -1,249 +1,154 @@
-* {
+*{
+    margin:0;
     padding: 0;
-    margin: 0;
 }
 
-body {
+body{
     background-image: url("image.jpg");
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     padding: 0;
     height: 100vh;
 }
 
-#logo {
-    width: 100px;
-    height: auto;
-    display: block;
-    margin: 20px 10px 20px;
-    border: 2px solid #333;
-    border-radius: 5px; 
+.container{
+    border: 4px solid white;
+    height: 500px;
+    width: 700px;
 }
 
-header hr {
-    border: 1px solid #333;
-    margin: 10px 0;
-}
-
-#container {
-    margin-top: 10%;
-    height: 70%;
-    background: transparent;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-}
-
-.card {
-    background: transparent;
-    border: 1px solid #dee2e6;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card-body {
+h1{
     text-align: center;
+    color: white;
+    margin-top: 20px;
+}
+hr{
+    border-bottom: 2px solid black;
+}
+.info{
+    margin-top: 30px;
+    margin-left: 20px;
+    border: 5px solid gold;
+    width: 200px;
+    height: 300px;
+}
+
+#profilePicture{
+    margin-left: 10px;
+    margin-top: 20px;
+    border: 2px solid gold;
+    border-radius: 20px;
+    width: 180px;
+    height: 150px;
+}
+
+#profilePictureInput{
+    margin-top: 55px;
+    margin-left: 10px;
+}
+
+.data{
+    margin-top: -290px;
+    margin-left: 270px;
+    color: white;
+}
+
+.button{
+    
+    display: flex;
     margin-top: 50px;
+    margin-left: 60px;
+    
 }
 
-.orders-link,
-.refunds-link,
-.success-link,
-.account-link {
-    margin: 10px 10px 30px 10px;
-    padding: 5px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.orders-link {
+.order{
+    position: absolute;
     background-color: green;
-    color: #fff;
-}
-
-.orders-link:hover {
-    color: gold;
-}
-
-.refunds-link {
-    background-color: #e74c3c;
-    color: #fff;
-}
-
-.refunds-link:hover {
-    color: gold;
-}
-
-.success-link {
+    margin-left: 35px;
+    margin-top: -5px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
     padding: 5px;
-    color: #fff;
+    transition: border-bottom 0.3s ease;
+}
+
+.order:hover{
+    background: darkgreen;
+}
+
+.success{
+    position: absolute;
+    margin-left: 150px;
+    margin-top: -5px;
     background-color: blue;
     border-radius: 5px;
-}
-
-.success-link:hover {
-   color: gold;
-}
-
-.account-link {
-    padding: 5px;
-    color: #fff;
-    background-color: darkgray; 
-    border-radius: 5px;
-}
-
-.account-link:hover {
-    color: gold; 
-}
-
-i {
-    margin-right: 5px;
-}
-
-#pic{
-    width: 8rem;
-    margin-top: 2px;
-    height:100px;
-    background: transparent; 
-    border: 2px solid white;
-}
-
-#data{
-    width: 20rem; 
-    margin-top: -80%; 
-    left: 10px; 
-    height: 260px; 
-    background:transparent;  
-    border: 2px solid white;
-}
-p4{
-    color: white;
-    position: absolute;
-    font-size: 20px;
-    margin-left: 100px;
-    margin-top: 50px;
-}
-p1{
-    margin-left: 100px;
-    margin-top: 30px;
-    position: absolute;
-    color: white;
-    font-size: 15px;
-}
-p2{
-    
-    margin-left: 100px;
-    margin-top: 50px;
-    position: absolute;
-    color: white;
-    font-size: 15px;
-}
-p3{
-    margin-left: 130px;
-    margin-top: 70px;
-    position: absolute;
-    color: white;
-    font-size: 15px;
-}
-@media only screen and (max-width:320px){
-    #data {
-        width: 17rem;
-    }
-    #pic{
-        width: 6rem;
-    }
-}
-
-@media only screen and (min-width:425px){
-    #data{
-        margin-top: -65%;
-        left: 9%;
-    }
-    #pic{
-        margin-left: 20px;
-        margin-top: 5px;
-    }
-}
-
-@media only screen and (min-width:1366px){
-    #data {
-       width: 31rem;
-       height: 18rem;
-       bottom: 20vh;
-       left: 63vh;
-    }
-    #pic{
-        margin-top: -40px;
-        margin-left: -60px;
-    }
-    p4{
-        color: white;
-        position: absolute;
-        font-size: 25px;
-        margin-left: 100px;
-        margin-top: -50px;
-    }
-    p1{
-        margin-left: 120px;
-        margin-top: -20px;
-        position: absolute;
-        color: white;
-        font-size: 20px;
-    }
-    p2{
-        
-        margin-left: 100px;
-        margin-top: 10px;
-        position: absolute;
-        color: white;
-        font-size: 20px;
-    }
-    p3{
-        margin-left: 160px;
-        margin-top: 35px;
-        position: absolute;
-        color: white;
-        font-size: 20px;
-    }
-    .orders-link,
-    .refunds-link,
-    .success-link,
-    .account-link {
-    
-    margin: 10px 10px 20px 10px;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    font-size: 20px;
+    border: 1px solid black;
+    padding: 5px;
+    color: white;
+    transition: border-bottom 0.3s ease;
 }
-    .success-link{
-        position: absolute;
-        margin-top: 12px;
-        left: 130px;
-        padding: 15px 25px; 
+.success:hover{
+    background-color: darkblue;
+}
+
+#account{
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    background-color: gray;
+    position: absolute;
+    padding: 5px 15px;
+    margin-top: -4px;
+    margin-left: -305px;
+    border: 1px solid black;
+    border-radius: 5px;
+    transition: border-bottom 0.3s ease;
+}
+#account:hover{
+    background-color: darkgray;
+};
+
+.file-input-container {
+     width: 200px;
+     overflow: hidden; 
+     text-overflow: ellipsis;
+     white-space: nowrap; 
     }
 
-    .account-link{ 
-        position: absolute;
-        padding: 15px 25px;
-        margin-top: 40px;
-        left: 135px;
-    }
-    .orders-link{
-        position: absolute;
-        padding: 15px 25px;
-        left: 80px;
-        margin-top: -15px;
-        
-    }
-    .refunds-link{
-        position: absolute;
-        padding: 15px 25px;
-        margin-top: -15px;
-        left: 260px;
-    }
-   
+#uploadLabel, #profilePictureInput{
+    color: white;
+}
+
+#uploadLabel{
+    margin-left: 20px;
+    font-size: 15px;
+}
+
+.refund{
+    position: absolute;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    background-color: red;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: -85px;
+    margin-top: -5px;
+    transition: border-bottom 0.3s ease;
+}
+
+.refund:hover{
+    background-color: darkred;
 }
