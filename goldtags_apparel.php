@@ -86,6 +86,7 @@ $result = mysqli_query($conn, $sql);
                         <h5 class="card-title"><?php echo $row['name']; ?></h5>
                         <p class="card-text">Price: <i class="fa-solid fa-peso-sign"></i><?php echo $row['product_price']; ?></p>
                         <p class="type">Type: <?php echo $row['product_type'] ?> </p>
+                        <p class="card-text">Stocks: <?php echo $row['product_amount'] ?></p>
                         <?php if ($row['product_amount'] > 0) : ?>
                             <a href="product_preview.php?product_id=<?php echo $row['product_id']; ?>&username=<?php echo urlencode($userName) ?>" class="btn btn-primary">View More</a>
                         <?php else : ?>
