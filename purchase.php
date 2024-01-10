@@ -13,8 +13,9 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     $image =$_POST['image'];
     $product_id =$_POST['product_id'];
     $contact_number =$_POST['contact_number'];
+    
 
-    $sql = "INSERT INTO pending VALUES ('','$name', '$product_price', '$quantity', '$size', '$address', '$baranggay', '$city', '$province', '$zip_code','$image','$contact_number')";
+    $sql = "INSERT INTO pending VALUES ('','$name', '$product_price', '$quantity', '$size', '$address', '$baranggay', '$city', '$province', '$zip_code','$image','$contact_number','')";
     $result = mysqli_query($conn,$sql);
 
     if($result){

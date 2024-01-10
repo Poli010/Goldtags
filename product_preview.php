@@ -79,7 +79,6 @@
                         <label for="xlarge" class="size-btn">XL</label>
                         <input type="radio" id="xlarge" class="radio" name="size" value="XL">
                     </div>
-
                     <button class="buy_now" onclick="buynow('<?php echo $row['product_id']; ?>','<?php echo urlencode($row['name']); ?>','<?php echo $row['product_price']; ?>','<?php echo urlencode($row['image']) ?>')">Buy Now</button>
                     <input type="submit" name="submit" id="submit" value="Add to Cart" class="add_to_cart">
                 </form>
