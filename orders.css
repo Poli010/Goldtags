@@ -117,3 +117,8 @@ table tr td{
     margin-top: 200px;
 }
 
+
+#logoutBtn{
+    color: red;
+    font-weight: bolder;
+}

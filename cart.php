@@ -34,7 +34,8 @@ $result = mysqli_query($conn, $sql);
                 <p>Quantity: <?php echo $row['quantity'] ?></p>
                 <p>Size: <?php echo $row['product_size'] ?></p>
                 <a class="buy_now"href="payment.php?name=<?php echo $row['name'] ?>&product_price=<?php echo $row['product_price'] ?>&image=<?php echo $row['image'] ?>&quantity=<?php echo $row['quantity'] ?> &size=<?php echo $row['product_size'] ?>&product_id=<?php echo $row['product_id'] ?>">Buy Now</a>
-                <button class="remove" onclick="remove()">Remove</button>
+                <input type="hidden" name="product_size" id="product_size" value="<?php echo $row['product_size'] ?>">
+                <button class="remove" data-productid="<?php echo $row['product_id']; ?>" onclick="remove(this)">Remove</button>
             </div>
     </div>
     <?php

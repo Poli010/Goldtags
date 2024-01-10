@@ -105,3 +105,9 @@ button:hover {
 #image:hover {
     border-color: gold;
 }
+
+
+#logoutBtn{
+    color: red;
+    font-weight: bolder;
+}

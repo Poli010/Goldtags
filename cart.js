@@ -1,5 +1,6 @@
-function remove() {
-    var productID = document.getElementById('product_id').value;
+function remove(button) {
+    var productSize = button.parentElement.querySelector('[name="product_size"]').value;
+    var productId = button.getAttribute('data-productid');
 
     if (confirm("Are you sure to delete this item?")) {
         $.ajax({
@@ -7,10 +8,11 @@ function remove() {
             type: 'POST',
             dataType: 'json',
             data: {
-                product_id: productID
+                product_size: productSize,
+                product_id: productId  
             },
-            success: function() {
-                window.location.reload()  
+            success: function () {
+                window.location.reload();
             },
         });
     }

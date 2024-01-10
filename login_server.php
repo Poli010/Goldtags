@@ -29,23 +29,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $count = $result->num_rows;
                 if ($count == 1) {
                     $row = $result->fetch_assoc();
-                    $_SESSION['email'] = $row['email'];
-                    $_SESSION['userName'] = $row['userName']; // Assuming 'userName' is the column name in your 'accounts' table
 
-                    // Redirect based on account type
-                    $accountType = $row['account_type'];
-                    if ($accountType === 'Admin') {
-                        header("Location: adminpage.php");
-                        exit();
-                    } elseif ($accountType === '') {
-                        header("Location: goldtags_apparel.php");
-                        exit();
-                    } elseif ($accountType === 'rider') {
-                        header("Location: rider_acc.php");
-                        exit();
+                    // Check if verification_code and signup_verification are the same
+                    if (
+                        isset($row['verification_code']) &&
+                        isset($row['signup_verification']) &&
+                        $row['verification_code'] === $row['signup_verification']
+                    ) {
+                        $_SESSION['email'] = $row['email'];
+                        $_SESSION['userName'] = $row['userName']; // Assuming 'userName' is the column name in your 'accounts' table
+
+                        // Redirect based on account type
+                        $accountType = $row['account_type'];
+                        if ($accountType === 'Admin') {
+                            header("Location: adminpage.php");
+                            exit();
+                        } elseif ($accountType === '') {
+                            header("Location: goldtags_apparel.php");
+                            exit();
+                        } elseif ($accountType === 'rider') {
+                            header("Location: rider_acc.php");
+                            exit();
+                        } else {
+                            header("Location: default_page.php");
+                            exit();
+                        }
                     } else {
-                        header("Location: default_page.php");
-                        exit();
+                        echo '<script>
+                                alert("Account not verified. Please verify your account first. Check your email were already sent you a verification code. Thankyou!");
+                                window.location.href = "verify.php"; // Redirect to verification page
+                              </script>';
                     }
                 } else {
                     echo '<script>

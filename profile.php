@@ -49,8 +49,14 @@ mysqli_close($connection);
 </head>
 <body>
     <div class="container">
+       <header>
+          <nav class="navbar">
+            <a href="goldtags_apparel.php">Back</a>
+          </nav>
+      </header>
         <h1>My Profile</h1>
         <hr>
+        
     <div class="info">
             <img id="profilePicture" src="<?php echo $profileImage; ?>" alt="Profile Picture">
         <form action="upload.php" method="post" enctype="multipart/form-data">
@@ -72,14 +78,15 @@ mysqli_close($connection);
             <h3>Phone Number: </h3><p id="contact_no"><?php echo $contactNumber; ?></p><br>
             <i class="fa-light fa-cart-shopping"></i>
             <div class="button">
-            <a href="profile_edit.php" id="change"><button type="button">⚙️Edit</button></a>
-                <p><a href="cart.php?username=<?php echo $userName ?>" class="cart">🛒Cart </a></p><br>
-                <p><a href="pending_orders.php" class="deliver"><i class="fas fa-motorcycle"></i> For Delivery </a></p><br>
+            <a href="profile_edit.php" id="change">Edit</button></a>
+                <p><a href="cart.php?username=<?php echo $userName ?>" class="cart">Cart </a></p><br>
+                <p><a href="pending_orders.php" class="deliver"> For Delivery </a></p><br>
                 <i class="fa-solid fa-bag-shopping"></i>
-                <p><a href="purchase_record.php" class="purchase">✓ Purchased</a></p><br>
-              
+                <p><a href="purchase_record.php" class="purchase"> Purchased</a></p><br>
+                <p><a href="#" id="logoutBtn">LOGOUT</a></p>
             </div>
         </div>
     </div>
+    <script src="logout.js"></script>
 </body>
 </html>

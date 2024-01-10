@@ -14,6 +14,7 @@
                 <li><a href="adminproductadd.php">Add Product</a></li>
                 <li><a href="orders.php">Orders</a></li>
                 <li><a href="#">Refunds</a></li>
+                <li><a href="#" id="logoutBtn">LOGOUT</a></li>
               
             </nav>
     <div class="center-container">
@@ -42,7 +43,7 @@
         </div>
     </div>
 
+    <script src="logout.js"></script>
 
-    
 </body>    
 </html>

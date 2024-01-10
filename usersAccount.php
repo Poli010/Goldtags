@@ -27,13 +27,15 @@ $result = $conn->query($sql);
 </head>
 <body>
     <nav> 
-        <li><a href="adminpage.php">Product list</a></li>
+        <li><a href="adminpage.php">Product list </a></li>
         <li><a href="usersAccount.php">Account list</a></li>
         <li><a href="adminproductadd.php">Add Product</a></li>
-        <li><a href="#">Orders</a></li>
+        <li><a href="orders.php">Orders</a></li>
         <li><a href="#">Refunds</a></li>
+        <li><a href="#" id="logoutBtn">LOGOUT</a></li>
     </nav>
-    <table class="adminTable">
+    <div class="table-container">
+        <table class="table" border="2">
         <thead>
             <tr>
                 <th>First Name</th>
@@ -67,3 +69,5 @@ $result = $conn->query($sql);
 <?php
 $conn->close();
 ?>
+
+<script src="logout.js"></script>

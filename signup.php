@@ -12,17 +12,34 @@
         <div class="bar">
             <h1>Sign Up</h1>
             <form id="signupForm" method="post" action="submit.php">
-                <input type="text" id="firstName" name="firstName" placeholder="First Name">
-                <input type="text" id="lastName" name="lastName" placeholder="Last Name">
-                <input type="text" id="userName" name="userName" placeholder="Username">
-                <input type="email" id="email" name="email" placeholder="Email">
-                <input type="text" id="contact_number" name="contact_number" placeholder="Phone Number">
-                <input type="password" id="password" name="accountPass" placeholder="Password">
+                <input type="text" id="firstName" name="firstName" placeholder="First Name"required>
+                <input type="text" id="lastName" name="lastName" placeholder="Last Name"required>
+                <input type="text" id="userName" name="userName" placeholder="Username"required>
+                <input type="email" id="email" name="email" placeholder="Email"required>
+                <input type="tel" id="contact_number" name="contact_number" placeholder="Phone Number" pattern="[0-9]*" maxlength="11" required>
+                <input type="password" id="password" name="accountPass" placeholder="Password" required>
                 <button type="submit" id="signup">Sign Up</button>
             </form>
             <p1>Already have an account? <a href="login.php">Login</a></p1>
         </div>
         <p></p>
     </section>
+
+     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var contactNumberInput = document.getElementById("contact_number");
+
+            contactNumberInput.addEventListener("input", function () {
+            
+                this.value = this.value.replace(/\D/g, '');
+
+              
+                if (this.value.length > 11) {
+                    this.value = this.value.slice(0, 11);
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>

@@ -7,32 +7,45 @@ body {
     margin: 0;
 }
 
-.adminTable {
-    margin-top: -150px;
-    color: white;
-    text-align: center;
+.table-container {
+    position: fixed;
+    margin-top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: scroll;
+    overflow-x: hidden; 
+    height: 520px;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.table {
+    height: auto;
     border-collapse: collapse;
-    backdrop-filter: blur(20px);
-    width: 80%; 
-}
-.adminTable th{
-    border: 3px solid gold;
-}
-.adminTable, .adminTable td {
-    border: 2px solid white;
-    
+    margin-right: 70px;
+    text-align: center;
+    width: 100%;
+    overflow-y: scroll; /
 }
 
-.adminTable th, .adminTable td {
-    padding: 8px;
-}
-
-.adminTablethead th {
-    background-color: white;
-}
-.adminTable thead th {
+.table th,
+.table td {
+    border: 2px solid gold;
+    padding: 10px;
     color: white;
 }
+
+.table thead {
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 2;
+}
+
+.table tbody {
+    overflow-x: hidden;
+}
+
 nav {
     height: 60px;
     display: flex;
@@ -59,6 +72,7 @@ nav li {
 }
 
 nav a {
+    text-decoration: none;
     font-size: 15px;
     color: white; 
     margin-left: 15px;
@@ -71,3 +85,8 @@ nav a:hover {
     color: gold;
 }
 
+
+#logoutBtn{
+    color: red;
+    font-weight: bolder;
+}
