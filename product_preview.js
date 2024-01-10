@@ -76,3 +76,28 @@ function buynow(product_id, name, product_price, image) {
     }
     event.preventDefault();
 }
+
+//
+//FUNCTION FOR QUANTITY LIMIT
+// Get the product amount from the hidden input
+var productAmount = parseInt(document.getElementById('current_quantity').value, 10);
+
+// Set the max attribute for the quantity input
+document.getElementById('quantity').setAttribute('max', productAmount);
+
+// Function to validate the quantity
+function validateQuantity(input) {
+    var currentValue = parseInt(input.value, 10);
+    if (currentValue > productAmount) {
+        input.setCustomValidity('Quantity exceeds available stock.');
+    } else {
+        input.setCustomValidity('');
+    }
+}
+function isArrowKey(event) {
+    if (event.key === "ArrowUp" || event.key === "ArrowDown" || event.key === "ArrowLeft" || event.key === "ArrowRight") {
+      return true; 
+    } else {
+      return false; 
+    }
+  }

@@ -59,8 +59,9 @@
                     <label for="product_description">Product Description: <span name="product_description"><?php echo $row['product_description'] ?></span></label><br>
                     <input type="hidden" name="product_description" value="<?php echo $row['product_description'] ?>">
 
+                    <input type="hidden" id="current_quantity" value="<?php echo $row['product_amount'] ?>">
                     <label for="quantity">Quantity:</label>
-                    <input type="number" name="quantity" id="quantity" class="quantity" min="0" oninput="validateQuantity(this)" required><br>
+                    <input type="number" name="quantity" id="quantity" class="quantity" min="0" oninput="validateQuantity(this)" onkeydown="return isArrowKey(event)" required><br>
                     
                     <div class="product_size">
                         <label for="xsmall" class="size-btn">XS</label>
