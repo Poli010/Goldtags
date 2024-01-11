@@ -70,3 +70,20 @@ function isNumberKey(evt) {
     }
     return true;
 }
+
+
+function updateTotal() {
+    var quantity = parseInt(document.getElementById('quantity').value);
+    var productPrice = parseFloat(document.getElementById('product_price').value);
+
+   
+    var total = quantity * productPrice;
+
+ 
+    document.getElementById('total').innerText = '₱' + total.toFixed(2); 
+
+    
+    document.getElementById('hiddenQuantity').value = quantity;
+}
+
+updateTotal();

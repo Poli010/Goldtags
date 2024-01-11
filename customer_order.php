@@ -45,7 +45,8 @@ $product_id = $_GET['product_id'];
                 <p>Quantity: <span><?php echo $quantity ?></span></p><br>
                 <p>Size: <span><?php echo $product_size ?></span></p><br> 
                 <p>Time of Purchased: <?php echo date("F j, Y, g:i A", strtotime($time_stamp)); ?></p> <br>
-
+                <p>TOTAL: <span id="total"></span></p><br>
+                <input type="hidden" id="quantity" value="<?php echo $quantity ?>" onchange="updateTotal()">
                 <input type="hidden" id="id" value="<?php echo $id ?>">  
                 <label for="">Select Rider:</label>
                 <select name="" id="" class="rider">

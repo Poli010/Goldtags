@@ -88,3 +88,20 @@ function deliver(){
     }
 }
 
+function updateTotal() {
+    // Get the quantity and product price from the input fields
+    var quantity = parseInt(document.getElementById('quantity').value);
+    var productPrice = parseFloat(document.getElementById('product_price').value);
+
+    // Calculate the total
+    var total = quantity * productPrice;
+
+    // Update the total span with the calculated value
+    document.getElementById('total').innerText = '₱' + total.toFixed(2); // Assuming the price is in Philippine Peso
+
+    // Set the value of the hidden input box for server-side processing
+    document.getElementById('hiddenQuantity').value = quantity;
+}
+
+// Call the function initially to set the total based on the default quantity
+updateTotal();

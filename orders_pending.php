@@ -31,8 +31,12 @@ $rider = $_GET['rider'];
                 <p>Product Price: <span><i class="fa-solid fa-peso-sign"></i></span><?php echo $product_price ?></p><br>
                 <p>Quantity: <span><?php echo $quantity ?></span></p><br>
                 <p>Size: <span><?php echo $product_size ?></span></p><br>
+                <p>TOTAL: <span id="total"></span></p><br>
+                <input type="hidden" id="quantity" value="<?php echo $quantity ?>" onchange="updateTotal()">
+                <input type="hidden" id="hiddenQuantity" value="<?php echo $quantity ?>">
+                <input type="hidden" id="product_price" value="<?php echo $product_price ?>">
                 <p>Rider: <span><?php echo $rider ?></span></p><br>
-                
+
             </div>
             <div class="image">
                 <img src="img/<?php echo $image ?>" alt="" srcset="" height="150" width="150">
