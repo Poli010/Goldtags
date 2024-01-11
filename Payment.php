@@ -7,6 +7,7 @@ $size = $_GET['size'];
 $image = $_GET['image'];
 $contact_number = $_GET['contact_number'];
 $product_id = $_GET['product_id'];
+$buyer_name = $_GET['buyer_name'];
 ?>
 
 
@@ -32,6 +33,7 @@ $product_id = $_GET['product_id'];
                 <input type="hidden" id="size" value="<?php echo $size ?>">
                 <input type="hidden" id="image" value="<?php echo $image ?>">
                 <input type="hidden" id="product_id" value="<?php echo $product_id ?>">
+                <input type="hidden" id="buyer_name" value="<?php echo $buyer_name ?>">
 
                 <p>Product Name: <span><?php echo $name ?></span></p><br>
                 <p>Product Price: <span><i class="fa-solid fa-peso-sign"></i><?php echo $product_price ?></span></p><br>
@@ -39,7 +41,6 @@ $product_id = $_GET['product_id'];
                 <p>Size: <span><?php echo $size ?></span></p><br>
                 <label for="contact_number">Contact Number:</label>
                 <input type="text" id="contact_number" value="0<?php echo $contact_number ?>" onkeypress="return isNumberKey(event)" maxlength="11" required>
-
             </div>
             <div class="image">
                 <img src="img/<?php echo $image ?>" height="200" width="200" alt="">

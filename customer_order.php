@@ -11,8 +11,8 @@ $province = $_GET['province'];
 $zip_code = $_GET['zip_code'];
 $image = $_GET['image'];
 $contact_number = $_GET['contact_number'];
-date_default_timezone_set('Asia/Manila'); 
-$timestamp = time();
+$buyer_name = $_GET['buyer_name'];
+$time_stamp = $_GET['time_stamp'];
 ?>
 
 
@@ -35,14 +35,15 @@ $timestamp = time();
                 <img src="img/<?php echo $image ?>" height="190" width="200" alt="">
             </div>
             <div class="item">
-                <p>Buyer Name:</p><br>
+                <p>Buyer Name: <?php echo $buyer_name ?></p><br>
                 <p>Contact Number: 0<?php echo $contact_number ?></p><br>
                 <p>Address: <?php echo $address ?> <?php echo $baranggay ?> <?php echo $city ?>, <?php echo $province ?> <?php echo $zip_code ?></p><br>
                 <p>Product Name: <span><?php echo $name ?></span></p><br>
                 <p>Product Price: <span><i class="fa-solid fa-peso-sign"></i><?php echo $product_price ?></span></p><br>
                 <p>Quantity: <span><?php echo $quantity ?></span></p><br>
                 <p>Size: <span><?php echo $product_size ?></span></p><br> 
-                <p>Time of Purchased: <?php echo date(' F d Y,  H:i a', $timestamp); ?></p> <br>
+                <p>Time of Purchased: <?php echo date("F j, Y, g:i A", strtotime($time_stamp)); ?></p> <br>
+
                 <input type="hidden" id="id" value="<?php echo $id ?>">  
                 <label for="">Select Rider:</label>
                 <select name="" id="" class="rider">
@@ -72,7 +73,7 @@ $timestamp = time();
                     
 
                     <input type="hidden" name="greet2" value="Here is the Customer and parcel Information:">
-                    <input type="hidden" id="buyer_name1" name="buyer_name1" value="Name:" readonly>
+                    <input type="hidden" id="buyer_name1" name="buyer_name1" value="Name: <?php echo $buyer_name ?>" readonly>
                     <input type="hidden" id="contact_number1" name="contact_number1" value="Contact Number: <?php echo $contact_number ?>" readonly>
                     <input type="hidden" id="address1" name="address1" value="Address: <?php echo $address ?> <?php echo $baranggay ?> <?php echo $city ?> <?php echo $province ?> <?php echo $zip_code ?>" readonly>
                     <input type="hidden" id="product_name1" name="product_name1" value="Product Name: <?php echo $name ?>" readonly>
@@ -86,7 +87,7 @@ $timestamp = time();
                 <!--- SEND INFORMATION TO RIDER PAGE--->
                 
                 <input type="hidden" id="id" value="<?php echo $id ?>">
-                <input type="hidden" id="buyer_name" name="buyer_name" value="asd" readonly>
+                <input type="hidden" id="buyer_name" name="buyer_name" value="<?php echo $buyer_name ?>" readonly>
                 <input type="hidden" id="contact_number" name="contact_number" value="<?php echo $contact_number ?>" readonly>
                 <input type="hidden" id="address" name="address" value="<?php echo $address ?> <?php echo $baranggay ?> <?php echo $city ?> <?php echo $province ?> <?php echo $zip_code ?>" readonly>
                 <input type="hidden" id="product_name" name="product_name" value="<?php echo $name ?>" readonly>

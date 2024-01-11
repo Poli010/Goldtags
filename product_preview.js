@@ -56,7 +56,7 @@ $(document).ready(function () {
 function buynow(product_id, name, product_price, image, contact_number) {
     var form = document.getElementById("form");
     var quantity = document.getElementById("quantity").value;
-    var firstName = document.getElementById("firstName").value;
+    var buyer_name = document.getElementById("buyer_name").value;
 
     
     var selectedSizeElement = document.querySelector(".size-btn.selected");
@@ -69,7 +69,7 @@ function buynow(product_id, name, product_price, image, contact_number) {
             "&product_price=" + product_price +
             "&quantity=" + quantity +
             "&size=" + size +
-            "&firstName=" + firstName +
+            "&buyer_name=" + buyer_name +
             "&image=" + image +
             "&contact_number=" + contact_number;
     } else {

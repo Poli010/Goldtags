@@ -33,7 +33,7 @@
         $result2 = mysqli_query($conn,$sql2);
         foreach($result2 as $row){
         ?>
-        <input type="hidden" id="firstName" value="<?php echo $row['firstName'] ?> <?php echo $row['lastName'] ?>">
+        <input type="hidden" id="buyer_name" value="<?php echo $row['firstName'] ?> <?php echo $row['lastName'] ?>">
         <?php
             }
         ?>

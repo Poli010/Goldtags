@@ -11,6 +11,7 @@ function purchase() {
     var image = document.getElementById("image").value;
     var product_id = document.getElementById("product_id").value;
     var contact_number = document.getElementById("contact_number").value;
+    var buyer_name = document.getElementById("buyer_name").value;
 
     // Check if any required field is empty
     if (
@@ -48,6 +49,7 @@ function purchase() {
             image: image,
             product_id: product_id,
             contact_number: contact_number,
+            buyer_name: buyer_name,
         },
         success: function () {
             alert("THANK YOU FOR PURCHASING OUR PRODUCT!")
