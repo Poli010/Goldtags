@@ -8,6 +8,7 @@ $product_size = $_GET['product_size'];
 $image = $_GET['image'];
 $product_id = $_GET['product_id'];
 $cancel_button_hide = $_GET['cancel_button_hide'];
+$rider = $_GET['rider'];
 ?>
 
 <!DOCTYPE html>
@@ -29,9 +30,9 @@ $cancel_button_hide = $_GET['cancel_button_hide'];
                 <p>Product Name: <span><?php echo $prodcut_name ?></span></p><br>
                 <p>Product Price: <span><i class="fa-solid fa-peso-sign"></i></span><?php echo $product_price ?></p><br>
                 <p>Quantity: <span><?php echo $quantity ?></span></p><br>
-                <?php if (!empty($product_size)): ?>
-                    <p>Size: <span><?php echo $product_size ?></span></p><br>
-                <?php endif; ?>
+                <p>Size: <span><?php echo $product_size ?></span></p><br>
+                <p>Rider: <span><?php echo $rider ?></span></p><br>
+                
             </div>
             <div class="image">
                 <img src="img/<?php echo $image ?>" alt="" srcset="" height="150" width="150">

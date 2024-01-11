@@ -52,7 +52,7 @@ $product_id = $_GET['product_id'];
                 <option value=""></option>
                     <?php
                         require_once("connection.php");
-                        $sql = "SELECT firstName, lastName, email FROM accounts WHERE account_type = 'rider'";
+                        $sql = "SELECT firstName, lastName, email, contact_number FROM accounts WHERE account_type = 'rider'";
                         $result = mysqli_query($conn, $sql);
 
                         while($row = mysqli_fetch_assoc($result)){
@@ -101,7 +101,7 @@ $product_id = $_GET['product_id'];
                 <input type="hidden" id="cancel_button_hide" name="cancel_button_hide" value="0">
                 <input type="hidden" id="cancel_order" name="cancel_order" value="2">
                 <input type="hidden" id="product_id" value="<?php echo $product_id ?>">
-
+                
             </div>
         </div>
         <input type="hidden" id="email" value=<?php echo $email ?>>

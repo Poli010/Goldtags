@@ -15,12 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cancel_button_hide = $_POST['cancel_button_hide'];
     $email = $_POST['email'];
     $product_id = $_POST['product_id'];
+    $emailInput = $_POST['emailInput'];
 
-    $sql = "INSERT INTO for_delivery VALUES ('', '$buyer_name', '$email','$contact_number', '$address', '$product_name','$product_id', '$product_price', '$quantity', '$product_size', '$rider_name','$image')";
+    $sql = "INSERT INTO for_delivery VALUES ('', '$buyer_name', '$email','$contact_number', '$address', '$product_name','$product_id', '$product_price', '$quantity', '$product_size', '$rider_name','$image','$emailInput')";
     $result = mysqli_query($conn, $sql);
 
     if ($result){
-        $hide = "UPDATE customer_pending SET cancel_button_hide = '$cancel_button_hide' WHERE email = '$email' AND product_id = '$product_id' AND product_size = '$product_size' ";
+        $hide = "UPDATE customer_pending SET cancel_button_hide = '$cancel_button_hide', rider = '$rider_name' WHERE email = '$email' AND product_id = '$product_id' AND product_size = '$product_size' AND quantity = '$quantity' ";
         $hide_result = mysqli_query($conn, $hide);
     }
     if ($hide_result) {

@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     $result = mysqli_query($conn,$sql);
 
     if($result){
-        $sql1 = "INSERT INTO customer_pending VALUES ('','$name','$product_id','$buyer_name','$email', '$product_price', '$quantity', '$size', '$address', '$baranggay', '$city', '$province', '$zip_code','$image','$contact_number',CURRENT_TIMESTAMP,'$cancel_button_hide')";
+        $sql1 = "INSERT INTO customer_pending VALUES ('','$name','$product_id','$buyer_name','$email', '$product_price', '$quantity', '$size', '$address', '$baranggay', '$city', '$province', '$zip_code','$image','$contact_number',CURRENT_TIMESTAMP,'$cancel_button_hide', '')";
         $result1 = mysqli_query($conn,$sql1);
     }
     

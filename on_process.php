@@ -1,6 +1,7 @@
 <?php
 require_once("connection.php");
-$sql = "SELECT * FROM for_delivery ";
+$rider_email = $_GET['rider_email'];
+$sql = "SELECT contact_number FROM for_delivery WHERE rider_email = '$rider_email'";
 $result = mysqli_query($conn,$sql);
 ?>
 
@@ -15,7 +16,7 @@ $result = mysqli_query($conn,$sql);
 <body>
     <header>
         <h1>On Process Delivery</h1>
-
+        
     </header>
     <div class="scroll">
         <table>
@@ -28,6 +29,7 @@ $result = mysqli_query($conn,$sql);
                 while($row = mysqli_fetch_assoc($result)){
             ?>
             <tr>
+                
                 <td><?php echo $row['buyer_name'] ?></td>
                 <td><?php echo $row['address'] ?></td>
                 <td class="link"><a href="rider_orders.php?id=<?php echo $row['id'] ?>&buyer_name=<?php echo urlencode($row['buyer_name']) ?>&email=<?php echo $row['email'] ?>&contact_number=<?php echo $row['contact_number'] ?>&address=<?php echo $row['address'] ?>&product_name=<?php echo $row['product_name'] ?>&product_id=<?php echo $row['product_id'] ?>&product_price=<?php echo $row['product_price'] ?>&quantity=<?php echo $row['quantity'] ?>&size=<?php echo $row['size'] ?>&image=<?php echo $row['image'] ?>">View Orders</a></td>
@@ -40,5 +42,6 @@ $result = mysqli_query($conn,$sql);
     
     
 </body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
 <script src="logout.js"></script>
 </html>
