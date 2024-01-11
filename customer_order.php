@@ -11,6 +11,8 @@ $province = $_GET['province'];
 $zip_code = $_GET['zip_code'];
 $image = $_GET['image'];
 $contact_number = $_GET['contact_number'];
+date_default_timezone_set('Asia/Manila'); 
+$timestamp = time();
 ?>
 
 
@@ -40,6 +42,7 @@ $contact_number = $_GET['contact_number'];
                 <p>Product Price: <span><i class="fa-solid fa-peso-sign"></i><?php echo $product_price ?></span></p><br>
                 <p>Quantity: <span><?php echo $quantity ?></span></p><br>
                 <p>Size: <span><?php echo $product_size ?></span></p><br> 
+                <p>Time of Purchased: <?php echo date(' F d Y,  H:i a', $timestamp); ?></p> <br>
                 <input type="hidden" id="id" value="<?php echo $id ?>">  
                 <label for="">Select Rider:</label>
                 <select name="" id="" class="rider">
