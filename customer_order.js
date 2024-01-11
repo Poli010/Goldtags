@@ -4,6 +4,8 @@ function cancel(){
     var quantity = document.getElementById("quantity").value;
     var product_id = document.getElementById("product_id").value;
     var cancel_order = document.getElementById("cancel_order").value;
+    var email = document.getElementById("email").value;
+    var product_size = document.getElementById("product_size").value;
 
     if(confirm("are you sure to cancel the request?")){
     $.ajax({
@@ -14,7 +16,9 @@ function cancel(){
             id: id,
             quantity: quantity,
             product_id: product_id,
-            cancel_order: cancel_order
+            cancel_order: cancel_order,
+            email: email,
+            product_size: product_size
         },
         success: function() {
             window.location.href= 'orders.php'  

@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = mysqli_query($conn, $sql);
 
     if ($result){
-        $hide = "UPDATE customer_pending SET cancel_button_hide = '$cancel_button_hide' WHERE email = '$email' AND product_id = '$product_id' ";
+        $hide = "UPDATE customer_pending SET cancel_button_hide = '$cancel_button_hide' WHERE email = '$email' AND product_id = '$product_id' AND product_size = '$product_size' ";
         $hide_result = mysqli_query($conn, $hide);
     }
     if ($hide_result) {
