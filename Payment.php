@@ -8,6 +8,8 @@ $image = $_GET['image'];
 $contact_number = $_GET['contact_number'];
 $product_id = $_GET['product_id'];
 $buyer_name = $_GET['buyer_name'];
+$email = $_GET['email'];
+$cancel_button_hide = $_GET['cancel_button_hide'];
 ?>
 
 
@@ -34,6 +36,8 @@ $buyer_name = $_GET['buyer_name'];
                 <input type="hidden" id="image" value="<?php echo $image ?>">
                 <input type="hidden" id="product_id" value="<?php echo $product_id ?>">
                 <input type="hidden" id="buyer_name" value="<?php echo $buyer_name ?>">
+                <input type="hidden" id="email" value="<?php echo $email ?>">
+                <input type="hidden" id="cancel_button_hide" value="<?php echo $cancel_button_hide ?>">
 
                 <p>Product Name: <span><?php echo $name ?></span></p><br>
                 <p>Product Price: <span><i class="fa-solid fa-peso-sign"></i><?php echo $product_price ?></span></p><br>

@@ -13,6 +13,8 @@ $image = $_GET['image'];
 $contact_number = $_GET['contact_number'];
 $buyer_name = $_GET['buyer_name'];
 $time_stamp = $_GET['time_stamp'];
+$email = $_GET['email'];
+$product_id = $_GET['product_id'];
 ?>
 
 
@@ -96,9 +98,13 @@ $time_stamp = $_GET['time_stamp'];
                 <input type="hidden" id="product_size" name="product_size" value="<?php echo $product_size ?>" readonly>
                 <input type="hidden" id="rider_name" name="rider" value="" readonly>
                 <input type="hidden" id="image" name="image" value = "<?php echo $image ?>">
+                <input type="hidden" id="cancel_button_hide" name="cancel_button_hide" value="0">
+                <input type="hidden" id="cancel_order" name="cancel_order" value="2">
+                <input type="hidden" id="product_id" value="<?php echo $product_id ?>">
 
             </div>
         </div>
+        <input type="hidden" id="email" value=<?php echo $email ?>>
         <div class="buttons">
             <button class="deliver" onclick="deliver()">Deliver</button>
             <button class="cancel" id="cancel" onclick="cancel()">Cancel Order</button>

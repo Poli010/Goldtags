@@ -10,8 +10,12 @@ if(isset($_POST['submit'])){
     $description = $_POST['product_description'];
     $quantity = $_POST['quantity'];
     $username = $_POST["username"];
+    $contact_number = $_POST["contact_number"];
+    $buyer_name = $_POST["buyer_name"];
+    $email = $_POST["email"];
+    $cancel_button_hide = $_POST["cancel_button_hide"];
 
-  $sql = "INSERT INTO add_to_cart VALUES('','$username','$name','$image','$product_id', ' $price', '  $description', '$product_size', '$quantity')";
+  $sql = "INSERT INTO add_to_cart VALUES('','$username','$buyer_name','$email','$name','$image','$product_id', ' $price', '  $description', '$product_size', '$quantity','$contact_number','$cancel_button_hide')";
     mysqli_query($conn, $sql);
     echo
       "

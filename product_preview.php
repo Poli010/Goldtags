@@ -3,6 +3,7 @@
     $product_id = $_GET['product_id'];
     $username = $_GET['username'];
     $contact_number = $_GET['contact'];
+    $email = $_GET['email'];
     $sql = "SELECT * FROM tb_upload WHERE product_id = '$product_id'";
     $result = mysqli_query($conn,$sql);
 ?>
@@ -31,9 +32,9 @@
     <?php
         $sql2 ="SELECT firstName, lastName FROM accounts WHERE username = '$username'";
         $result2 = mysqli_query($conn,$sql2);
-        foreach($result2 as $row){
+        foreach($result2 as $row2){
         ?>
-        <input type="hidden" id="buyer_name" value="<?php echo $row['firstName'] ?> <?php echo $row['lastName'] ?>">
+        <input type="hidden" id="buyer_name" value="<?php echo $row2['firstName'] ?> <?php echo $row2['lastName'] ?>">
         <?php
             }
         ?>
@@ -63,7 +64,10 @@
                     <input type="hidden" id="current_quantity" value="<?php echo $row['product_amount'] ?>">
                     <label for="quantity">Quantity:</label>
                     <input type="number" name="quantity" id="quantity" class="quantity" min="0" oninput="validateQuantity(this)" onkeydown="return isArrowKey(event)" required><br>
-                    
+                    <input type="hidden" id="contact_number" name="contact_number" value="<?php echo $contact_number ?>">
+                    <input type="hidden" id="buyer_name" name="buyer_name"value="<?php echo $row2['firstName'] ?> <?php echo $row2['lastName'] ?>">
+                    <input type="hidden" id="cancel_button_hide" name="cancel_button_hide" value="1">
+                    <input type="hidden" id="email" name="email" value="<?php echo $email ?>">
                     <div class="product_size">
                         <label for="xsmall" class="size-btn">XS</label>
                         <input type="radio" id="xsmall" class="radio" name="size" value="XS" required>
@@ -80,7 +84,7 @@
                         <label for="xlarge" class="size-btn">XL</label>
                         <input type="radio" id="xlarge" class="radio" name="size" value="XL">
                     </div>
-                    <button class="buy_now" onclick="buynow('<?php echo $row['product_id']; ?>','<?php echo urlencode($row['name']); ?>','<?php echo $row['product_price']; ?>','<?php echo urlencode($row['image']) ?>','<?php echo $contact_number ?>')">Buy Now</button>
+                    <button class="buy_now" onclick="buynow('<?php echo $row['product_id']; ?>','<?php echo urlencode($row['name']); ?>','<?php echo $row['product_price']; ?>','<?php echo urlencode($row['image']) ?>','<?php echo $contact_number ?>','<?php echo $email ?>')">Buy Now</button>
                     <input type="submit" name="submit" id="submit" value="Add to Cart" class="add_to_cart">
                 </form>
             </div>

@@ -1,6 +1,7 @@
 <?php
 require_once("connection.php");
-$sql = "SELECT * FROM for_delivery";
+$email = $_GET['email'];
+$sql = "SELECT * FROM customer_pending WHERE email = '$email'";
 $result = mysqli_query($conn,$sql);
 ?>
 
@@ -9,7 +10,7 @@ $result = mysqli_query($conn,$sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pending Orders</title>
+    <title>For Delivery</title>
     <link rel="stylesheet" href="pending_orders.css">
 </head>
 <body>
@@ -28,10 +29,10 @@ $result = mysqli_query($conn,$sql);
                 while($row = mysqli_fetch_assoc($result)){
             ?>
             <tr>
-                <td><?php echo $row['product_name'] ?></td>
-                <td><?php echo $row['size'] ?></td>
+                <td><?php echo $row['name'] ?></td>
+                <td><?php echo $row['product_size'] ?></td>
                 <td><?php echo $row['quantity'] ?></td>
-                <td class="link"><a href="orders_pending.php?id=<?php echo $row['id'] ?>&buyer_name=<?php echo urlencode($row['buyer_name']) ?>&contact_number=<?php echo $row['contact_number'] ?>&address=<?php echo $row['address'] ?>&product_name=<?php echo $row['product_name'] ?>&product_price=<?php echo $row['product_price']?>&quantity=<?php echo $row['quantity'] ?>&size=<?php echo $row['size'] ?>&image=<?php echo $row['image'] ?>">View Orders</a></td>
+                <td class="link"><a href="orders_pending.php?id=<?php echo $row['id'] ?>&product_name=<?php echo $row['name'] ?>&product_price=<?php echo $row['product_price']?>&quantity=<?php echo $row['quantity']?>&product_size=<?php echo $row['product_size']?>&image=<?php echo $row['image'] ?>&email=<?php echo $row['email'] ?>&product_id=<?php echo $row['product_id'] ?>&cancel_button_hide=<?php echo $row['cancel_button_hide'] ?>">View Orders</a></td>
             </tr>
             <?php
                 }

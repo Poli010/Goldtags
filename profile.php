@@ -80,7 +80,7 @@ mysqli_close($connection);
             <div class="button">
             <a href="profile_edit.php" id="change">Edit</button></a>
                 <p><a href="cart.php?username=<?php echo $userName ?>" class="cart">Cart </a></p><br>
-                <p><a href="pending_orders.php" class="deliver"> For Delivery </a></p><br>
+                <p><a href="pending_orders.php?email=<?php echo $row['email']?>" class="deliver"> For Delivery </a></p><br>
                 <i class="fa-solid fa-bag-shopping"></i>
                 <p><a href="purchase_record.php" class="purchase"> Purchased</a></p><br>
                 <p><a href="#" id="logoutBtn">LOGOUT</a></p>

@@ -1,6 +1,9 @@
 //FUNCTION FOR CANCEL BUTTON
 function cancel(){
     var id = document.getElementById('id').value;
+    var quantity = document.getElementById("quantity").value;
+    var product_id = document.getElementById("product_id").value;
+    var cancel_order = document.getElementById("cancel_order").value;
 
     if(confirm("are you sure to cancel the request?")){
     $.ajax({
@@ -8,7 +11,10 @@ function cancel(){
         type: 'POST',
         dataType: 'json',
         data: {
-            id: id
+            id: id,
+            quantity: quantity,
+            product_id: product_id,
+            cancel_order: cancel_order
         },
         success: function() {
             window.location.href= 'orders.php'  
@@ -42,7 +48,11 @@ function deliver(){
     var product_size = document.getElementById("product_size").value;
     var rider_name = document.getElementById("rider_name").value;
     var image = document.getElementById("image").value;
+    var cancel_button_hide = document.getElementById("cancel_button_hide").value;
+    var email = document.getElementById("email").value;
+    var product_id = document.getElementById("product_id").value;
     var button = document.getElementById("submit");
+    
     
     if(confirm("Are you sure to deliver this item?")){
         $.ajax({
@@ -60,6 +70,9 @@ function deliver(){
                 product_size: product_size,
                 rider_name: rider_name,
                 image: image,
+                cancel_button_hide: cancel_button_hide,
+                email: email,
+                product_id: product_id,
             },
             success: function(){
                 button.click();
@@ -67,3 +80,4 @@ function deliver(){
         })
     }
 }
+

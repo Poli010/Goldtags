@@ -18,7 +18,7 @@ $result = mysqli_query($conn, $sql);
     <header>
         <img src="logo1.png" alt="">
         <a href="goldtags_apparel.php">Back</a>
-        <hr>
+        <hr>    
     </header>
     <h1>Your Cart <i class="fa-solid fa-cart-shopping"></i></h1>
     <?php
@@ -33,7 +33,7 @@ $result = mysqli_query($conn, $sql);
                 <p>Product Description: <?php echo $row['product_description'] ?></p>
                 <p>Quantity: <?php echo $row['quantity'] ?></p>
                 <p>Size: <?php echo $row['product_size'] ?></p>
-                <a class="buy_now"href="payment.php?name=<?php echo $row['name'] ?>&product_price=<?php echo $row['product_price'] ?>&image=<?php echo $row['image'] ?>&quantity=<?php echo $row['quantity'] ?> &size=<?php echo $row['product_size'] ?>&product_id=<?php echo $row['product_id'] ?>">Buy Now</a>
+            <a class="buy_now"href="payment.php?product_id=<?php echo $row['product_id'] ?>&name=<?php echo $row['name'] ?>&product_price=<?php echo $row['product_price'] ?>&quantity=<?php echo $row['quantity'] ?> &size=<?php echo $row['product_size'] ?>&contact_number=<?php echo $row['contact_number'] ?>&image=<?php echo $row['image'] ?>&buyer_name=<?php echo $row['buyer_name'] ?>&email=<?php echo $row['email'] ?>&cancel_button_hide=<?php echo $row['cancel_button_hide'] ?>">Buy Now</a>
                 <input type="hidden" name="product_size" id="product_size" value="<?php echo $row['product_size'] ?>">
                 <button class="remove" data-productid="<?php echo $row['product_id']; ?>" onclick="remove(this)">Remove</button>
             </div>

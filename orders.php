@@ -37,7 +37,7 @@ $result = mysqli_query($conn,$sql);
             <tr>
                 <td><?php echo $row['buyer_name'] ?></td>
                 <td><?php echo $row['city'] ?>, <?php echo $row['province'] ?></td>
-                <td class="link"><a href="customer_order.php?id=<?php echo $row['id'] ?>&name=<?php echo urlencode($row['name']) ?>&product_price=<?php echo $row['product_price'] ?>&quantity=<?php echo $row['quantity'] ?>&product_size=<?php echo $row['product_size'] ?>&address=<?php echo $row['address'] ?>&baranggay=<?php echo $row['baranggay'] ?>&city=<?php echo $row['city'] ?>&province=<?php echo $row['province'] ?>&zip_code=<?php echo $row['zip_code'] ?>&image=<?php echo $row['image'] ?>&contact_number=<?php echo $row['contact_number'] ?>&buyer_name=<?php echo $row['buyer_name'] ?>&time_stamp=<?php echo $row['time_stamp'] ?>">View Orders</a></td>
+                <td class="link"><a href="customer_order.php?id=<?php echo $row['id'] ?>&name=<?php echo urlencode($row['name']) ?>&product_price=<?php echo $row['product_price'] ?>&quantity=<?php echo $row['quantity'] ?>&product_size=<?php echo $row['product_size'] ?>&address=<?php echo $row['address'] ?>&baranggay=<?php echo $row['baranggay'] ?>&city=<?php echo $row['city'] ?>&province=<?php echo $row['province'] ?>&zip_code=<?php echo $row['zip_code'] ?>&image=<?php echo $row['image'] ?>&contact_number=<?php echo $row['contact_number'] ?>&buyer_name=<?php echo $row['buyer_name'] ?>&time_stamp=<?php echo $row['time_stamp'] ?>&email=<?php echo $row['email'] ?>&product_id=<?php echo $row['product_id'] ?>">View Orders</a></td>
             </tr>
             <?php
                 }

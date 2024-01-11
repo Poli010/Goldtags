@@ -53,10 +53,11 @@ $(document).ready(function () {
     });
 });
 // FUNCTION FOR BUY NOW
-function buynow(product_id, name, product_price, image, contact_number) {
+function buynow(product_id, name, product_price, image, contact_number, email) {
     var form = document.getElementById("form");
     var quantity = document.getElementById("quantity").value;
     var buyer_name = document.getElementById("buyer_name").value;
+    var cancel_button_hide = document.getElementById("cancel_button_hide").value;
 
     
     var selectedSizeElement = document.querySelector(".size-btn.selected");
@@ -71,7 +72,9 @@ function buynow(product_id, name, product_price, image, contact_number) {
             "&size=" + size +
             "&buyer_name=" + buyer_name +
             "&image=" + image +
-            "&contact_number=" + contact_number;
+            "&contact_number=" + contact_number +
+            "&email=" + email +
+            "&cancel_button_hide=" + cancel_button_hide;
     } else {
         alert("Please select a size and fill up the form");
     }

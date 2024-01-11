@@ -5,7 +5,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $id = $_POST['id'];
     $quantity = $_POST['quantity'];
     $product_id = $_POST['product_id'];
-    $cancel_order = $_POST['cancel_order'];
+    $product_size = $_POST['product_size'];
+    $email = $_POST['email'];
 
     $fetch = "SELECT product_amount FROM tb_upload WHERE product_id='$product_id'";
     $fetch_result = mysqli_query($conn, $fetch);
@@ -19,19 +20,18 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $update = mysqli_query($conn, $update_product_amount);
         
         if($update){
-            $sql1 = "UPDATE customer_pending SET cancel_button_hide = '$cancel_order'";
+            $sql1 = "DELETE FROM customer_pending WHERE id = '$id'";
             $result1 = mysqli_query($conn, $sql1);
 
             if($result1){
-                $sql= "DELETE FROM pending WHERE id = '$id'";
-                $result = mysqli_query($conn,$sql);
-
-                if($result){
+                $delete = "DELETE FROM pending WHERE email = '$email' AND product_id = '$product_id' AND product_size = '$product_size'";
+                $deleter = mysqli_query($conn,$delete);
+                if ($deleter){
                     echo json_encode(['success' => true]);
                 }
+                
             }
-        }      
+        }
     }
 }
-
 ?>

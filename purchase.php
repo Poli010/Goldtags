@@ -14,17 +14,25 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     $product_id =$_POST['product_id'];
     $contact_number =$_POST['contact_number'];
     $buyer_name =$_POST['buyer_name'];
+    $email =$_POST['email'];
+    $cancel_button_hide =$_POST['cancel_button_hide'];
     
 
-    $sql = "INSERT INTO pending VALUES ('','$name','$buyer_name', '$product_price', '$quantity', '$size', '$address', '$baranggay', '$city', '$province', '$zip_code','$image','$contact_number',CURRENT_TIMESTAMP)";
+    $sql = "INSERT INTO pending VALUES ('','$name','$product_id','$buyer_name','$email', '$product_price', '$quantity', '$size', '$address', '$baranggay', '$city', '$province', '$zip_code','$image','$contact_number',CURRENT_TIMESTAMP)";
     $result = mysqli_query($conn,$sql);
 
     if($result){
+        $sql1 = "INSERT INTO customer_pending VALUES ('','$name','$product_id','$buyer_name','$email', '$product_price', '$quantity', '$size', '$address', '$baranggay', '$city', '$province', '$zip_code','$image','$contact_number',CURRENT_TIMESTAMP,'$cancel_button_hide')";
+        $result1 = mysqli_query($conn,$sql1);
+    }
+    
+
+    if($result1){
         $remaining = "SELECT product_amount FROM tb_upload WHERE product_id = '$product_id'";
         $theremaining = mysqli_query($conn, $remaining);
     }
 
-    if($theremaining){
+    if($theremaining){  
         $row = mysqli_fetch_assoc($theremaining);
         $current_quantity = $row['product_amount'];
         $new_quantity = $current_quantity - $quantity;
