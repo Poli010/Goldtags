@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $product_id = $_POST['product_id'];
 
-    $sql = "INSERT INTO for_delivery VALUES ('', '$buyer_name', '$contact_number', '$address', '$product_name', '$product_price', '$quantity', '$product_size', '$rider_name','$image')";
+    $sql = "INSERT INTO for_delivery VALUES ('', '$buyer_name', '$email','$contact_number', '$address', '$product_name','$product_id', '$product_price', '$quantity', '$product_size', '$rider_name','$image')";
     $result = mysqli_query($conn, $sql);
 
     if ($result){
