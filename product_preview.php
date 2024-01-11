@@ -2,6 +2,7 @@
     require_once("connection.php");
     $product_id = $_GET['product_id'];
     $username = $_GET['username'];
+    $contact_number = $_GET['contact'];
     $sql = "SELECT * FROM tb_upload WHERE product_id = '$product_id'";
     $result = mysqli_query($conn,$sql);
 ?>
@@ -79,7 +80,7 @@
                         <label for="xlarge" class="size-btn">XL</label>
                         <input type="radio" id="xlarge" class="radio" name="size" value="XL">
                     </div>
-                    <button class="buy_now" onclick="buynow('<?php echo $row['product_id']; ?>','<?php echo urlencode($row['name']); ?>','<?php echo $row['product_price']; ?>','<?php echo urlencode($row['image']) ?>')">Buy Now</button>
+                    <button class="buy_now" onclick="buynow('<?php echo $row['product_id']; ?>','<?php echo urlencode($row['name']); ?>','<?php echo $row['product_price']; ?>','<?php echo urlencode($row['image']) ?>','<?php echo $contact_number ?>')">Buy Now</button>
                     <input type="submit" name="submit" id="submit" value="Add to Cart" class="add_to_cart">
                 </form>
             </div>

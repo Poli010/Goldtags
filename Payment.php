@@ -5,6 +5,7 @@ $product_price = $_GET['product_price'];
 $quantity = $_GET['quantity'];
 $size = $_GET['size'];
 $image = $_GET['image'];
+$contact_number = $_GET['contact_number'];
 $product_id = $_GET['product_id'];
 ?>
 
@@ -37,7 +38,7 @@ $product_id = $_GET['product_id'];
                 <p>Quantity: <span><?php echo $quantity ?></span></p><br>
                 <p>Size: <span><?php echo $size ?></span></p><br>
                 <label for="contact_number">Contact Number:</label>
-                <input type="text" id="contact_number" onkeypress="return isNumberKey(event)" maxlength="11" required>
+                <input type="text" id="contact_number" value="0<?php echo $contact_number ?>" onkeypress="return isNumberKey(event)" maxlength="11" required>
 
             </div>
             <div class="image">

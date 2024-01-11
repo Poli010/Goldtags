@@ -6,6 +6,9 @@ $userName = '';
 if (isset($_SESSION['userName'])) {
     $userName = $_SESSION['userName'];
 }
+$sql1 = "SELECT contact_number FROM accounts WHERE username = '$userName'";
+$result1 = mysqli_query($conn, $sql1);
+$row1 = mysqli_fetch_assoc($result1);
 
 $sql = "SELECT * FROM tb_upload";
 $result = mysqli_query($conn, $sql);
@@ -88,7 +91,7 @@ $result = mysqli_query($conn, $sql);
                         <p class="type">Type: <?php echo $row['product_type'] ?> </p>
                         <p class="card-text">Stocks: <?php echo $row['product_amount'] ?></p>
                         <?php if ($row['product_amount'] > 0) : ?>
-                            <a href="product_preview.php?product_id=<?php echo $row['product_id']; ?>&username=<?php echo urlencode($userName) ?>" class="btn btn-primary">View More</a>
+                            <a href="product_preview.php?product_id=<?php echo $row['product_id']; ?>&username=<?php echo urlencode($userName) ?>&contact=<?php echo $row1['contact_number'] ?>" class="btn btn-primary">View More</a>
                         <?php else : ?>
                             <button class="btn btn-danger" disabled>Sold Out</button>
                         <?php endif; ?>

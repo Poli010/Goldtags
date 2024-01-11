@@ -53,7 +53,7 @@ $(document).ready(function () {
     });
 });
 // FUNCTION FOR BUY NOW
-function buynow(product_id, name, product_price, image) {
+function buynow(product_id, name, product_price, image, contact_number) {
     var form = document.getElementById("form");
     var quantity = document.getElementById("quantity").value;
     var firstName = document.getElementById("firstName").value;
@@ -70,7 +70,8 @@ function buynow(product_id, name, product_price, image) {
             "&quantity=" + quantity +
             "&size=" + size +
             "&firstName=" + firstName +
-            "&image=" + image;
+            "&image=" + image +
+            "&contact_number=" + contact_number;
     } else {
         alert("Please select a size and fill up the form");
     }
