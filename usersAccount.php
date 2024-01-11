@@ -43,6 +43,7 @@ $result = $conn->query($sql);
                 <th>User Name</th>
                 <th>Email</th>
                 <th>Password</th>
+                <th>Account Type</th>
             </tr>
         </thead>
         <tbody id="userList">
@@ -55,6 +56,7 @@ $result = $conn->query($sql);
                             <td>" . $row["userName"] . "</td>
                             <td>" . $row["email"] . "</td>
                             <td>" . $row["accountPass"] . "</td>
+                            <td>" . $row["account_type"] . "</td>
                           </tr>";
                 }
             } else {
@@ -63,11 +65,9 @@ $result = $conn->query($sql);
             ?>
         </tbody>
     </table>
+   
+<script src="logout.js"></script>
+</html>
 </body>
 </html>
 
-<?php
-$conn->close();
-?>
-
-<script src="logout.js"></script>
