@@ -71,13 +71,13 @@ mysqli_close($connection);
             <i class="fa-light fa-cart-shopping"></i>
             <div class="button">
             <a href="profile_edit.php" id="account">Account Settings</a>
-                <p><a href="for_delivery.php" class="order">Orders</a></p><br>
                 <p><a href="on_process.php" class="refund">On Process Delivery</a></p><br>
                 <i class="fa-solid fa-bag-shopping"></i>
                 <p><a href="delivered.php" class="success">Successful Delivery</a></p><br>
-              
+                <p><a href="logout.php" class="logoutBtn">LOGOUT</a></p><br>
             </div>
         </div>
     </div>
+
 </body>
 </html>

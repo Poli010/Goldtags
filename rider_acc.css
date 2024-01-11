@@ -88,7 +88,7 @@ hr{
 .success{
     position: absolute;
     margin-left: 150px;
-    margin-top: -5px;
+    margin-top: -30px;
     background-color: blue;
     border-radius: 5px;
     text-decoration: none;
@@ -109,7 +109,7 @@ hr{
     background-color: gray;
     position: absolute;
     padding: 5px 15px;
-    margin-top: -4px;
+    margin-top: -30px;
     margin-left: -305px;
     border: 1px solid black;
     border-radius: 5px;
@@ -140,15 +140,34 @@ hr{
     text-decoration: none;
     font-size: 20px;
     color: white;
-    background-color: red;
+    background-color: green;
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px;
     margin-left: -85px;
-    margin-top: -5px;
+    margin-top: -30px;
     transition: border-bottom 0.3s ease;
 }
 
 .refund:hover{
-    background-color: darkred;
+    background-color: darkgreen;
 }
+
+
+
+.logoutBtn{
+        position: absolute;
+        color: white;
+        font-weight: bolder;
+        text-decoration: none;
+        background-color: red;
+        padding: 5px 25px 5px 25px;
+        font-size: 20px;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-left: -50px;
+    }
+    
+    .logoutBtn:hover{
+       background-color: darkred;
+    }
