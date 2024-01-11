@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jan 11, 2024 at 10:00 AM
+-- Host: 127.0.0.1
+-- Generation Time: Jan 11, 2024 at 12:53 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -99,22 +99,25 @@ CREATE TABLE `customer_pending` (
   `image` varchar(255) NOT NULL,
   `contact_number` bigint(20) NOT NULL,
   `time_stamp` timestamp NOT NULL DEFAULT current_timestamp(),
-  `cancel_button_hide` int(255) NOT NULL
+  `cancel_button_hide` int(255) NOT NULL,
+  `rider` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customer_pending`
 --
 
-INSERT INTO `customer_pending` (`id`, `name`, `product_id`, `buyer_name`, `email`, `product_price`, `quantity`, `product_size`, `address`, `baranggay`, `city`, `province`, `zip_code`, `image`, `contact_number`, `time_stamp`, `cancel_button_hide`) VALUES
-(36, 'Nike', 'product_id-659f44c36f193', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 2, 'S', 'asd', 'asd', 'asd', 'asd', 0, '659f44c36f19f.jpg', 9485905921, '2024-01-11 08:15:20', 0),
-(37, 'Nike', 'product_id-659f44c36f193', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 1, 'S', 'asd', 'asd', 'asd', 'asd', 0, '659f44c36f19f.jpg', 9485905921, '2024-01-11 08:15:51', 0),
-(38, 'Nike', 'product_id-659f44c36f193', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 1, 'S', 'asd', 'asd', 'asd', 'as', 0, '659f44c36f19f.jpg', 9485905921, '2024-01-11 08:23:22', 0),
-(39, 'Nike', 'product_id-659f44c36f193', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 2, 'M', 'asd', 'asd', 'asd', 'asd', 0, '659f44c36f19f.jpg', 9485905921, '2024-01-11 08:23:31', 0),
-(40, 'Nike', 'product_id-659f44c36f193', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 1, 'S', 'asd', 'asd', 'asd', 'asd', 0, '659f44c36f19f.jpg', 9485905921, '2024-01-11 08:31:08', 0),
-(41, 'Nike', 'product_id-659f44c36f193', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 1, 'M', 'asd', 'asd', 'asd', 'asd', 0, '659f44c36f19f.jpg', 9485905921, '2024-01-11 08:31:20', 0),
-(43, 'Nike', 'product_id-659f44c36f193', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 2, 'S', 'asd', 'asd', 'asd', 'asd', 0, '659f44c36f19f.jpg', 9485905921, '2024-01-11 08:51:07', 0),
-(44, 'Nike', 'product_id-659f44c36f193', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 1, 'S', 'asd', 'asd', 'asd', 'asd', 0, '659f44c36f19f.jpg', 9485905921, '2024-01-11 08:57:21', 0);
+INSERT INTO `customer_pending` (`id`, `name`, `product_id`, `buyer_name`, `email`, `product_price`, `quantity`, `product_size`, `address`, `baranggay`, `city`, `province`, `zip_code`, `image`, `contact_number`, `time_stamp`, `cancel_button_hide`, `rider`) VALUES
+(55, 'Gold tag tshirt', 'product_id-659fb9bf505c5', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 1, 'S', 'asd', 'asd', 'asd', 'asd', 0, '659fb9bf505ce.jpg', 9485905921, '2024-01-11 10:56:52', 0, 'Ivan Policarpio'),
+(56, 'Gold tag tshirt', 'product_id-659fb9bf505c5', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 1, 'S', 'asd', 'asd', 'asd', 'asd', 0, '659fb9bf505ce.jpg', 9485905921, '2024-01-11 11:07:20', 0, 'Ivan Policarpio'),
+(57, 'Gold tag tshirt', 'product_id-659fb9bf505c5', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 1, 'XL', 'asd', 'asd', 'asd', 'asd', 0, '659fb9bf505ce.jpg', 9485905921, '2024-01-11 11:08:38', 2, ''),
+(59, 'Gold tag tshirt', 'product_id-659fb9bf505c5', 'Ivan Policarpio', 'ivanpolicarpio@gmail.com', 500, 2, 'L', 'asd', 'asd', 'asd', 'asd', 0, '659fb9bf505ce.jpg', 9485905921, '2024-01-11 11:08:59', 0, 'Rhaven Quintana'),
+(60, 'Gold tag tshirt', 'product_id-659fb9bf505c5', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 1, 'M', 'asd', 'asd', 'asd', 'asd', 0, '659fb9bf505ce.jpg', 9485905921, '2024-01-11 11:14:03', 0, 'Jonathan Aguirre'),
+(61, 'Gold tag tshirt', 'product_id-659fb9bf505c5', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 1, 'S', 'asd', 'asd', 'asd', 'asd', 0, '659fb9bf505ce.jpg', 9485905921, '2024-01-11 11:16:13', 0, 'Ivan Policarpio'),
+(62, 'Gold tag tshirt', 'product_id-659fb9bf505c5', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 1, 'S', 'asd', 'asd', 'asd', 'asd', 0, '659fb9bf505ce.jpg', 9485905921, '2024-01-11 11:19:33', 0, 'Ivan Policarpio'),
+(63, 'Gold tag tshirt', 'product_id-659fb9bf505c5', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 1, 'S', 'asd', 'asd', 'asd', 'asd', 0, '659fb9bf505ce.jpg', 9485905921, '2024-01-11 11:34:31', 0, 'Ivan Policarpio'),
+(64, 'Gold tag tshirt', 'product_id-659fb9bf505c5', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 1, 'S', 'asd', 'asd', 'asd', 'asd', 0, '659fb9bf505ce.jpg', 9485905921, '2024-01-11 11:38:39', 0, 'Ivan Policarpio'),
+(65, 'Gold tag tshirt', 'product_id-659fb9bf505c5', 'ivan policarpio', 'ivanpolicarpio@gmail.com', 500, 1, 'M', 'asd', 'asd', 'as', 'asd', 0, '659fb9bf505ce.jpg', 9485905921, '2024-01-11 11:39:42', 0, 'Jonathan Aguirre');
 
 -- --------------------------------------------------------
 
@@ -134,20 +137,17 @@ CREATE TABLE `for_delivery` (
   `quantity` int(255) NOT NULL,
   `size` varchar(255) NOT NULL,
   `rider` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL
+  `image` varchar(255) NOT NULL,
+  `rider_email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `for_delivery`
 --
 
-INSERT INTO `for_delivery` (`id`, `buyer_name`, `email`, `contact_number`, `address`, `product_name`, `product_id`, `product_price`, `quantity`, `size`, `rider`, `image`) VALUES
-(18, 'ivan policarpio', '', 9485905921, 'asd asd asd asd 0', 'Nike', '', 500, 1, 'S', 'Ivan Policarpio', '659f44c36f19f.jpg'),
-(19, 'ivan policarpio', '', 9485905921, 'asd asd asd asd 0', 'Nike', '', 500, 2, 'M', '', '659f44c36f19f.jpg'),
-(20, 'ivan policarpio', '', 9485905921, 'asd asd asd asd 0', 'Nike', '', 500, 2, 'M', 'Ivan Policarpio', '659f44c36f19f.jpg'),
-(21, 'ivan policarpio', '', 9485905921, 'asd asd asd asd 0', 'Nike', '', 500, 1, 'M', 'Ivan Policarpio', '659f44c36f19f.jpg'),
-(22, 'ivan policarpio', 'ivanpolicarpio@gmail.com', 9485905921, 'asd asd asd asd 0', 'Nike', '', 500, 2, 'S', 'Ivan Policarpio', '659f44c36f19f.jpg'),
-(23, 'ivan policarpio', 'ivanpolicarpio@gmail.com', 9485905921, 'asd asd asd asd 0', 'Nike', 'product_id-659f44c36f193', 500, 1, 'S', 'Jonathan Aguirre', '659f44c36f19f.jpg');
+INSERT INTO `for_delivery` (`id`, `buyer_name`, `email`, `contact_number`, `address`, `product_name`, `product_id`, `product_price`, `quantity`, `size`, `rider`, `image`, `rider_email`) VALUES
+(36, 'ivan policarpio', 'ivanpolicarpio@gmail.com', 9485905921, 'asd asd asd asd 0', 'Gold tag tshirt', 'product_id-659fb9bf505c5', 500, 1, 'S', 'Ivan Policarpio', '659fb9bf505ce.jpg', ' ivanpolicarpio015@gmail.com'),
+(37, 'ivan policarpio', 'ivanpolicarpio@gmail.com', 9485905921, 'asd asd as asd 0', 'Gold tag tshirt', 'product_id-659fb9bf505c5', 500, 1, 'M', 'Jonathan Aguirre', '659fb9bf505ce.jpg', ' Jakol@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -189,15 +189,6 @@ CREATE TABLE `review` (
   `rating` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `review`
---
-
-INSERT INTO `review` (`id`, `username`, `comments`, `product_id`, `image`, `rating`) VALUES
-(2, '', 'asd', 'product_id-65991ffe8a92c', '659c95ce97dfb.png', 4),
-(3, 'poli', 'asd', 'product_id-659c9b68b2d6e', '659ca397a6420.jpg', 4),
-(4, 'cute', 'asdasdasd', 'product_id-659c9b68b2d6e', '659ca3f28ae9e.jpg', 3);
-
 -- --------------------------------------------------------
 
 --
@@ -220,9 +211,7 @@ CREATE TABLE `tb_upload` (
 --
 
 INSERT INTO `tb_upload` (`id`, `product_id`, `name`, `product_price`, `product_description`, `product_type`, `product_amount`, `image`) VALUES
-(31, 'product_id-659f44c36f193', 'Nike', ' 500', '  In the labyrinth of life, serendipity unveils mellifluous moments of resilience.', ' Short', '53', '659f44c36f19f.jpg'),
-(32, 'product_id-659f44eb1c11f', 'Jordan', ' 500', '  In the labyrinth of life, serendipity unveils mellifluous moments of resilience.', ' tshirt', '0', '659f44eb1c129.jpg'),
-(33, 'product_id-659f9757e51ad', 'asd', ' 1231', '  asd', ' asd', '130', '659f9757e51c7.png');
+(34, 'product_id-659fb9bf505c5', 'Gold tag tshirt', ' 500', '  akjshd akjshd akjsd ha', ' tshirt', '73', '659fb9bf505ce.jpg');
 
 --
 -- Indexes for dumped tables
@@ -272,25 +261,25 @@ ALTER TABLE `tb_upload`
 -- AUTO_INCREMENT for table `add_to_cart`
 --
 ALTER TABLE `add_to_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `customer_pending`
 --
 ALTER TABLE `customer_pending`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `for_delivery`
 --
 ALTER TABLE `for_delivery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `pending`
 --
 ALTER TABLE `pending`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -302,7 +291,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `tb_upload`
 --
 ALTER TABLE `tb_upload`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
