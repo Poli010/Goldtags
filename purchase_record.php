@@ -1,79 +1,43 @@
+<?php
+require_once("connection.php");
+$sql = "SELECT * FROM pending";
+$result = mysqli_query($conn,$sql);
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Record</title>
-    <link rel="stylesheet" href="record.css">
+    <title>Pending Orders</title>
+    <link rel="stylesheet" href="orders.css">
 </head>
 <body>
-<div class="container-fluid">
-        <header>
-            <img src="logo1.png" alt="">
-            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                        <a class="nav-link"><i class="fas fa-bell"></i></a>
-                            <a class="nav-link" href="goldtags_apparel.php">Home</a>
-                            <a class="nav-link" href="#">Pricing</a>
-                            <a class="nav-link" href="#">About</a>
-                            <a class="nav-link active" aria-current="page" href="#">Profile</a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            <hr>
-        </header>
-
-<div class="product-container">
-        <div class="image">
-            <img src="img\preview sample.jpg" height="200" width="200">
-        </div>
-
-        <div class="product-info">
-            <p>Sample Product Name</p>
-            <p>Sample Product Description</p>
-            <p>Product Amount Chosen</p>
-            <p>Amount</p>
-            <p>Payment Method</p>
-            <button type="button" id="refund">Refund</button>
-            </div>
+    <header>
+        <h1>COMPLETE TRANSACTION</h1>
+    </header>
+    <div class="scroll">
+        <table>
+            <tr>
+                <th>PRODUCT NAME:</th>
+                <th>PRODUCT DESCRIPTION:</th>
+                <th>RATE:</th>
+            </tr>
+            <?php
+                while($row = mysqli_fetch_assoc($result)){
+            ?>
+            <tr>
+                <td><?php echo $row['name'] ?></td>
+                <td><?php echo $row['city'] ?>, <?php echo $row['province'] ?></td>
+                <td class="link"><a href="customer_order.php?id=<?php echo $row['id'] ?>&name=<?php echo urlencode($row['name']) ?>&product_price=<?php echo $row['product_price'] ?>&quantity=<?php echo $row['quantity'] ?>&product_size=<?php echo $row['product_size'] ?>&address=<?php echo $row['address'] ?>&baranggay=<?php echo $row['baranggay'] ?>&city=<?php echo $row['city'] ?>&province=<?php echo $row['province'] ?>&zip_code=<?php echo $row['zip_code'] ?>&image=<?php echo $row['image'] ?>&contact_number=<?php echo $row['contact_number'] ?>">View Orders</a></td>
+            </tr>
+            <?php
+                }
+            ?>
+        </table>
     </div>
-
-    <div class="product-container">
-        <div class="image">
-            <img src="img\preview sample.jpg" height="200" width="200">
-        </div>
-
-        <div class="product-info">
-            <p>Sample Product Name</p>
-            <p>Sample Product Description</p>
-            <p>Product Amount Chosen</p>
-            <p>Amount</p>
-            <p>Payment Method</p>
-            <button type="button" id="refund">Refund</button>
-            </div>
-    </div>
-
-
-    <div class="product-container">
-        <div class="image">
-            <img src="img\preview sample.jpg" height="200" width="200">
-        </div>
-
-        <div class="product-info">
-            <p>Sample Product Name</p>
-            <p>Sample Product Description</p>
-            <p>Product Amount Chosen</p>
-            <p>Amount</p>
-            <p>Payment Method</p>
-            <button type="button" id="refund">Refund</button>
-            </div>
-    </div>
-
-    </div>
+    
+    
 </body>
+<script src="logout.js"></script>
 </html>
