@@ -1,7 +1,7 @@
 <?php
 require_once("connection.php");
 $rider_email = $_GET['rider_email'];
-$sql = "SELECT contact_number FROM for_delivery WHERE rider_email = '$rider_email'";
+$sql = "SELECT * FROM for_delivery WHERE email = '$rider_email'";
 $result = mysqli_query($conn,$sql);
 ?>
 

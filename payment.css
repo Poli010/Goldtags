@@ -112,3 +112,12 @@ p span{
 #contact_number{
     width: 110px;
 }
+
+.total{
+    display: flex;
+}
+.total input{
+    width: 150px;
+    margin-top: -5px;
+    margin-left: 5px;
+}

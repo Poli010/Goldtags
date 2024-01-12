@@ -55,7 +55,7 @@ function deliver(){
     var cancel_button_hide = document.getElementById("cancel_button_hide").value;
     var email = document.getElementById("email").value;
     var product_id = document.getElementById("product_id").value;
-    var emailInput = document.getElementById("emailInput").value;
+    var rider_email = document.getElementById("emailInput").value;
     var button = document.getElementById("submit");
     
     
@@ -79,7 +79,7 @@ function deliver(){
                 cancel_button_hide: cancel_button_hide,
                 email: email,
                 product_id: product_id,
-                emailInput: emailInput
+                rider_email: rider_email,
             },
             success: function(){
                 button.click();

@@ -15,9 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cancel_button_hide = $_POST['cancel_button_hide'];
     $email = $_POST['email'];
     $product_id = $_POST['product_id'];
-    $emailInput = $_POST['emailInput'];
+    $rider_email = $_POST['rider_email'];
 
-    $sql = "INSERT INTO for_delivery VALUES ('', '$buyer_name', '$email','$contact_number', '$address', '$product_name','$product_id', '$product_price', '$quantity', '$product_size', '$rider_name','$image','$emailInput')";
+    $sql = "INSERT INTO for_delivery VALUES ('', '$buyer_name', '$rider_email','$contact_number', '$address', '$product_name','$product_id', '$product_price', '$quantity', '$product_size', '$rider_name','$image')";
     $result = mysqli_query($conn, $sql);
 
     if ($result){

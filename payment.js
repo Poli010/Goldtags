@@ -14,6 +14,7 @@ function purchase() {
     var buyer_name = document.getElementById("buyer_name").value;
     var email = document.getElementById("email").value;
     var cancel_button_hide = document.getElementById("cancel_button_hide").value;
+    var total_quantity = document.getElementById("total");
 
     // Check if any required field is empty
     if (
@@ -54,6 +55,7 @@ function purchase() {
             buyer_name: buyer_name,
             email: email,
             cancel_button_hide: cancel_button_hide,
+            total_quantity: total_quantity
         },
         success: function () {
             alert("THANK YOU FOR PURCHASING OUR PRODUCT!")
@@ -80,7 +82,7 @@ function updateTotal() {
     var total = quantity * productPrice;
 
  
-    document.getElementById('total').innerText = '₱' + total.toFixed(2); 
+    document.getElementById('total').value = '₱' + total.toFixed(2); 
 
     
     document.getElementById('hiddenQuantity').value = quantity;

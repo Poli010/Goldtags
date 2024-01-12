@@ -44,9 +44,14 @@ $cancel_button_hide = $_GET['cancel_button_hide'];
                 <p>Quantity: <span><?php echo $quantity ?></span></p><br>
                 <p>Size: <span><?php echo $size ?></span></p> 
                 <label for="contact_number">Contact Number:</label>
-                <input type="text" id="contact_number" value="0<?php echo $contact_number ?>" onkeypress="return isNumberKey(event)" maxlength="11" required> <br>
-                <p>TOTAL: <span id="total"></span></p> <br>
-                <input type="hidden" id="quantity" value="<?php echo $quantity ?>" onchange="updateTotal()"> 
+                <input type="text" id="contact_number" value="0<?php echo $contact_number ?>" onkeypress="return isNumberKey(event)" maxlength="11" required> <br><br>
+                <div class="total">
+                    <label for="total">Total:</label>
+                    <input type="hidden" id="total_quantity" value="<?php echo $quantity ?>" onchange="updateTotal()">
+                    <input type="text" id="total" name="total" value = "">
+                </div>
+                
+
             
             </div>
             <div class="image">

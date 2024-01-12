@@ -22,7 +22,7 @@ if(isset($_POST["send"])){
     $mail->addAddress($_POST["email1"]);
     $mail->isHTML(true);
     $mail->Subject = $_POST["greet"] . ' ' . $_POST["name1"] . "\n" .$_POST['greet1'];
-    $mail->Body = $_POST['greet2']. "<br><br>" .$_POST["buyer_name1"]. "<br><br>"  .$_POST["contact_number1"] . "<br><br>"  .$_POST["address1"]. "<br><br>" .$_POST["product_name1"]. "<br><br>"  .$_POST["product_price1"]. "<br><br>"  .$_POST["quantity1"]. "<br><br>" .$_POST["size1"];
+    $mail->Body = $_POST['greet2']. "<br><br>" .$_POST["buyer_name1"]. "<br><br>"  .$_POST["contact_number1"] . "<br><br>"  .$_POST["address1"]. "<br><br>" .$_POST["product_name1"]. "<br><br>" .$_POST["total_quantity1"]. "<br><br>" .$_POST["product_price1"]. "<br><br>"  .$_POST["quantity1"]. "<br><br>" .$_POST["size1"];
  
 
 
