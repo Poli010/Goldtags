@@ -22,7 +22,7 @@ require 'connection.php';
                 <li><a href="usersAccount.php">Account list</a></li>
                 <li><a href="adminproductadd.php">Add Product</a></li>
                 <li><a href="orders.php">Orders</a></li>
-                <li><a href="#">Refunds</a></li>
+                <li><a href="sales.php">Sales</a></li>
                 <li><a href="#" id="logoutBtn">LOGOUT</a></li>
               </nav>
     </header>

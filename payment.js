@@ -14,7 +14,8 @@ function purchase() {
     var buyer_name = document.getElementById("buyer_name").value;
     var email = document.getElementById("email").value;
     var cancel_button_hide = document.getElementById("cancel_button_hide").value;
-    var total_quantity = document.getElementById("total");
+    var total_price = document.getElementById("total_price").value;
+   
 
     // Check if any required field is empty
     if (
@@ -55,7 +56,8 @@ function purchase() {
             buyer_name: buyer_name,
             email: email,
             cancel_button_hide: cancel_button_hide,
-            total_quantity: total_quantity
+            total_price: total_price
+         
         },
         success: function () {
             alert("THANK YOU FOR PURCHASING OUR PRODUCT!")
@@ -73,19 +75,3 @@ function isNumberKey(evt) {
     return true;
 }
 
-
-function updateTotal() {
-    var quantity = parseInt(document.getElementById('quantity').value);
-    var productPrice = parseFloat(document.getElementById('product_price').value);
-
-   
-    var total = quantity * productPrice;
-
- 
-    document.getElementById('total').value = '₱' + total.toFixed(2); 
-
-    
-    document.getElementById('hiddenQuantity').value = quantity;
-}
-
-updateTotal();

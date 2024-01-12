@@ -29,11 +29,11 @@ $result = mysqli_query($conn, $sql);
             <div class="cart_info">
                 <input type="hidden" name="product_id" id="product_id" value="<?php echo $row['product_id'] ?>">
                 <p>Product Name: <?php echo $row['name'] ?></p>
-                <p>Product Price: <i class="fa-solid fa-peso-sign"></i><?php echo $row['product_price'] ?></p>
+                <p>Product Price: <i class="fa-solid fa-peso-sign"></i><?php echo $row['product_amount'] ?></p>
                 <p>Product Description: <?php echo $row['product_description'] ?></p>
                 <p>Quantity: <?php echo $row['quantity'] ?></p>
                 <p>Size: <?php echo $row['product_size'] ?></p>
-            <a class="buy_now"href="payment.php?product_id=<?php echo $row['product_id'] ?>&name=<?php echo $row['name'] ?>&product_price=<?php echo $row['product_price'] ?>&quantity=<?php echo $row['quantity'] ?> &size=<?php echo $row['product_size'] ?>&contact_number=<?php echo $row['contact_number'] ?>&image=<?php echo $row['image'] ?>&buyer_name=<?php echo $row['buyer_name'] ?>&email=<?php echo $row['email'] ?>&cancel_button_hide=<?php echo $row['cancel_button_hide'] ?>">Buy Now</a>
+            <a class="buy_now"href="payment.php?product_id=<?php echo $row['product_id'] ?>&name=<?php echo $row['name'] ?>&product_price=<?php echo $row['product_amount'] ?>&quantity=<?php echo $row['quantity'] ?> &size=<?php echo $row['product_size'] ?>&contact_number=<?php echo $row['contact_number'] ?>&image=<?php echo $row['image'] ?>&buyer_name=<?php echo $row['buyer_name'] ?>&email=<?php echo $row['email'] ?>&cancel_button_hide=<?php echo $row['cancel_button_hide'] ?>&total_price=<?php echo $row['total_price'] ?>">Buy Now</a>
                 <input type="hidden" name="product_size" id="product_size" value="<?php echo $row['product_size'] ?>">
                 <button class="remove" data-productid="<?php echo $row['product_id']; ?>" onclick="remove(this)">Remove</button>
             </div>

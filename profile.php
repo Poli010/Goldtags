@@ -82,7 +82,7 @@ mysqli_close($connection);
                 <p><a href="cart.php?username=<?php echo $userName ?>" class="cart">Cart </a></p><br>
                 <p><a href="pending_orders.php?email=<?php echo $row['email']?>" class="deliver"> For Delivery </a></p><br>
                 <i class="fa-solid fa-bag-shopping"></i>
-                <p><a href="purchase_record.php" class="purchase"> Purchased</a></p><br>
+                <p><a href="purchase_record.php?email=<?php echo $email ?>&userName=<?php echo urlencode($userName) ?>" class="purchase"> Purchased</a></p><br>
                 <p><a href="#" id="logoutBtn">LOGOUT</a></p>
             </div>
         </div>

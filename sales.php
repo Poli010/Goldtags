@@ -1,6 +1,6 @@
 <?php
 require_once("connection.php");
-$sql = "SELECT * FROM pending";
+$sql = "SELECT * FROM complete_transaction";
 $result = mysqli_query($conn,$sql);
 ?>
 
@@ -10,7 +10,7 @@ $result = mysqli_query($conn,$sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pending Orders</title>
-    <link rel="stylesheet" href="orders.css">
+    <link rel="stylesheet" href="sales.css">
 </head>
 <body>
     <header>
@@ -28,16 +28,33 @@ $result = mysqli_query($conn,$sql);
         <table>
             <tr>
                 <th>Buyer Name:</th>
-                <th>Location:</th>
-                <th>Orders:</th>
+                <th>Contact Number:</th>
+                <th>Address:</th>
+                <th>Product Name:</th>
+                <th>Quantity</th>
+                <th>Product Size</th>
+                <th>Image:</th>
+                <th>Item_UID:</th>
+                <th>Total Price:</th>
+                <th>Proof of Transaction:</th>
+                <th>Rider:</th>
+                
             </tr>
             <?php
                 while($row = mysqli_fetch_assoc($result)){
             ?>
             <tr>
                 <td><?php echo $row['buyer_name'] ?></td>
-                <td><?php echo $row['city'] ?>, <?php echo $row['province'] ?></td>
-                <td class="link"><a href="customer_order.php?id=<?php echo $row['id'] ?>&name=<?php echo urlencode($row['name']) ?>&total_price=<?php echo $row['total_price'] ?>&product_amount=<?php echo $row['product_amount'] ?>&quantity=<?php echo $row['quantity'] ?>&product_size=<?php echo $row['product_size'] ?>&address=<?php echo $row['address'] ?>&baranggay=<?php echo $row['baranggay'] ?>&city=<?php echo $row['city'] ?>&province=<?php echo $row['province'] ?>&zip_code=<?php echo $row['zip_code'] ?>&image=<?php echo $row['image'] ?>&contact_number=<?php echo $row['contact_number'] ?>&buyer_name=<?php echo $row['buyer_name'] ?>&time_stamp=<?php echo $row['time_stamp'] ?>&email=<?php echo $row['email'] ?>&product_id=<?php echo $row['product_id'] ?>&item_uid=<?php echo $row['item_uid'] ?>">View Orders</a></td>
+                <td><?php echo $row['contact_number'] ?></td>
+                <td><?php echo $row['address'] ?></td>
+                <td><?php echo $row['product_name'] ?></td>
+                <td><?php echo $row['quantity'] ?></td>
+                <td><?php echo $row['product_size'] ?></td>
+                <td><img src="img/<?php echo $row['image'] ?>" height="100" width="100"></td>
+                <td><?php echo $row['item_uid'] ?></td>
+                <td><?php echo $row['total_price'] ?></td>
+                <td><img src="proof_transaction/<?php echo $row['proof']; ?>" height="100" width="100"> </td>
+                <td><?php echo $row['rider'] ?></td>
             </tr>
             <?php
                 }

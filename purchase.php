@@ -16,14 +16,16 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     $buyer_name =$_POST['buyer_name'];
     $email =$_POST['email'];
     $cancel_button_hide =$_POST['cancel_button_hide'];
-    $total_quantity =$_POST['total_quantity'];
+    $total_price =$_POST['total_price'];
+    $item_uid = uniqid('goldtags-');
+ 
     
 
-    $sql = "INSERT INTO pending VALUES ('','$name','$product_id','$buyer_name','$email', '$product_price', '$quantity', '$size','$total_quantity', '$address', '$baranggay', '$city', '$province', '$zip_code','$image','$contact_number',CURRENT_TIMESTAMP)";
+    $sql = "INSERT INTO pending VALUES ('','$name','$product_id','$buyer_name','$email', '$product_price', '$quantity', '$size', '$total_price', '$address', '$baranggay', '$city', '$province', '$zip_code','$image','$contact_number',CURRENT_TIMESTAMP,'$item_uid')";
     $result = mysqli_query($conn,$sql);
 
     if($result){
-        $sql1 = "INSERT INTO customer_pending VALUES ('','$name','$product_id','$buyer_name','$email', '$product_price', '$quantity', '$size', '$total_quantity', '$address', '$baranggay', '$city', '$province', '$zip_code','$image','$contact_number',CURRENT_TIMESTAMP,'$cancel_button_hide', '')";
+        $sql1 = "INSERT INTO customer_pending VALUES ('','$name','$product_id','$buyer_name','$email', '$product_price', '$quantity', '$size', '$total_price', '$address', '$baranggay', '$city', '$province', '$zip_code','$image','$contact_number',CURRENT_TIMESTAMP,'$cancel_button_hide', '','$item_uid')";
         $result1 = mysqli_query($conn,$sql1);
     }
     

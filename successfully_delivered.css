@@ -18,8 +18,8 @@ body {
 }
 
 .container {
-    height: 520px;
-    width: 600px;
+    height: 350px;
+    width: 300px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
@@ -36,13 +36,13 @@ h1{
 }
 .image{
     text-align: center;
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
 .item{
-    margin-top: 0px;
+    margin-top: 5px;
     margin-left: 50px;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .item p{
@@ -51,26 +51,35 @@ h1{
 
 .buttons{
     margin-left: 200px;
-    margin-top: 20px;
+    margin-top: 10px;
     position: absolute;
 }
 
 .deliver{
-    cursor: pointer;
-    margin-top: 0px;
-    margin-left: 10px;
     padding: 5px 15px 5px 15px;
     color: white;
-    background: green;
+    background: blue;
     border: none;
     cursor: pointer;
     transition: 0.3s;
 }
 
 .deliver:hover{
-    background: darkgreen;
+    background: darkblue;
 }
 
+.cancel{
+    padding: 5px 15px 5px 15px;
+    color: white;
+    background: red;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cancel:hover{
+    background: darkred;
+}
 
 .rider{
     width: 150px;
@@ -86,25 +95,6 @@ h1{
 #submit{
     display: none;
 }
-.to_deliver{
-    position: absolute;
-    cursor: pointer;
-    margin-top: 41px;
-    margin-left: -100px;
-    padding: 5px 15px 5px 15px;
-    color: white;
-    background: blue;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-    
+.select_rider{
+    font-size: 15px;
 }
-.to_deliver:hover{
-    background: darkblue;
-}
-
-.proof{
-    font-size: 13px;
-    cursor: pointer;
-}
-

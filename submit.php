@@ -1,8 +1,8 @@
 <?php
 // Adjust the path based on your project structure
-require 'D:\Xampp\htdocs\Goldtags\PHPMailer\src\Exception.php';
-require 'D:\Xampp\htdocs\Goldtags\PHPMailer\src\PHPMailer.php';
-require 'D:\Xampp\htdocs\Goldtags\PHPMailer\src\SMTP.php';
+require 'C:\xampp\htdocs\Goldtags\PHPMailer\src\Exception.php';
+require 'C:\xampp\htdocs\Goldtags\PHPMailer\src\PHPMailer.php';
+require 'C:\xampp\htdocs\Goldtags\PHPMailer\src\SMTP.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    
     $servername = "localhost";
     $username = "root";
-    $password = "root"; 
+    $password = ""; 
     $dbname = "upload";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -59,13 +59,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com'; 
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'rurilhayne@gmail.com'; 
-            $mail->Password   = 'tdpn nenc nykf ruen'; 
+            $mail->Username   = 'jamiemariecainoy86@gmail.com'; 
+            $mail->Password   = 'dqqa khqe smrh vfkz'; 
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
 
            
-            $mail->setFrom('rurilhayne@gmail.com', 'Clips');
+            $mail->setFrom('jamiemariecainoy86@gmail.com', 'GOLD TAGS APPAREL');
             $mail->addAddress($email, $firstName . ' ' . $lastName); 
 
            

@@ -10,6 +10,7 @@ $product_id = $_GET['product_id'];
 $buyer_name = $_GET['buyer_name'];
 $email = $_GET['email'];
 $cancel_button_hide = $_GET['cancel_button_hide'];
+$total_price = $_GET['total_price'];
 ?>
 
 
@@ -42,17 +43,11 @@ $cancel_button_hide = $_GET['cancel_button_hide'];
                 <p>Product Name: <span><?php echo $name ?></span></p><br>
                 <p>Product Price: <span><i class="fa-solid fa-peso-sign"></i><?php echo $product_price ?></span></p><br>
                 <p>Quantity: <span><?php echo $quantity ?></span></p><br>
-                <p>Size: <span><?php echo $size ?></span></p> 
+                <p>Size: <span><?php echo $size ?></span></p><br>
+                <p>Total: <i class="fa-solid fa-peso-sign"></i> <?php echo $total_price ?></p><br>
+                <input type="hidden" id="total_price" value="<?php echo $total_price ?>">
                 <label for="contact_number">Contact Number:</label>
-                <input type="text" id="contact_number" value="0<?php echo $contact_number ?>" onkeypress="return isNumberKey(event)" maxlength="11" required> <br><br>
-                <div class="total">
-                    <label for="total">Total:</label>
-                    <input type="hidden" id="total_quantity" value="<?php echo $quantity ?>" onchange="updateTotal()">
-                    <input type="text" id="total" name="total" value = "">
-                </div>
-                
-
-            
+                <input type="text" id="contact_number" value="0<?php echo $contact_number ?>" onkeypress="return isNumberKey(event)" maxlength="11" required><br>
             </div>
             <div class="image">
                 <img src="img/<?php echo $image ?>" height="200" width="200" alt="">

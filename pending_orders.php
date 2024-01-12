@@ -32,7 +32,7 @@ $result = mysqli_query($conn,$sql);
                 <td><?php echo $row['name'] ?></td>
                 <td><?php echo $row['product_size'] ?></td>
                 <td><?php echo $row['quantity'] ?></td>
-                <td class="link"><a href="orders_pending.php?id=<?php echo $row['id'] ?>&product_name=<?php echo $row['name'] ?>&product_price=<?php echo $row['product_price']?>&quantity=<?php echo $row['quantity']?>&product_size=<?php echo $row['product_size']?>&image=<?php echo $row['image'] ?>&email=<?php echo $row['email'] ?>&product_id=<?php echo $row['product_id'] ?>&cancel_button_hide=<?php echo $row['cancel_button_hide'] ?>&rider=<?php echo $row['rider'] ?>">View Orders</a></td>
+                <td class="link"><a href="orders_pending.php?id=<?php echo $row['id'] ?>&product_name=<?php echo $row['name'] ?>&product_amount=<?php echo $row['product_amount']?>&quantity=<?php echo $row['quantity']?>&product_size=<?php echo $row['product_size']?>&total_price=<?php echo $row['total_price']?>&image=<?php echo $row['image'] ?>&email=<?php echo $row['email'] ?>&product_id=<?php echo $row['product_id'] ?>&cancel_button_hide=<?php echo $row['cancel_button_hide'] ?>&rider=<?php echo $row['rider'] ?>&item_uid=<?php echo $row['item_uid'] ?>">View Orders</a></td>
             </tr>
             <?php
                 }

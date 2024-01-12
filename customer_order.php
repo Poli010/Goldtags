@@ -1,8 +1,9 @@
 <?php
 $id = $_GET['id'];
 $name = $_GET['name'];
-$product_price = $_GET['product_price'];
+$total_price = $_GET['total_price'];
 $quantity = $_GET['quantity'];
+$product_amount = $_GET['product_amount'];
 $product_size = $_GET['product_size'];
 $address = $_GET['address'];
 $baranggay = $_GET['baranggay'];
@@ -15,6 +16,7 @@ $buyer_name = $_GET['buyer_name'];
 $time_stamp = $_GET['time_stamp'];
 $email = $_GET['email'];
 $product_id = $_GET['product_id'];
+$item_uid = $_GET['item_uid'];
 ?>
 
 
@@ -41,15 +43,14 @@ $product_id = $_GET['product_id'];
                 <p>Contact Number: 0<?php echo $contact_number ?></p><br>
                 <p>Address: <?php echo $address ?> <?php echo $baranggay ?> <?php echo $city ?>, <?php echo $province ?> <?php echo $zip_code ?></p><br>
                 <p>Product Name: <span><?php echo $name ?></span></p><br>
-                <p>Product Price: <span><i class="fa-solid fa-peso-sign"></i><?php echo $product_price ?></span></p><br>
+                <p>Product Amount: <?php echo $product_amount ?> </p><br>
                 <p>Quantity: <span><?php echo $quantity ?></span></p><br>
                 <p>Size: <span><?php echo $product_size ?></span></p><br> 
+                <p>Total: <i class="fa-solid fa-peso-sign"></i> <?php echo $total_price ?></p><br>
                 <p>Time of Purchased: <?php echo date("F j, Y, g:i A", strtotime($time_stamp)); ?></p> <br>
-                <p>TOTAL: <span id="total"></span></p><br>
-                <input type="hidden" id="total_quantity" value="<?php echo $quantity ?>" onchange="updateTotal()">
                 <input type="hidden" id="id" value="<?php echo $id ?>">  
-                <label for="">Select Rider:</label>
-                <select name="" id="" class="rider">
+                <label class="select_rider" for="">Select Rider:</label>
+                <select name="" id="rider_email" class="rider">
                 <option value=""></option>
                     <?php
                         require_once("connection.php");
@@ -69,7 +70,7 @@ $product_id = $_GET['product_id'];
                 <!-- SEND EMAIL TO RIDER -->
                 <form action="send_email.php" method="post">
                     <input type="hidden" id="emailInput" name="email1" value="" readonly>
-
+                        
                     <input type="hidden" name="greet" value="Hi!">
                     <input type="hidden" id="nameInput" name="name1" value="" readonly>
                     <input type="hidden" name="greet1" value="You have new parcel to deliver!">
@@ -80,10 +81,10 @@ $product_id = $_GET['product_id'];
                     <input type="hidden" id="contact_number1" name="contact_number1" value="Contact Number: <?php echo $contact_number ?>" readonly>
                     <input type="hidden" id="address1" name="address1" value="Address: <?php echo $address ?> <?php echo $baranggay ?> <?php echo $city ?> <?php echo $province ?> <?php echo $zip_code ?>" readonly>
                     <input type="hidden" id="product_name1" name="product_name1" value="Product Name: <?php echo $name ?>" readonly>
-                    <input type="hidden" id="total_quantity1" name="total_quantity1" value="Total: <?php echo $quantity ?>" onchange="updateTotal()">
-                    <input type="hidden" id="product_price1" name="product_price1" value="Product Price: <?php echo $product_price ?>" readonly>
+                    <input type="hidden" id="total_price1" name="total_price1" value="Total Price: P<?php echo $total_price ?>" readonly>
                     <input type="hidden" id="quantity1" name="quantity1" value="Quantity: <?php echo $quantity ?>" readonly>
                     <input type="hidden" id="size1" name="size1" value="Product Size: <?php echo $product_size ?>" readonly>
+                    <input type="hidden" id="item_uid1" name="item_uid1" value="Id: <?php echo $item_uid ?>" readonly>
                     <input type="submit" id="submit" name="send" value="send">
                 </form>
 
@@ -95,17 +96,19 @@ $product_id = $_GET['product_id'];
                 <input type="hidden" id="contact_number" name="contact_number" value="<?php echo $contact_number ?>" readonly>
                 <input type="hidden" id="address" name="address" value="<?php echo $address ?> <?php echo $baranggay ?> <?php echo $city ?> <?php echo $province ?> <?php echo $zip_code ?>" readonly>
                 <input type="hidden" id="product_name" name="product_name" value="<?php echo $name ?>" readonly>
-                <input type="hidden" id="product_price" name="product_price" value="<?php echo $product_price ?>" readonly>
-                <input type="hidden" id="quantity" name="quantity" value="<?php echo $quantity ?>" readonly>
+                <input type="hidden" id="total_price" name="total_price" value="<?php echo $total_price ?>" readonly>
+                <input type="hidden" id="quantity" name="quantity" value="<?php echo $quantity ?>">
                 <input type="hidden" id="product_size" name="product_size" value="<?php echo $product_size ?>" readonly>
                 <input type="hidden" id="rider_name" name="rider" value="" readonly>
                 <input type="hidden" id="image" name="image" value = "<?php echo $image ?>">
                 <input type="hidden" id="cancel_button_hide" name="cancel_button_hide" value="0">
                 <input type="hidden" id="cancel_order" name="cancel_order" value="2">
                 <input type="hidden" id="product_id" value="<?php echo $product_id ?>">
+                <input type="hidden" id="item_uid" name="item_uid" value="<?php echo $item_uid ?>" readonly>
                 
             </div>
         </div>
+
         <input type="hidden" id="email" value=<?php echo $email ?>>
         <div class="buttons">
             <button class="deliver" onclick="deliver()">Deliver</button>

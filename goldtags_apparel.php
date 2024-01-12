@@ -91,7 +91,7 @@ $result = mysqli_query($conn, $sql);
                         <p class="type">Type: <?php echo $row['product_type'] ?> </p>
                         <p class="card-text">Stocks: <?php echo $row['product_amount'] ?></p>
                         <?php if ($row['product_amount'] > 0) : ?>
-                            <a href="product_preview.php?product_id=<?php echo $row['product_id']; ?>&username=<?php echo urlencode($userName) ?>&contact=<?php echo $row1['contact_number'] ?>&email=<?php echo $row1['email'] ?>" class="btn btn-primary">View More</a>
+                            <a href="product_preview.php?product_id=<?php echo $row['product_id']; ?>&username=<?php echo urlencode($userName) ?>&contact=<?php echo $row1['contact_number'] ?>&email=<?php echo $row1['email'] ?>&product_name=<?php echo $row['name'] ?>" class="btn btn-primary">View More</a>
                         <?php else : ?>
                             <button class="btn btn-danger" disabled>Sold Out</button>
                         <?php endif; ?>

@@ -33,7 +33,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     $profileImage = 'profile_image/' . $row['profile_image']; 
 }
 
-mysqli_close($connection);
+
 ?>
 
 <!DOCTYPE html>
@@ -71,13 +71,12 @@ mysqli_close($connection);
             <i class="fa-light fa-cart-shopping"></i>
             <div class="button">
             <a href="profile_edit.php" id="account">Account Settings</a>
-                <p><a href="on_process.php?rider_email=cute@gmail.com" class="refund">On Process Delivery</a></p><br>
+                <p><a href="on_process.php?name=<?php echo $firstName ?> <?php echo $lastName?>" class="refund">On Process Delivery</a></p><br>
                 <i class="fa-solid fa-bag-shopping"></i>
-                <p><a href="delivered.php" class="success">Successful Delivery</a></p><br>
+                <p><a href="delivered.php?email=<?php echo $firstName ?>" class="success">Successful Delivery</a></p><br>
                 <p><a href="logout.php" class="logoutBtn">LOGOUT</a></p><br>
             </div>
         </div>
     </div>
-
 </body>
 </html>

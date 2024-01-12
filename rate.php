@@ -1,11 +1,10 @@
 <?php
     require_once("connection.php");
     $product_id = $_GET['product_id'];
-    $username = $_GET['username'];
-    $contact_number = $_GET['contact'];
-    $email = $_GET['email'];
     $sql = "SELECT * FROM tb_upload WHERE product_id = '$product_id'";
     $result = mysqli_query($conn,$sql);
+
+    $row = mysqli_fetch_assoc($result);
 ?>
 
 <html lang="en">
@@ -14,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overview</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="product_preview.css"> 
+    <link rel="stylesheet" href="rate.css"> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
     <link rel="stylesheet" href="jquery.rateyo.css"/>
@@ -29,19 +28,7 @@
         </nav>
         <hr>
     </header>
-    <?php
-        $sql2 ="SELECT firstName, lastName FROM accounts WHERE username = '$username'";
-        $result2 = mysqli_query($conn,$sql2);
-        foreach($result2 as $row2){
-        ?>
-        <input type="hidden" id="buyer_name" value="<?php echo $row2['firstName'] ?> <?php echo $row2['lastName'] ?>">
-        <?php
-            }
-        ?>
-    <?php
-        while($row = mysqli_fetch_assoc($result))
-        {
-    ?>
+
     
     <div class="product">
         <div class="product-image">
@@ -89,14 +76,28 @@
                     <input type="submit" name="submit" id="submit" value="Add to Cart" class="add_to_cart">
                 </form>
             </div>
-            <?php
-                }
-            ?>
+
             
             
     </div>
-    <h1 class="comment">Comments:</h1>
-    
+
+    <div class="review">
+        <form action="review.php" method="post" enctype="multipart/form-data">
+            <h1>Review</h1>
+            <div class="rate">
+                <p>Rate:</p>
+                <div id="rateYo"></div>
+                <input type="hidden" name="rating" id="rating">
+            </div>  
+            <label for="image">Upload Image:</label><br>
+            <input type="hidden" name="username" value = "<?php echo $username ?>">
+            <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" value="" required><br>
+            <input type="hidden" name="product_id" value="<?php echo $product_id ?>">
+            <label for="comments">Comments:</label><br>
+            <textarea name="comments" class="comments" id="" cols="30" rows="10" placeholder="Enter your comment here." required></textarea><br>
+            <input type="submit" name="submit" value="Comment" class="btn-comment">
+        </form>
+    </div>
 
     <div class="feedback">
         <?php

@@ -7,25 +7,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contact_number = $_POST['contact_number'];
     $address = $_POST['address'];
     $product_name = $_POST['product_name'];
-    $product_price = $_POST['product_price'];
+    $total_price = $_POST['total_price'];
     $quantity = $_POST['quantity'];
     $product_size = $_POST['product_size'];
     $rider_name = $_POST['rider_name'];
     $image = $_POST['image'];
     $cancel_button_hide = $_POST['cancel_button_hide'];
-    $email = $_POST['email'];
     $product_id = $_POST['product_id'];
-    $rider_email = $_POST['rider_email'];
+    $email = $_POST['email'];
+    $item_uid = $_POST['item_uid'];
 
-    $sql = "INSERT INTO for_delivery VALUES ('', '$buyer_name', '$rider_email','$contact_number', '$address', '$product_name','$product_id', '$product_price', '$quantity', '$product_size', '$rider_name','$image')";
+    $sql = "INSERT INTO for_delivery VALUES ('', '$buyer_name', '$email','$contact_number', '$address', '$product_name','$product_id', '$total_price', '$quantity', '$product_size', '$rider_name','$image','$item_uid')";
     $result = mysqli_query($conn, $sql);
 
     if ($result){
-        $hide = "UPDATE customer_pending SET cancel_button_hide = '$cancel_button_hide', rider = '$rider_name' WHERE email = '$email' AND product_id = '$product_id' AND product_size = '$product_size' AND quantity = '$quantity' ";
+        $hide = "UPDATE customer_pending SET cancel_button_hide = '$cancel_button_hide', rider = '$rider_name' WHERE item_uid = '$item_uid' ";
         $hide_result = mysqli_query($conn, $hide);
     }
     if ($hide_result) {
-        $delete = "DELETE FROM pending WHERE id = '$id'";
+        $delete = "DELETE FROM pending WHERE item_uid = '$item_uid'";
         $deleter = mysqli_query($conn, $delete);
 
         if($deleter){

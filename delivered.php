@@ -1,6 +1,7 @@
 <?php
 require_once("connection.php");
-$sql = "SELECT * FROM pending";
+$email = $_GET['email'];
+$sql = "SELECT * FROM complete_transaction WHERE rider= '$email'";
 $result = mysqli_query($conn,$sql);
 ?>
 
@@ -27,9 +28,9 @@ $result = mysqli_query($conn,$sql);
                 while($row = mysqli_fetch_assoc($result)){
             ?>
             <tr>
-                <td><?php echo $row['name'] ?></td>
-                <td><?php echo $row['city'] ?>, <?php echo $row['province'] ?></td>
-                <td class="link"><a href="customer_order.php?id=<?php echo $row['id'] ?>&name=<?php echo urlencode($row['name']) ?>&product_price=<?php echo $row['product_price'] ?>&quantity=<?php echo $row['quantity'] ?>&product_size=<?php echo $row['product_size'] ?>&address=<?php echo $row['address'] ?>&baranggay=<?php echo $row['baranggay'] ?>&city=<?php echo $row['city'] ?>&province=<?php echo $row['province'] ?>&zip_code=<?php echo $row['zip_code'] ?>&image=<?php echo $row['image'] ?>&contact_number=<?php echo $row['contact_number'] ?>">View Orders</a></td>
+                <td><?php echo $row['buyer_name'] ?></td>
+                <td><?php echo $row['address'] ?></td>
+                <td class="link"><a href="successfully_delivered.php?&email=<?php echo $email ?>">View Orders</a></td>
             </tr>
             <?php
                 }
