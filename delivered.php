@@ -30,7 +30,7 @@ $result = mysqli_query($conn,$sql);
             <tr>
                 <td><?php echo $row['buyer_name'] ?></td>
                 <td><?php echo $row['address'] ?></td>
-                <td class="link"><a href="successfully_delivered.php?&email=<?php echo $email ?>">View Orders</a></td>
+                <td class="link"><a href="successfully_delivered.php?&email=<?php echo $email ?>&item_uid=<?php echo $row['item_uid']?>">View Orders</a></td>
             </tr>
             <?php
                 }

@@ -1,7 +1,8 @@
 <?php
 require_once("connection.php");
 $email = $_GET['email'];
-$sql = "SELECT * from complete_transaction WHERE rider = '$email'";
+$item_uid = $_GET['item_uid'];
+$sql = "SELECT * from complete_transaction WHERE item_uid = '$item_uid'";
 $result = mysqli_query($conn, $sql);
 
 $row = mysqli_fetch_assoc($result);

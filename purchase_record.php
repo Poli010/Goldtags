@@ -1,6 +1,7 @@
 <?php
 require_once("connection.php");
 $email = $_GET['email'];
+$username = $_GET['userName'];
 $sql = "SELECT * FROM complete_transaction WHERE email = '$email'";
 $result = mysqli_query($conn,$sql);
 ?>
@@ -28,7 +29,7 @@ $result = mysqli_query($conn,$sql);
             ?>
             <tr>
                 <td><?php echo $row['product_name'] ?></td>
-                <td class="link"><a href="rate.php?&product_id=<?php echo $row['product_id'] ?>">Rate Order</a></td>
+                <td class="link"><a href="rate.php?&product_id=<?php echo $row['product_id'] ?>&username=<?php echo $username?>">Rate Order</a></td>
             </tr>
             <?php
                 }

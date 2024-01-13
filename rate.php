@@ -1,6 +1,7 @@
 <?php
     require_once("connection.php");
     $product_id = $_GET['product_id'];
+    $username = $_GET['username'];
     $sql = "SELECT * FROM tb_upload WHERE product_id = '$product_id'";
     $result = mysqli_query($conn,$sql);
 
